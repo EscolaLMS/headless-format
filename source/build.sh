@@ -1,5 +1,6 @@
 #!/bin/sh
-pandoc source/index.md \
+apk --no-cache add texlive-most texlive-lang t1utils texlive-full 
+pandoc index.md \
     -f gfm \
     -s \
     --include-in-header config.tex \
@@ -8,4 +9,4 @@ pandoc source/index.md \
     -V geometry:margin=2cm \
     --pdf-engine=xelatex \
     --toc \
-    -o dist/paper.pdf
+    -o ../dist/paper.pdf

@@ -1,0 +1,218 @@
+{
+  "$ref": "#/definitions/UlamCourse",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "UlamCourse": {
+      "properties": {
+        "base_price": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "duration": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "type": [
+            "number",
+            "string"
+          ]
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "language": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lessons": {
+          "items": {
+            "$ref": "#/definitions/UlamLesson"
+          },
+          "type": "array"
+        },
+        "subtitle": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "summary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "base_price",
+        "description",
+        "id",
+        "image_url",
+        "lessons",
+        "title"
+      ],
+      "type": "object"
+    },
+    "UlamLesson": {
+      "properties": {
+        "duration": {
+          "type": "string"
+        },
+        "id": {
+          "type": [
+            "number",
+            "string"
+          ]
+        },
+        "order": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "summary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "topics": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/UlamTopicBase"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "duration",
+        "id",
+        "title"
+      ],
+      "type": "object"
+    },
+    "UlamTopicBase": {
+      "properties": {
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "type": [
+            "number",
+            "string"
+          ]
+        },
+        "json": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "order": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "preview": {
+          "type": "boolean"
+        },
+        "resources": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/UlamTopicResource"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "summary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "topicable": {
+          "$ref": "#/definitions/UlamTopicableBase"
+        },
+        "topicable_id": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "topicable_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "topicable",
+        "topicable_type"
+      ],
+      "type": "object"
+    },
+    "UlamTopicResource": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "url"
+      ],
+      "type": "object"
+    },
+    "UlamTopicableBase": {
+      "properties": {
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "type": "object"
+    }
+  }
+}

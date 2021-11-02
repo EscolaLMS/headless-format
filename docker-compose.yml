@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  pandoc:
+    image: pandoc/latex
+    volumes:
+      - ./source:/data
+    entrypoint: /data/build.sh

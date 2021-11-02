@@ -1,0 +1,278 @@
+{
+    "id": 2,
+    "title": "Quia rerum quaerat doloribus minima accusantium perferendis quibusdam.",
+    "summary": "Nihil autem et beatae aut quasi assumenda laudantium.\n=====================================================\n\n>  Soluta est eos veritatis voluptates. Earum expedita provident minima est autem quae necessitatibus adipisci. Dicta voluptatem et vitae provident eum. Quaerat ducimus aut incidunt ducimus a deleniti.\n\n* Nihil dolor sapiente eos explicabo.\n* Quos sapiente rerum qui eos quae nihil sint.\n* Hic consequatur doloribus iste dolore ut.\n\n1. Autem dolore ut ipsam.\n2. Est sint quidem autem magni.\n3. Vitae dolore aut explicabo aliquid.\n\nAb delectus nobis dicta delectus quia fugit quo.\n================================================\n\nEos facere numquam assumenda maiores ipsam ex. Consequuntur necessitatibus ex qui iusto totam nulla. Impedit fuga cum earum recusandae fugit hic error. Tenetur quos vel aut culpa.\n\n* Quam soluta quia eius deleniti esse rerum.\n* Et consequatur rerum distinctio facilis autem debitis quo.\n* Omnis impedit aut delectus eos dicta facilis.",
+    "image_path": "course\/2\/repudiandae.jpg",
+    "image_url": "https:\/\/api.escolalms.com\/\/storage\/course\/2\/repudiandae.jpg",
+    "video_path": "course\/2\/repudiandae.mp4",
+    "video_url": "https:\/\/api.escolalms.com\/\/storage\/course\/2\/repudiandae.mp4",
+    "base_price": 0,
+    "duration": "3 hours",
+    "author_id": 6,
+    "scorm_id": null,
+    "scorm": {},
+    "active": true,
+    "subtitle": "Ratione nulla voluptate consequatur qui atque et rerum.",
+    "language": "pl",
+    "description": "Rerum numquam ut praesentium nostrum aut officia consequuntur.\n==============================================================\n\nInventore nesciunt adipisci sit aspernatur voluptatem doloribus. Quia temporibus dolores velit vero. Occaecati culpa necessitatibus aut.\n\n>  Rerum est ut distinctio fugit impedit dolorum. Qui est similique quam neque. Quia occaecati et dolore exercitationem. Consequatur quaerat mollitia rerum eos. Sunt placeat saepe occaecati voluptas.\n\n* Laborum labore consectetur dolores aut explicabo officia.\n* Dicta suscipit officia qui velit sed eos.\n* Eveniet iste occaecati sunt dolores illo rerum.\n\n1. Sapiente praesentium animi eum nam nobis alias.\n2. Est voluptates magni ea non quibusdam.\n3. Commodi et sequi temporibus libero est natus.",
+    "level": "expert",
+    "lessons": [{
+        "id": 5,
+        "title": "voluptas",
+        "summary": "Qui aliquam aliquam dolor nihil.\n================================\n\nPossimus error est quam laboriosam. Non labore et cupiditate velit tenetur tempora veritatis. Tempore necessitatibus inventore tenetur in accusamus.\n\n>  Iusto quis similique necessitatibus ut. Aperiam ut sint perferendis maxime eos pariatur nam. Aliquam omnis quam dolores voluptatibus qui amet. In amet perferendis dolorem nihil.\n\nAspernatur corrupti voluptate velit veniam rem.\n===============================================\n\n1. Quibusdam laboriosam omnis dignissimos qui necessitatibus odit aut.\n2. Pariatur deserunt fuga deserunt enim modi quia esse.\n3. Dolor eius in fuga quia molestias necessitatibus optio.\n\nEa corrupti vel accusantium dolor ullam.\n========================================\n\nQuasi quis eligendi repellat animi accusamus et. Accusamus provident eaque aut assumenda quae qui labore dolorem. Quisquam iusto voluptas quis eum ut aut. Quia qui et non odio non aut et.\n\n* Ea quam repellendus quis.\n* Quia quas a quisquam molestiae.\n* Eum incidunt est nemo iusto sed occaecati.\n\nConsequatur corrupti quis facere rerum fugiat atque aspernatur.\n===============================================================\n\n>  Sunt dolor perferendis nemo qui voluptas. Iste aliquam voluptatibus quia nihil. Tenetur cumque qui et laborum voluptatum.",
+        "image_path": null,
+        "video_path": null,
+        "base_price": null,
+        "duration": "26 minutes",
+        "active": true,
+        "author_id": null,
+        "topics": [{
+            "id": 26,
+            "title": "beatae",
+            "lesson_id": 5,
+            "active": true,
+            "preview": true,
+            "topicable_id": 4,
+            "topicable_type": "EscolaLms\\Courses\\Models\\TopicContent\\RichText",
+            "topicable": {
+                "id": 4,
+                "created_at": "2021-10-14T15:50:29.000000Z",
+                "updated_at": "2021-10-14T15:50:29.000000Z",
+                "value": "Aperiam magni saepe labore accusantium totam animi.\n===================================================\n\nCorporis aut saepe ut mollitia. Deleniti voluptas explicabo expedita voluptas. Illum sit quia debitis recusandae architecto officiis provident. Distinctio velit illum eos architecto ut nobis libero.\n\n* Sint perferendis corrupti qui blanditiis.\n* Eius perspiciatis dolor officia laborum quo deserunt reiciendis.\n* Quisquam est eaque libero molestiae blanditiis."
+            },
+            "summary": "Sit aut fuga repellendus velit harum esse.\n==========================================\n\nEt enim veritatis error tempore quam. Molestiae fuga nobis voluptas minus occaecati totam.\n\n>  Veritatis facere amet exercitationem explicabo doloremque modi. Ea iure adipisci eos consectetur a voluptas. Non modi nulla et dolores saepe nobis.\n\n1. Unde ut iusto neque labore sunt sed atque.\n2. Quia dignissimos dolorem pariatur consequatur eaque.\n3. Repellendus aspernatur omnis tempore illum.",
+            "introduction": null,
+            "description": null,
+            "resources": [{
+                "id": 45,
+                "path": "public\/topic\/26\/resources\/",
+                "name": "atque.pdf",
+                "url": "https:\/\/api.escolalms.com\/\/storage\/public\/topic\/26\/resources\/atque.pdf",
+                "topic_id": 26
+            }],
+            "order": 5,
+            "json": null,
+            "can_skip": false
+        }, {
+            "id": 23,
+            "title": "esse",
+            "lesson_id": 5,
+            "active": true,
+            "preview": false,
+            "topicable_id": 11,
+            "topicable_type": "EscolaLms\\Courses\\Models\\TopicContent\\Image",
+            "topicable": {
+                "id": 11,
+                "created_at": "2021-10-14T15:50:29.000000Z",
+                "updated_at": "2021-10-14T15:50:29.000000Z",
+                "value": "topic\/23\/doloribus.jpg",
+                "width": 640,
+                "height": 480,
+                "url": "https:\/\/api.escolalms.com\/\/storage\/topic\/23\/doloribus.jpg"
+            },
+            "summary": "Ipsa laboriosam et facilis dignissimos nihil ipsa odit.\n=======================================================\n\nEt pariatur rerum laboriosam hic pariatur eveniet aut. Quo occaecati iste magnam. Et voluptas consectetur qui.\n\n>  Fuga architecto aut nulla atque laborum animi incidunt. Consectetur iste qui magnam excepturi velit. Quo qui quis sit sed sed accusantium deserunt. Aut veniam tenetur impedit quaerat neque culpa non.",
+            "introduction": null,
+            "description": null,
+            "resources": [{
+                "id": 39,
+                "path": "public\/topic\/23\/resources\/",
+                "name": "molestias.pdf",
+                "url": "https:\/\/api.escolalms.com\/\/storage\/public\/topic\/23\/resources\/molestias.pdf",
+                "topic_id": 23
+            }, {
+                "id": 40,
+                "path": "public\/topic\/23\/resources\/",
+                "name": "consequatur.pdf",
+                "url": "https:\/\/api.escolalms.com\/\/storage\/public\/topic\/23\/resources\/consequatur.pdf",
+                "topic_id": 23
+            }],
+            "order": 7,
+            "json": null,
+            "can_skip": false
+        }, {
+            "id": 25,
+            "title": "aliquid",
+            "lesson_id": 5,
+            "active": true,
+            "preview": true,
+            "topicable_id": 13,
+            "topicable_type": "EscolaLms\\Courses\\Models\\TopicContent\\Image",
+            "topicable": {
+                "id": 13,
+                "created_at": "2021-10-14T15:50:29.000000Z",
+                "updated_at": "2021-10-14T15:50:29.000000Z",
+                "value": "topic\/25\/mollitia.jpg",
+                "width": 640,
+                "height": 480,
+                "url": "https:\/\/api.escolalms.com\/\/storage\/topic\/25\/mollitia.jpg"
+            },
+            "summary": "Aspernatur beatae incidunt omnis ut et voluptatem reiciendis.\n=============================================================\n\n>  Vel perspiciatis voluptatibus consectetur culpa ex magni aut eos. Sed architecto dolor adipisci enim sint minima et. Illo aspernatur aut quaerat adipisci autem.\n\n* Est sunt tempora et et aut non.\n* Nobis dolor dolores aut quia placeat vel.\n* Debitis error non itaque hic totam labore ab.\n\nHarum autem ea fugiat itaque dolore.\n====================================\n\nInventore recusandae pariatur dolor dolorem eaque. Reprehenderit quos deserunt et est. Laudantium distinctio et officia eius occaecati totam. Assumenda fugit dolorem qui odit occaecati.\n\n>  Vel accusantium tenetur quia enim corporis vero quas. Velit autem sit quia ad delectus natus. Sit molestiae non similique autem eum voluptatem consectetur.",
+            "introduction": null,
+            "description": null,
+            "resources": [{
+                "id": 44,
+                "path": "public\/topic\/25\/resources\/",
+                "name": "ut.pdf",
+                "url": "https:\/\/api.escolalms.com\/\/storage\/public\/topic\/25\/resources\/ut.pdf",
+                "topic_id": 25
+            }],
+            "order": 9,
+            "json": null,
+            "can_skip": false
+        }],
+        "order": 4
+    }, {
+        "id": 6,
+        "title": "vitae",
+        "summary": "Id unde quos praesentium aspernatur repellendus aut soluta.\n===========================================================\n\nOmnis iure natus officiis sequi quos quis sunt. Ea temporibus delectus excepturi distinctio optio. Et ullam velit aut adipisci.\n\n>  Vitae laboriosam id ut atque at. Expedita ea dolores quasi blanditiis. Sapiente quia doloremque doloremque ea.\n\n* Necessitatibus facilis velit exercitationem quaerat.\n* Voluptatum quia deleniti alias qui qui quia.\n* Cupiditate officia debitis officiis quasi.\n\n1. Inventore numquam vel ducimus impedit.\n2. Voluptatem voluptatem tenetur officiis officiis ut aliquam dolores.\n3. Nobis velit debitis quia officiis ut ea dolores.",
+        "image_path": null,
+        "video_path": null,
+        "base_price": null,
+        "duration": "20 minutes",
+        "active": true,
+        "author_id": null,
+        "topics": [{
+            "id": 29,
+            "title": "ad",
+            "lesson_id": 6,
+            "active": true,
+            "preview": true,
+            "topicable_id": 4,
+            "topicable_type": "EscolaLms\\Courses\\Models\\TopicContent\\OEmbed",
+            "topicable": {
+                "id": 4,
+                "created_at": "2021-10-14T15:50:29.000000Z",
+                "updated_at": "2021-10-14T15:50:29.000000Z",
+                "value": "https:\/\/vimeo.com\/539333005"
+            },
+            "summary": "Magni sit architecto illo id beatae culpa.\n==========================================\n\nId odio omnis accusamus voluptas molestiae suscipit et. Quam est molestiae aut velit cum. Fuga qui aut mollitia nihil.\n\n* Voluptas aut qui sequi suscipit eum.\n* Non consequatur ut animi.\n* Similique eos consequuntur voluptates provident.\n\n1. Accusamus sapiente sit nihil delectus praesentium dicta necessitatibus.\n2. Saepe sed vero iste et repudiandae dolorem quod.\n3. Qui expedita et sequi vero.",
+            "introduction": null,
+            "description": null,
+            "resources": [{
+                "id": 51,
+                "path": "public\/topic\/29\/resources\/",
+                "name": "ea.pdf",
+                "url": "https:\/\/api.escolalms.com\/\/storage\/public\/topic\/29\/resources\/ea.pdf",
+                "topic_id": 29
+            }],
+            "order": 8,
+            "json": null,
+            "can_skip": false
+        }, {
+            "id": 28,
+            "title": "adipisci",
+            "lesson_id": 6,
+            "active": true,
+            "preview": true,
+            "topicable_id": 3,
+            "topicable_type": "EscolaLms\\Courses\\Models\\TopicContent\\OEmbed",
+            "topicable": {
+                "id": 3,
+                "created_at": "2021-10-14T15:50:29.000000Z",
+                "updated_at": "2021-10-14T15:50:29.000000Z",
+                "value": "https:\/\/vimeo.com\/451165366"
+            },
+            "summary": "Sit modi veniam sapiente accusamus earum.\n=========================================\n\n1. Consectetur distinctio sit molestiae ipsa quis quas.\n2. Ut qui perferendis eius totam.\n3. Voluptas magnam iste nemo earum qui eaque nihil exercitationem.\n\nArchitecto exercitationem error soluta quod.\n============================================\n\nEt doloremque animi eos excepturi omnis ea id. Voluptatum et non sit eos quaerat minus iusto. Earum nesciunt id in maiores nemo eveniet id. In incidunt ut incidunt laboriosam nulla.\n\n>  Iure tempore quo rerum dicta tempore. Fugiat eveniet dolores ex fugiat qui molestias. Sed ipsum numquam nulla harum. Aliquid pariatur mollitia esse minima consectetur maxime nam.\n\n* Sed voluptas repellat possimus.\n* At nam non quisquam id.\n* Eos excepturi velit ut doloremque ut.\n\n1. Eveniet fugit reprehenderit culpa est molestiae est labore dolorum.\n2. Ducimus saepe provident doloribus facere nisi.\n3. Et in vel earum voluptas nulla minima.",
+            "introduction": null,
+            "description": null,
+            "resources": [{
+                "id": 48,
+                "path": "public\/topic\/28\/resources\/",
+                "name": "quis.pdf",
+                "url": "https:\/\/api.escolalms.com\/\/storage\/public\/topic\/28\/resources\/quis.pdf",
+                "topic_id": 28
+            }, {
+                "id": 49,
+                "path": "public\/topic\/28\/resources\/",
+                "name": "dolore.pdf",
+                "url": "https:\/\/api.escolalms.com\/\/storage\/public\/topic\/28\/resources\/dolore.pdf",
+                "topic_id": 28
+            }, {
+                "id": 50,
+                "path": "public\/topic\/28\/resources\/",
+                "name": "dignissimos.pdf",
+                "url": "https:\/\/api.escolalms.com\/\/storage\/public\/topic\/28\/resources\/dignissimos.pdf",
+                "topic_id": 28
+            }],
+            "order": 8,
+            "json": null,
+            "can_skip": false
+        }, {
+            "id": 30,
+            "title": "praesentium",
+            "lesson_id": 6,
+            "active": true,
+            "preview": false,
+            "topicable_id": 2,
+            "topicable_type": "EscolaLms\\Courses\\Models\\TopicContent\\Audio",
+            "topicable": {
+                "id": 2,
+                "created_at": "2021-10-14T15:50:29.000000Z",
+                "updated_at": "2021-10-14T15:50:29.000000Z",
+                "value": "topic\/30\/animi.mp3",
+                "length": 1709,
+                "url": "https:\/\/api.escolalms.com\/\/storage\/topic\/30\/animi.mp3"
+            },
+            "summary": "Ad voluptate similique laborum corporis nihil exercitationem.\n=============================================================\n\nSapiente qui a nesciunt. Atque vitae voluptatem libero quia qui itaque nostrum. Unde ab dignissimos velit deleniti corporis tempore.\n\n* Consectetur ducimus sit dolor.\n* Unde necessitatibus nemo eligendi facere.\n* Nostrum qui sunt ea et deserunt.\n\n1. Omnis nihil voluptatem quasi accusantium consequatur incidunt officia.\n2. Non saepe perferendis aut sit id blanditiis neque et.\n3. Quas omnis cum corporis sapiente non iure.\n\nConsectetur animi dolores molestiae quas accusantium voluptatem quae.\n=====================================================================\n\nVoluptatem consectetur eos autem similique ad ipsum molestias. Id voluptatem earum magnam culpa sapiente ipsam rerum. Dicta consequatur enim beatae necessitatibus. Ea est et reprehenderit.\n\n>  Est quos voluptas illo. Quisquam omnis illo hic asperiores modi. Et facilis ducimus quo et. Tenetur tempora qui dolorum occaecati est illo ut expedita.\n\n1. Mollitia omnis quasi sint ducimus.\n2. Dolorum voluptatem officiis sit beatae facere consequatur enim.\n3. Voluptatibus saepe reiciendis iusto sit voluptatem fuga aperiam illum.",
+            "introduction": null,
+            "description": null,
+            "resources": [{
+                "id": 52,
+                "path": "public\/topic\/30\/resources\/",
+                "name": "deserunt.pdf",
+                "url": "https:\/\/api.escolalms.com\/\/storage\/public\/topic\/30\/resources\/deserunt.pdf",
+                "topic_id": 30
+            }, {
+                "id": 53,
+                "path": "public\/topic\/30\/resources\/",
+                "name": "consequatur.pdf",
+                "url": "https:\/\/api.escolalms.com\/\/storage\/public\/topic\/30\/resources\/consequatur.pdf",
+                "topic_id": 30
+            }, {
+                "id": 54,
+                "path": "public\/topic\/30\/resources\/",
+                "name": "quia.pdf",
+                "url": "https:\/\/api.escolalms.com\/\/storage\/public\/topic\/30\/resources\/quia.pdf",
+                "topic_id": 30
+            }],
+            "order": 9,
+            "json": null,
+            "can_skip": false
+        }, {
+            "id": 31,
+            "title": "sint",
+            "lesson_id": 6,
+            "active": true,
+            "preview": false,
+            "topicable_id": 5,
+            "topicable_type": "EscolaLms\\Courses\\Models\\TopicContent\\Video",
+            "topicable": {
+                "id": 5,
+                "created_at": "2021-10-14T15:50:29.000000Z",
+                "updated_at": "2021-10-14T15:50:29.000000Z",
+                "value": "topic\/31\/eius.mp4",
+                "poster": "topic\/31\/eius.jpg",
+                "width": 640,
+                "height": 480,
+                "url": "https:\/\/api.escolalms.com\/\/storage\/topic\/31\/eius.mp4",
+                "poster_url": "https:\/\/api.escolalms.com\/\/storage\/topic\/31\/eius.jpg"
+            },
+            "summary": "Similique voluptates laborum molestiae qui sint rerum.\n======================================================\n\n* Et repudiandae dolorem nobis eligendi sed est.\n* Illo itaque est est impedit.\n* Repudiandae dignissimos quia placeat tempora suscipit odio.\n\nUt voluptatem quae sapiente est.\n================================\n\nVoluptas molestiae voluptatem vero commodi neque quo vero. Autem qui voluptatem eligendi sed. Dignissimos alias sunt soluta et reiciendis veritatis.\n\n>  Sint aut deserunt similique et. Laudantium excepturi et numquam illum cupiditate. Voluptatem nostrum nihil velit dolor.\n\nQuos qui eos atque sit placeat.\n===============================\n\n>  Commodi debitis eos autem sunt est. Dignissimos quia molestiae ut quibusdam. Facilis et blanditiis expedita enim. Quaerat sequi quam doloribus autem perspiciatis eum facilis animi.\n\n1. Aut suscipit maxime unde qui praesentium placeat temporibus quis.\n2. Modi aperiam et aut deserunt.\n3. Rem est esse cupiditate velit omnis magni beatae.\n\nRatione nobis autem ab aliquid atque.\n=====================================\n\nNobis qui repellat soluta qui qui. Voluptatem similique dolor itaque maxime iste ea harum est. Quia voluptas qui ad laboriosam minus eum et dolores. Et delectus corporis sit aliquid et totam in.\n\n>  Ea impedit maxime inventore veritatis omnis minima. Voluptatibus quibusdam debitis veniam. Saepe reprehenderit eligendi quaerat quo.",
+            "introduction": null,
+            "description": null,
+            "resources": [{
+                "id": 55,
+                "path": "public\/topic\/31\/resources\/",
+                "name": "tempore.pdf",
+                "url": "https:\/\/api.escolalms.com\/\/storage\/public\/topic\/31\/resources\/tempore.pdf",
+                "topic_id": 31
+            }],
+            "order": 9,
+            "json": null,
+            "can_skip": false
+        }],
+        "order": 4
+    }],
+    "poster_path": "course\/2\/repudiandaeposter.jpg",
+    "poster_url": "https:\/\/api.escolalms.com\/\/storage\/course\/2\/repudiandaeposter.jpg"
+}

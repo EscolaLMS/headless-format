@@ -2,7 +2,7 @@
 title:
   - ULAM Headless Course Format
 author:
-  - MAteusz wajhe przelusz
+  - MAteusz Wojczal
 papersize:
   - a4
 fontsize:
@@ -13,52 +13,70 @@ fontfamily:
   - charter
 ---
 
+# Konspect
+
+## History of e-learning standards
+
+### LMS
+
+- headless, separation between
+
 # **ULAM** Headless Course Format
-
-Titles can be long and descriptive:
-
-- _Linear-Time External Multipass Sorting with Approximation Guarantees_
-
-or short and sweet:
-
-- _Approximate External Sort_
-
-Here's a middle-of-the-road length, plus a cute name that sticks in people's minds:
-
-- Floosh: _A Linear-Time Algorithm for Approximate External Sort_
 
 ## The Abstract
 
-State the problem, your approach and solution, and the main contributions of the paper. Include little if any background and motivation. Be factual but comprehensive. The material in the abstract should not be repeated later word for word in the paper.
-
-(**Exercise:** Write an abstract for the multiway sort example.)
+Current e-learning does have a huge technological dept and do not responding to market needs as fast as other segments. The main reason is the obsolete formats like SCORM that are widely used which does not separate data layer from presentation one.
 
 ## The Introduction
 
-The Introduction is crucially important. By the time a referee has finished the Introduction, they've probably made an initial decision about whether to accept or reject the paper -- they'll read the rest of the paper looking for evidence to support their decision. A casual reader will continue on if the Introduction captivated them, and will set the paper aside otherwise. Again, _the Introduction is crucially important._
+Current e-learning formats does not separate data from presentation layers. Current e-learning content are not portable and are not designed to age well.
 
-Here is the [Stanford InfoLab](http://infolab.stanford.edu/)'s patented five-point structure for Introductions. Unless there's a good argument against it, the Introduction should consist of five paragraphs answering the following five questions:
+With separation of layers the content can be displayed in modern way everything some new devices is used. If SCORM courses where designed in this fashion back in 2000s it would be straigh forward to convert them to any devices, like mobile phones, smartwatches, smart tvs, etc. Because of wrong design decision we're stuck with this format and obsolete courses.
 
-1.  _What is the problem?_
-2.  _Why is it interesting and important?_
-3.  _Why is it hard?_ (E.g., why do naive approaches fail?)
-4.  _Why hasn't it been solved before?_ (Or, what's wrong with previous proposed solutions? How does mine differ?)
-5.  _What are the key components of my approach and results?_ Also include any specific limitations.
+Back in the days when Advanced Distributed Learning was creating SCORM adapting older AICC HACP desktop format most of the personal computers used the same browser, on the same operation system with common 1024x768 pixel resolution. If there were variation to this statement they were minimal. Browser were not able to do much more then to show server response in HTML format after client request. Everything showed in browser window was rendered by server and even if there was separation of layers it happened only on server side.
 
-(**Exercise:** Answer these questions for the multiway sort example.)
+Organizations that are working on e-learning standards are responding to market needs very slowly. Their latest specification `cmi5`, which does solve many of the issues, is already 6 years old and not commonly adapted - the most popular format SCORM 2004 4th Edition was published in 2009.
 
-Then have a final paragraph or subsection: "Summary of Contributions". It should list the major contributions in bullet form, mentioning in which sections they can be found. This material doubles as an outline of the rest of the paper, saving space and eliminating redundancy.
+The headless approach seems to be solving all of the issues that modern e-learning and LMSes do have. The separation of content and it's players allows to create courses that works well on any device and do age well. Course designed in this favour most likely will be able to be played on device not yet used.
 
-(**Exercise:** Write the bullet list for the multiway sort example.)
+## History of e-learning formats and LMS
 
-#### Related Work
+- aicc 1993, Scorm 1999, scorm 2004, xapi (tincan) 2013, cmi5 (cmi5: xAPI with Rules)
+- cmi5 defines how the LMS and the content will communicate using the xAPI Learning Record Store (LRS).
+- https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/
 
-The perennial question: Should related work be covered near the beginning of the paper or near the end?
+### What is LMS
 
-- **Beginning**, if it can be short yet detailed enough, or if it's critical to take a strong defensive stance about previous work right away. In this case Related Work can be either a subsection at the end of the Introduction, or its own Section 2.
-- **End**, if it can be summarized quickly early on (in the Introduction or Preliminaries), or if sufficient comparisons require the technical content of the paper. In this case Related Work should appear just before the Conclusions, possibly in a more general section "Discussion and Related Work".
+- definition
+- how does it work monolith struture
 
-## The Body
+### Bad parts
+
+- no offine (needs a server)
+- same domain
+- no speparationn betrween layers
+- when designed there was no mobile devices
+- Assignable Unit (AU) must have launchURL that basically is course starting point
+- why cmi5 is not enough (http://aicc.github.io/CMI-5_Spec_Current/flows/lms-flow.html)
+- why xapi is good
+
+### What is headless
+
+### PWA, Serverless, JSON (vs XML)
+
+## Ulam Format
+
+Why separaion is good https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
+
+Universal Learning Asynchronous Model
+
+### HEadless
+
+### Players
+
+### Import/Export
+
+### Offline
 
 **Guideline #1:** A clear new important technical contribution should have been articulated by the time the reader finishes page 3 (i.e., a quarter of the way through the paper).
 

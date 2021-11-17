@@ -1,5 +1,4 @@
 #!/bin/sh
-apk --no-cache add texlive-most texlive-lang t1utils texlive-full 
 pandoc index.md \
     -f gfm \
     -s \

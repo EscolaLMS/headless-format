@@ -5,4 +5,5 @@ services:
     image: pandoc/latex
     volumes:
       - ./source:/data
+      - ./dist:/dist
     entrypoint: /data/build.sh

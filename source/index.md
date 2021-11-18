@@ -44,11 +44,19 @@ The headless approach seems to be solving all of the issues that modern e-learni
 - aicc 1993, Scorm 1999, scorm 2004, xapi (tincan) 2013, cmi5 (cmi5: xAPI with Rules)
 - cmi5 defines how the LMS and the content will communicate using the xAPI Learning Record Store (LRS).
 - https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/
+- https://www.slideshare.net/Nine_Lanterns/interoperability-lti-and-experience-api-formerly-tincan
 
-### What is LMS
+### What is LMS, LRS
 
 - definition
 - how does it work monolith struture
+- diagram
+
+- https://scorm.com/what-is-an-lrs-learning-record-store/?utm_source=google&utm_medium=natural_search
+
+#### How does publishing course look like
+
+- scorm is closed format
 
 ### Bad parts
 
@@ -70,6 +78,12 @@ Why separaion is good https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93c
 
 Universal Learning Asynchronous Model
 
+### Good parts from cmi5 & xapi
+
+- xapi verbs
+- au
+- json > xml
+
 ### HEadless
 
 ### Players
@@ -87,27 +101,6 @@ Aside from these guidelines, which apply to every paper, the structure of the bo
 - **Running Example:** When possible, use a running example throughout the paper. It can be introduced either as a subsection at the end of the Introduction, or its own Section 2 or 3 (depending on Related Work).
 - **Preliminaries:** This section, which follows the Introduction and possibly Related Work and/or Running Example, sets up notation and terminology that is not part of the technical contribution. One important function of this section is to delineate material that's not original but is needed for the paper. Be concise -- remember Guideline #1.
 - **Content:** The meat of the paper includes algorithms, system descriptions, new language constructs, analyses, etc. Whenever possible use a "top-down" description: readers should be able to see where the material is going, and they should be able to skip ahead and still get the idea.
-
-## Performance Experiments
-
-We could have an entire treatise on this topic alone and I am surely not the expert. Here are some random thoughts:
-
-- Many conferences expect experiments.
-- It's easy to do "hokey" or meaningless experiments, and many papers do.
-- It's easy to craft experiments to show your work in its best light, and most papers do.
-- What should performance experiments measure? Possiblities:
-
-  - Pure running time
-  - Sensitivity to important parameters
-  - Scalability in various aspects: data size, problem complexity, ...
-  - Others?
-
-- What should performance experiments show? Possibilities:
-  - Absolute performance (i.e., it's acceptable/usable)
-  - Relative performance to naive approaches
-  - Relative performance to previous approaches
-  - Relative performance among different proposed approaches
-  - Others?
 
 ## The Conclusions
 

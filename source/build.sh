@@ -8,4 +8,5 @@ pandoc index.md \
     -V geometry:margin=2cm \
     --pdf-engine=xelatex \
     --toc \
+    -M subtitle="ver. $(git rev-parse --short HEAD)" \
     -o ../dist/paper.pdf

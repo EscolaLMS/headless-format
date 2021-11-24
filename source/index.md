@@ -1,8 +1,6 @@
 ---
 title:
   - ULAM Headless Course Format
-subtitle:
-  - ULAM Headless Course Format
 author:
   - Mateusz Wojczal. November 2021
 papersize:

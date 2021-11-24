@@ -15,6 +15,9 @@ jobs:
       - name: Instantiate package
         uses: actions/checkout@v2
 
+      - name: Install git
+        run: apt-get install git -y
+
       - name: build pdf
         run: cd source && ./build.sh
 

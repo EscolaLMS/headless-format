@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install git
-        run: apt install git -y
+        run: apk add git
 
       - name: build pdf
         run: cd source && ./build.sh

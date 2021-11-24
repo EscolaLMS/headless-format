@@ -1,8 +1,10 @@
 ---
 title:
   - ULAM Headless Course Format
+subtitle:
+  - ULAM Headless Course Format
 author:
-  - MAteusz Wojczal
+  - Mateusz Wojczal. November 2021
 papersize:
   - a4
 fontsize:
@@ -39,14 +41,73 @@ Organizations that are working on e-learning standards are responding to market 
 
 The headless approach seems to be solving all of the issues that modern e-learning and LMSes do have. The separation of content and it's players allows to create courses that works well on any device and do age well. Course designed in this favour most likely will be able to be played on device not yet used.
 
-## History of e-learning formats and LMS
+## History of e-learning formats
+
+The most popular e-learning formats are created and managed by the Advanced Distributed Learning (ADL) Initiative from the Office of the United States Secretary of Defense.  
+
+Before e-learning was used in the web browser enviroment there was AICC’s format created in 1993. First widely used format was AICC HACP released in 1998 which later evolved into SCORM 1.0 that was released in year 2000. 
+
+SCORM which is an abbreviation of Sharable Content Object Reference Model since this day is the most popular e-learning package standard. Since version 1.0 to latest SCORM 2004 4th Edition this format is a collection of standards and specifications for web-based e-learning. The format itself describes communications between client side content and a host system and how to package whole course into ZIP files that are called "Package Interchange Format."[^1]. Latter is a ZIP package that contains HTML files and XML manifest. 
+
+Since SCORM introduced many issues The Experience API, also known as Tin Can API or xAPI was released and later cmi5 format that provides a set of rules intended to achieve interoperability in a traditional Learning Management System environment.  
+
+xAPI specification removes content for it description, and allows the content to send “statements” based around [actor] [verb] [object], or “I – did – this” to a Learning Record Store (LRS) which can be part of Learning Management System but can live on their own or as part of another system. 
+
+The table below [^2] summarizes the comparison of each standard:
+
+
+|           Format           |  Release Date  | Pages |    Widely Used   | Run-Time | Packaging | Metadata | Sequencing | Works Cross Domain |
+|:--------------------------:|:--------------:|:-----:|:----------------:|:--------:|:---------:|:--------:|:----------:|:------------------:|
+| AICC HACP                  |    Feb 1998    |  337  |        Yes       |    Yes   |    Yes    |    No    |     No     |         Yes        |
+| SCORM 1.0                  |    Jan 2000    |  219  |        No        |    Yes   |    Yes    |    Yes   |     No     |         No         |
+| SCORM 1.1                  |    Jan 2001    |  233  |        No        |    Yes   |    Yes    |    Yes   |     No     |         No         |
+| SCORM 1.2                  |    Oct 2001    |  524  |        Yes       |    Yes   |    Yes    |    Yes   |     No     |         No         |
+| SCORM 2004 “1st Edition”   |    Jan 2004    | 1,027 |        No        |    Yes   |    Yes    |    Yes   |     Yes    |         No         |
+| SCORM 2004 2nd Edition     |    Jul 2004    | 1,219 |        Yes       |    Yes   |    Yes    |    Yes   |     Yes    |         No         |
+| SCORM 2004 3rd Edition     |    Oct 2006    |  1137 |        Yes       |    Yes   |    Yes    |    Yes   |     Yes    |         No         |
+| SCORM 2004 4th Edition     |    Mar 2009    |  1162 |        Yes       |    Yes   |    Yes    |    Yes   |     Yes    |         No         |
+| IMS Common Cartridge       |    Oct 2008    |  135  |        No        |    No    |    Yes    |    Yes   |     No     |         Yes        |
+| IMS LTI                    |    May 2010    |   25  | In Academic LMSs |    Yes   |     No    |    No    |     No     |         Yes        |
+| The Experience API (xAPI)  | April 26, 2013 |   85  |      Not Yet     |    Yes   |  Partial  |    No    |     No     |         Yes        |
+| cmi5 (a companion to xAPI) |  June 1, 2016  |   48  |      Not Yet     |    Yes   |    Yes    |    No    |     No     |         Yes        |
+
+
+### What is Learning Management System - LMS 
+
+Web accessible application that takes care of administration, documentation, tracking, reporting, automation, and delivery of educational courses, training programs, or learning and development programs is called Learning Management System. LMS systems are kind of software that manage e-Learning. 
+
+The most popular LMS is Moodle, released on 20 August 2002 because it's available for free as open course software, distributed under the GNU General Public License. 
+
+Moodle is program written in PHP that is being served by machine that use PHP. That means that all of the actions for administrators, course creators, students and any other roles does require to connect to machine (server) that serves Moodle. This is a monolith architecture, which means that all moodle components are PHP based working on one machine that parses moodle source code every time there is a request from the browser. Components of the program are interconnected and interdependent in a tightly-coupled architecture. 
+
+Most other popular LMS works very similar, as they monolith architecture is the most popular among the LMS
+
+#### Monolith Architecture 
+
+It the diagram below there is Moodle monolith architecture
+
+![Moodle monolith architecture](images/moodle1.png "Moodle monolith architecture"). 
+
+All the LMS Features that includes 
+- Managing courses, users and roles
+- Online assessment
+- User feedback
+- Synchronous and Asynchronous Learning
+- Learning Analytics 
+
+are handled directly from the server, the response is prepared before being sent in HTML format by PHP preprocessor, the client gets the HTML already rendered document. 
+
+![Moodle monolith architecture](images/moodle2.png "Moodle monolith architecture"). 
+
+
+
+
+
 
 - aicc 1993, Scorm 1999, scorm 2004, xapi (tincan) 2013, cmi5 (cmi5: xAPI with Rules)
 - cmi5 defines how the LMS and the content will communicate using the xAPI Learning Record Store (LRS).
 - https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/
 - https://www.slideshare.net/Nine_Lanterns/interoperability-lti-and-experience-api-formerly-tincan
-
-### What is LMS, LRS
 
 - definition
 - how does it work monolith struture
@@ -166,3 +227,7 @@ In general everyone writing papers is strongly encouraged to read the short and 
 
 - Many papers have a submitted (and later published) conference version, along with a "full paper" technical report on the web. It's important to manage versions carefully, both in content and proliferation. My recommendation is, whenever possible, for the full paper to consist of simply the conference version plus appendices. The full paper should be the only public one aside from conference proceedings, it should be coordinated with latest (final) conference version, and modifications to the full paper should always overwrite all publicly accessible previous versions of it.
 - I believe in putting papers on the web the minute they're finished. They should be dated and can be referenced as technical reports -- it's not necessary to have an actual technical report number. Never, ever put up a paper with a conference copyright notice when it's only been submitted, and never, ever reference a paper as "submitted to conference X." You're only asking for embarrassment when the paper is finally published in conference Y a year or two later.
+
+[^1]: [Technical Specification 4th Ed.](https://en.wikipedia.org/wiki/Sharable_Content_Object_Reference_Model). SCORM. Retrieved 2017-05-22.
+
+[^2]: [A timeline and description of the eLearning standards.](https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/). SCORM

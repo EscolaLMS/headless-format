@@ -11,9 +11,17 @@ geometry:
   - margin=1in
 fontfamily:
   - charter
+output:
+  pdf_document:
+    fig_caption: yes
+    keep_tex: yes  
 ---
 
+\pagebreak
+
+
 # **ULAM** Headless Course Format
+
 
 ## The Abstract
 
@@ -35,7 +43,7 @@ The headless approach seems to be solving all of the issues that modern e-learni
 
 The most popular e-learning formats are created and managed by the Advanced Distributed Learning (ADL) Initiative from the Office of the United States Secretary of Defense.  
 
-Before e-learning was used in the web browser enviroment there was AICC’s format created in 1993. First widely used format was AICC HACP released in 1998 which later evolved into SCORM 1.0 that was released in year 2000. 
+Before e-learning was used in the web browser environment there was AICC’s format created in 1993. First widely used format was AICC HACP released in 1998 which later evolved into SCORM 1.0 that was released in year 2000. 
 
 SCORM which is an abbreviation of Sharable Content Object Reference Model since this day is the most popular e-learning package standard. Since version 1.0 to latest SCORM 2004 4th Edition this format is a collection of standards and specifications for web-based e-learning. The format itself describes communications between client side content and a host system and how to package whole course into ZIP files that are called "Package Interchange Format."[^1]. Latter is a ZIP package that contains HTML files and XML manifest. 
 
@@ -46,7 +54,7 @@ xAPI specification removes content for it description, and allows the content to
 The table below [^2] summarizes the comparison of each standard:
 
 
-|           Format           |  Release Date  | Pages |    Widely Used   | Run-Time | Packaging | Metadata | Sequencing | Works Cross Domain |
+|           Format           |  Released  | Pages |    Widely Used   | Run-Time | Pack-aging | Meta-data | Sequen-cing | Works Cross Domain |
 |:--------------------------:|:--------------:|:-----:|:----------------:|:--------:|:---------:|:--------:|:----------:|:------------------:|
 | AICC HACP                  |    Feb 1998    |  337  |        Yes       |    Yes   |    Yes    |    No    |     No     |         Yes        |
 | SCORM 1.0                  |    Jan 2000    |  219  |        No        |    Yes   |    Yes    |    Yes   |     No     |         No         |
@@ -66,7 +74,7 @@ The table below [^2] summarizes the comparison of each standard:
 
 Web accessible application that takes care of administration, documentation, tracking, reporting, automation, and delivery of educational courses, training programs, or learning and development programs is called Learning Management System. LMS systems are kind of software that manage e-Learning. 
 
-The most popular LMS is Moodle, released on 20 August 2002 because it's available for free as open course software, distributed under the GNU General Public License. 
+The most popular LMS is Moodle [^3], released on 20 August 2002 because it's available for free as open course software, distributed under the GNU General Public License. 
 
 Moodle is program written in PHP that is being served by machine that use PHP. That means that all of the actions for administrators, course creators, students and any other roles does require to connect to machine (server) that serves Moodle. This is a monolith architecture, which means that all moodle components are PHP based working on one machine that parses moodle source code every time there is a request from the browser. Components of the program are interconnected and interdependent in a tightly-coupled architecture. 
 
@@ -74,40 +82,41 @@ Most other popular LMS works very similar, as they monolith architecture is the 
 
 #### Monolith Architecture 
 
+
+
 It the diagram below there is Moodle monolith architecture
 
 ![Moodle monolith architecture](images/moodle1.png "Moodle monolith architecture"). 
 
+[image]: images/moodle1.png "Image Title" 
+![Alt text][image] 
+A reference to the [image](#image).
+
 All the LMS Features that includes 
-- Managing courses, users and roles
-- Online assessment
-- User feedback
-- Synchronous and Asynchronous Learning
-- Learning Analytics 
+
+fddfsdsf
+
+* Managing courses, users and roles
+* Online assessment
+* User feedback
+* Synchronous and Asynchronous Learning
+* Learning Analytics 
 
 are handled directly from the server, the response is prepared before being sent in HTML format by PHP preprocessor, the client gets the HTML already rendered document. 
 
-![Moodle monolith architecture](images/moodle2.png "Moodle monolith architecture"). 
+![Moodle monolith architecture](images/moodle2.png) 
+
+All the above means that Moodle and special server is required all the time for all e-learning activities. 
 
 
 
 
 
 
-- aicc 1993, Scorm 1999, scorm 2004, xapi (tincan) 2013, cmi5 (cmi5: xAPI with Rules)
-- cmi5 defines how the LMS and the content will communicate using the xAPI Learning Record Store (LRS).
-- https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/
-- https://www.slideshare.net/Nine_Lanterns/interoperability-lti-and-experience-api-formerly-tincan
-
-- definition
-- how does it work monolith struture
-- diagram
-
-- https://scorm.com/what-is-an-lrs-learning-record-store/?utm_source=google&utm_medium=natural_search
 
 #### How does publishing course look like
 
-- scorm is closed format
+- scorm is closed format, once published it cannot be changed. 
 
 ### Bad parts
 
@@ -221,3 +230,5 @@ In general everyone writing papers is strongly encouraged to read the short and 
 [^1]: [Technical Specification 4th Ed.](https://en.wikipedia.org/wiki/Sharable_Content_Object_Reference_Model). SCORM. Retrieved 2017-05-22.
 
 [^2]: [A timeline and description of the eLearning standards.](https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/). SCORM
+
+[^3]: [Moodle - Open-source learning platform | Moodle.org](https://moodle.org/)

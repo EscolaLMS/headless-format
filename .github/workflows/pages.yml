@@ -1,0 +1,25 @@
+name: Generate Swagger Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  swagger-gh-pages:
+    runs-on: ubuntu-latest
+    container:
+      image: pandoc/latex
+
+    steps:
+      - name: Instantiate package
+        uses: actions/checkout@v2
+
+      - name: build pdf
+        run: cd course && ./build.sh
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist

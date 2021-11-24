@@ -12,11 +12,12 @@ jobs:
       image: pandoc/latex
 
     steps:
-      - name: Instantiate package
-        uses: actions/checkout@v2
 
       - name: Install git
         run: apk add git
+      
+      - name: Instantiate package
+        uses: actions/checkout@v2
 
       - name: build pdf
         run: cd source && ./build.sh

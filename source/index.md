@@ -15,19 +15,11 @@ fontfamily:
   - charter
 ---
 
-# Konspect
-
-## History of e-learning standards
-
-### LMS
-
-- headless, separation between
-
 # **ULAM** Headless Course Format
 
 ## The Abstract
 
-Current e-learning does have a huge technological dept and do not responding to market needs as fast as other segments. The main reason is the obsolete formats like SCORM that are widely used which does not separate data layer from presentation one.
+Current e-learning does have a huge technological dept and do not responding to market needs as fast as other segments. The main reason is the obsolete formats like SCORM that are widely used which does not separate data layer from presentation one. There is a need from market of existence of better formats. 
 
 ## The Introduction
 

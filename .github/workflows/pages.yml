@@ -22,6 +22,11 @@ jobs:
       - name: build pdf
         run: cd source && ./build.sh
 
+      - uses: actions/upload-artifact@v2
+        with:
+        name: my-artifact
+        path: dist/paper.pdf
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

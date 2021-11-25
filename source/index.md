@@ -113,7 +113,7 @@ All the above means that Moodle and dedicated server is required all the time fo
 
 Standard way of creating and publishing SCORM compliant course is to follow the steps 
 
-1. Creating of a course in an e-Learning authoring tool (like Adobe Captivate [^5]) or in from the LMS environment. 
+1. Creating of a course in an e-Learning authoring tool (like Adobe Captivate [^4]) or in from the LMS environment. 
 2. Course is published as a SCORM package, a ZIP file 
 3. SCORM package is being uploaded with LMS upload form and prepared to be published 
 4. LMS publish the course to the students. All results of activities are stored in the LMS

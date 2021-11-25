@@ -136,26 +136,46 @@ A Learning Record Store is an external to course application that receives and s
 
 ![Experience API (xAPI) process flow with Learning Record Store (LRS)](images/lrs.png)
 
+### cmi5 Specification
+
+> cmi5 is a "profile" for using the xAPI specification with traditional learning management (LMS) systems. [^6]
+
+The Specification of cmi5 is a set of rules providing all the capabilities of SCORM and xAPI. 
+It is similar to SCORM in a way that it also contains XML file manifest, yet it does introduce the Assignable Unit (AU) - separately launchable learning content presentation. The AU is the unit of tracking and management. The AU collects data on the learner and sends it to the LMS. 
+
+![Conceptual Overview of cmi5 [^6] ](images/cmi5-concept-overview.png) 
 
 ### Limitations parts of current standards 
 
-- no offine (needs a server)
-- same domain
-- no speparationn betrween layers
-- when designed there was no mobile devices
-- Assignable Unit (AU) must have launchURL that basically is course starting point
-- why cmi5 is not enough (http://aicc.github.io/CMI-5_Spec_Current/flows/lms-flow.html)
-- why xapi is good
+- SCORM is limited by design, there is no way to improve it implementing **Separation of concerns** design pattern.  
+- Even with latest standard `cmi5` the **Separation of concerns** is not complete. 
+- Assignable Unit defines only entry URL for the content, but it does not define the content structure in any way. 
+- Specification of Assignable Unit (AU) require to have `launchURL` that basically is course starting point. There is no way to extend this to replace `launchURL` with the content itself. 
+- There is no separation of layers in content delivery. Presentation, data and logic layers are inseparable. 
+- Courses cannot be played offline as server is required all the time. 
+- Even though cmi5 provides __Mobile app launch support__ functionality there is no specification for that, it is possible yet not defined.  
 
-### Bad parts
-
-
+\pagebreak
 
 # Separation of concerns
+
+The main motivation of introducing new e-learning format is to allow to separate all of the e-learning components into independent elements and follow the  **separation of concerns (SoC)**  computer science design principle. 
 
 > A design principle for breaking down an application into modules,
 layers, and encapsulations, the roles of which are independent of one
 another. [^5]
+
+## Headless 
+
+Regular websites and web application works in the way that their own back-end (server side component) and front-end (graphical user interface). 
+Each piece use the same code base and communicate directly on the server machine with each other, making the website as a whole. 
+
+Headless web application is an implementation of **separation of concerns (SoC)**  design principle of the front-end as stand-alone piece of software, and the back-end that doesn't know anything about way the data that is service will be presented. All the communication happens through API as the bridge between both parts. All parts works separately technically (placed on separate servers) and functionally. 
+
+### Headless LMS. 
+
+![Architecture of headless LMS ](images/headless-lms.png) 
+
 
 ### What is headless
 
@@ -174,6 +194,8 @@ Universal Learning Asynchronous Model
 - json > xml
 
 Tabela z porownanie ulam vs cmi5 
+
+`topic_type` is like `xAPI` word, it can be anything, the standard doesn't specify this. 
 
 ### HEadless
 
@@ -210,3 +232,5 @@ Don't forget them or you'll have people with hurt feelings. Acknowledge anyone w
 [^4]: [ Adobe Captivate](https://www.adobe.com/products/captivate.html)
 
 [^5]: [Blockchain Networks: Token Design and Management Overview](https://nvlpubs.nist.gov/nistpubs/ir/2021/NIST.IR.8301.pdf) NISTIR 8301. National Institute of Standards and Technology
+
+[^6]: [Conceptual Overview of cmi5](http://aicc.github.io/CMI-5_Spec_Current/flows/cmi5-overview.html)

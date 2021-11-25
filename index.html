@@ -153,7 +153,7 @@
 <body>
 <header id="title-block-header">
 <h1 class="title">Course Headless Format</h1>
-<p class="subtitle">ver. 50b2a4b</p>
+<p class="subtitle">ver. 0f7db1e</p>
 <p class="author">Mateusz Wojczal. November 2021</p>
 </header>
 <nav id="TOC" role="doc-toc">
@@ -169,18 +169,22 @@
 <li><a href="#introduction-of-experience-api-xapi-and-related-technologies">Introduction of Experience API (xAPI) and related technologies</a>
 <ul>
 <li><a href="#learning-record-store-lrs">Learning Record Store LRS</a></li>
+<li><a href="#cmi5-specification">cmi5 Specification</a></li>
 <li><a href="#limitations-parts-of-current-standards">Limitations parts of current standards</a></li>
-<li><a href="#bad-parts">Bad parts</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#separation-of-concerns">Separation of concerns</a>
 <ul>
+<li><a href="#headless">Headless</a>
+<ul>
+<li><a href="#headless-lms.">Headless LMS.</a></li>
 <li><a href="#what-is-headless">What is headless</a></li>
 <li><a href="#pwa-serverless-json-vs-xml">PWA, Serverless, JSON (vs XML)</a></li>
+</ul></li>
 <li><a href="#ulam-format">Ulam Format</a>
 <ul>
 <li><a href="#good-parts-from-cmi5-xapi">Good parts from cmi5 &amp; xapi</a></li>
-<li><a href="#headless">HEadless</a></li>
+<li><a href="#headless-1">HEadless</a></li>
 <li><a href="#players">Players</a></li>
 <li><a href="#importexport">Import/Export</a></li>
 <li><a href="#offline">Offline</a></li>
@@ -410,21 +414,37 @@
 <figure>
 <img src="images/lrs.png" alt="Experience API (xAPI) process flow with Learning Record Store (LRS)" /><figcaption aria-hidden="true">Experience API (xAPI) process flow with Learning Record Store (LRS)</figcaption>
 </figure>
+<h3 id="cmi5-specification">cmi5 Specification</h3>
+<blockquote>
+<p>cmi5 is a “profile” for using the xAPI specification with traditional learning management (LMS) systems. <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+</blockquote>
+<p>The Specification of cmi5 is a set of rules providing all the capabilities of SCORM and xAPI. It is similar to SCORM in a way that it also contains XML file manifest, yet it does introduce the Assignable Unit (AU) - separately launchable learning content presentation. The AU is the unit of tracking and management. The AU collects data on the learner and sends it to the LMS.</p>
+<figure>
+<img src="images/cmi5-concept-overview.png" alt="Conceptual Overview of cmi5 " /><figcaption aria-hidden="true">Conceptual Overview of cmi5 <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></figcaption>
+</figure>
 <h3 id="limitations-parts-of-current-standards">Limitations parts of current standards</h3>
 <ul>
-<li>no offine (needs a server)</li>
-<li>same domain</li>
-<li>no speparationn betrween layers</li>
-<li>when designed there was no mobile devices</li>
-<li>Assignable Unit (AU) must have launchURL that basically is course starting point</li>
-<li>why cmi5 is not enough (http://aicc.github.io/CMI-5_Spec_Current/flows/lms-flow.html)</li>
-<li>why xapi is good</li>
+<li>SCORM is limited by design, there is no way to improve it implementing <strong>Separation of concerns</strong> design pattern.<br />
+</li>
+<li>Even with latest standard <code>cmi5</code> the <strong>Separation of concerns</strong> is not complete.</li>
+<li>Assignable Unit defines only entry URL for the content, but it does not define the content structure in any way.</li>
+<li>Specification of Assignable Unit (AU) require to have <code>launchURL</code> that basically is course starting point. There is no way to extend this to replace <code>launchURL</code> with the content itself.</li>
+<li>There is no separation of layers in content delivery. Presentation, data and logic layers are inseparable.</li>
+<li>Courses cannot be played offline as server is required all the time.</li>
+<li>Even though cmi5 provides <strong>Mobile app launch support</strong> functionality there is no specification for that, it is possible yet not defined.</li>
 </ul>
-<h3 id="bad-parts">Bad parts</h3>
 <h1 id="separation-of-concerns">Separation of concerns</h1>
+<p>The main motivation of introducing new e-learning format is to allow to separate all of the e-learning components into independent elements and follow the <strong>separation of concerns (SoC)</strong> computer science design principle.</p>
 <blockquote>
-<p>A design principle for breaking down an application into modules, layers, and encapsulations, the roles of which are independent of one another. <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p>A design principle for breaking down an application into modules, layers, and encapsulations, the roles of which are independent of one another. <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
 </blockquote>
+<h2 id="headless">Headless</h2>
+<p>Regular websites and web application works in the way that their own back-end (server side component) and front-end (graphical user interface). Each piece use the same code base and communicate directly on the server machine with each other, making the website as a whole.</p>
+<p>Headless web application is an implementation of <strong>separation of concerns (SoC)</strong> design principle of the front-end as stand-alone piece of software, and the back-end that doesn’t know anything about way the data that is service will be presented. All the communication happens through API as the bridge between both parts. All parts works separately technically (placed on separate servers) and functionally.</p>
+<h3 id="headless-lms.">Headless LMS.</h3>
+<figure>
+<img src="images/headless-lms.png" alt="Architecture of headless LMS" /><figcaption aria-hidden="true">Architecture of headless LMS</figcaption>
+</figure>
 <h3 id="what-is-headless">What is headless</h3>
 <h3 id="pwa-serverless-json-vs-xml">PWA, Serverless, JSON (vs XML)</h3>
 <h2 id="ulam-format">Ulam Format</h2>
@@ -437,7 +457,8 @@
 <li>json &gt; xml</li>
 </ul>
 <p>Tabela z porownanie ulam vs cmi5</p>
-<h3 id="headless">HEadless</h3>
+<p><code>topic_type</code> is like <code>xAPI</code> word, it can be anything, the standard doesn’t specify this.</p>
+<h3 id="headless-1">HEadless</h3>
 <h3 id="players">Players</h3>
 <h3 id="importexport">Import/Export</h3>
 <h3 id="offline">Offline</h3>
@@ -458,7 +479,9 @@
 <li id="fn2" role="doc-endnote"><p><a href="https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/">A timeline and description of the eLearning standards.</a>. SCORM<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3" role="doc-endnote"><p><a href="https://moodle.org/">Moodle - Open-source learning platform | Moodle.org</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4" role="doc-endnote"><p><a href="https://www.adobe.com/products/captivate.html">Adobe Captivate</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5" role="doc-endnote"><p><a href="https://nvlpubs.nist.gov/nistpubs/ir/2021/NIST.IR.8301.pdf">Blockchain Networks: Token Design and Management Overview</a> NISTIR 8301. National Institute of Standards and Technology<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p><a href="http://aicc.github.io/CMI-5_Spec_Current/flows/cmi5-overview.html">Conceptual Overview of cmi5</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6" role="doc-endnote"><p><a href="http://aicc.github.io/CMI-5_Spec_Current/flows/cmi5-overview.html">Conceptual Overview of cmi5</a><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7" role="doc-endnote"><p><a href="https://nvlpubs.nist.gov/nistpubs/ir/2021/NIST.IR.8301.pdf">Blockchain Networks: Token Design and Management Overview</a> NISTIR 8301. National Institute of Standards and Technology<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </body>

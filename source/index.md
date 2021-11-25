@@ -143,17 +143,26 @@ A Learning Record Store is an external to course application that receives and s
 The Specification of cmi5 is a set of rules providing all the capabilities of SCORM and xAPI. 
 It is similar to SCORM in a way that it also contains XML file manifest, yet it does introduce the Assignable Unit (AU) - separately launchable learning content presentation. The AU is the unit of tracking and management. The AU collects data on the learner and sends it to the LMS. 
 
-![Conceptual Overview of cmi5 [^6] ](images/cmi5-concept-overview.png) 
+![Conceptual Overview of cmi5 [^5] ](images/cmi5-concept-overview.png) 
+
+cmi5 also requires Determine Launch Mode, defines some xAPI statements that must appear in correct order. 
+The course itself describes `moveOn` rules 
+
+> Setting that captures how a learner moves through the AUs/Blocks of a Course. Determines what is required for an AU to be considered “Satisfied”. Blocks are “Satisfied” when all of their direct descendent AUs or Blocks are “Satisfied”. The Course is “Satisfied” when all of its direct descendent AUs or Blocks are “Satisfied”. [^6]
+
+![cmi5 Implementation Flow for an LMS [^7] ](images/lms-flow-chart.png) 
 
 ### Limitations parts of current standards 
 
-- SCORM is limited by design, there is no way to improve it implementing **Separation of concerns** design pattern.  
-- Even with latest standard `cmi5` the **Separation of concerns** is not complete. 
-- Assignable Unit defines only entry URL for the content, but it does not define the content structure in any way. 
-- Specification of Assignable Unit (AU) require to have `launchURL` that basically is course starting point. There is no way to extend this to replace `launchURL` with the content itself. 
-- There is no separation of layers in content delivery. Presentation, data and logic layers are inseparable. 
-- Courses cannot be played offline as server is required all the time. 
-- Even though cmi5 provides __Mobile app launch support__ functionality there is no specification for that, it is possible yet not defined.  
+Regardless of all the efforts for evolution of e-learning standard there are still limitations:  
+
+* SCORM is limited by design, there is no way to improve it implementing **Separation of concerns** design pattern.
+* Even with latest standard `cmi5` the **Separation of concerns** is not complete. 
+* Assignable Unit defines only entry URL for the content, but it does not define the content structure in any way. 
+* Specification of Assignable Unit (AU) require to have `launchURL` that basically is course starting point. There is no way to extend this to replace `launchURL` with the content itself. 
+* There is no separation of layers in content delivery. Presentation, data and logic layers are inseparable. 
+* Courses cannot be played offline as server is required all the time. 
+* Even though cmi5 provides __Mobile app launch support__ functionality there is no specification for that, it is possible yet not defined.  
 
 \pagebreak
 
@@ -163,7 +172,7 @@ The main motivation of introducing new e-learning format is to allow to separate
 
 > A design principle for breaking down an application into modules,
 layers, and encapsulations, the roles of which are independent of one
-another. [^5]
+another. [^8]
 
 ## Headless 
 
@@ -179,20 +188,28 @@ In opposition to Monolith LMS Architecture headless LMS is build upon API as a m
 In Monolithic architecture, frontend component, a presentation layers, requires specific know-how, example: you are obliged to use Moodle template system called Mustache 
 In Headless architecture, frontend is framework agnostic. You can use any frontend framework you want. Furthermore you can use few at once, like React on one domain, vue for course details and Angular for admin panel on other domains.  
 
-Headless LMS Architecture
-* **separation of concerns (SoC)**  design principle, separate all od the components. 
-* only API require server  
-* admin panel is serverless 
+**Headless LMS Architecture**
+
+* **separation of concerns (SoC)**  design principle, separate all of the components. 
+* only API require server
+* admin panel is serverless
 * user app is serverless
-* application and admin panel are easy to replicate 
-* other view layouts (eg native mobile application) are easy to add without changes to other layers 
-* to implement courses for students there is no need to specialization knowledge. 
+* application and admin panel are easy to replicate
+* other view layouts (eg native mobile application) are easy to add without changes to other layers
+* to implement courses for students there is no need to specialization knowledge.
 
 ![Architecture of headless LMS ](images/headless-lms.png) 
 
+A Headless LMS is a "Course Repository" that makes content accessible to any platform via an API. We provide blocks to build one, yet you’re free to change those od use your own.
+Unlike a traditional LMS such as Moodle, a Headless LMS does not dictate where or how content is shown. Also you don’t need any additional software to show a course - it’s just a matter of API communication
+
+A Headless LMS enables teams to deliver omnichannel experiences at scale, globally, without restrictions like templates, devices, or pre-defined technologies.
+A Headless LMS allows brands and companies to engage with users on any device and format. White label was never easier then with headless. 
+A Headless LMS fits into any preferred tech stack or framework, including most popular ones like React, Angular, and Vue.
+
 ### Limitations parts of current standards that headless improve 
 
-- Implementing **Separation of concerns** design pattern is complete .  
+- Implementing **Separation of concerns** design pattern is complete.
 - New headless formats can defined content structure. 
 - Presentation, data and logic layers are separable. 
 - Courses cannot can be played offline as server is not required all the time. 
@@ -201,36 +218,87 @@ Headless LMS Architecture
 
 # ULAM Format. 
 
-### What is headless
+Because of the existing limitation new format **ULAM** __Universal Learning Asynchronous Model__ for course content is needed. 
 
-### PWA, Serverless, JSON (vs XML)
+The main motivation for the above are
 
-## Ulam Format
+**Separation content layer from separation layer** 
 
-Why separaion is good https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
+lorem ipsum 
 
-Universal Learning Asynchronous Model
+**Use of JSON format instead of XML**
 
-### Good parts from cmi5 & xapi
+lorem ipsum 
 
+**Easy implementation** 
+
+lorem ipsum 
+
+**Format that age well** 
+
+lorem ipsum , flash example
+
+**Open for extension**
+
+lorem ipsum 
+
+**Standalone** 
+
+lorem ipsum 
+
+**Using well design standards, reject obsolete ones**
+
+lorem ipsum 
 - xapi verbs
 - au
 - json > xml
 
-Tabela z porownanie ulam vs cmi5 
+## Definition 
+
+lorem ipsum 
+
+json schema 
+
+## Packaging. 
+
+lorem ipsum 
+
+### Import 
+
+lorem ipsum 
+
+### Export 
+
+lorem ipsum 
+
+## Implementation 
+
+Frontend agnostinc (no Scorm like object)
+
+### Types and Players 
 
 `topic_type` is like `xAPI` word, it can be anything, the standard doesn't specify this. 
 
-### HEadless
 
-### Players
+## comparison with `cmi5`
 
-### Import/Export
+|                                       |        cmi5        |        ulam       |
+|:-------------------------------------:|:------------------:|:-----------------:|
+| use xAPI                              |         yes        |        yes        |
+| Manifest format                       |         xml        |        json       |
+| Defined course type structure         |         no         |        yes        |
+| Separation of concerns in course data |         no         |        yes        |
+| Connection to LRS                     |      required      |    not required   |
+| Mobile friendly                       | no (only tracking) |        yes        |
+| Run-Time required                     |         yes        |         no        |
+| Content Package format                |         yes        |        yes        |
+| Definition of Course launch           |         yes        | yes, same as cmi5 |
+| Client Agnostic                       |         yes        |        yes        |
+| Distributed Content                   |         yes        |         no        |
+| Advanced activity tracking            |         yes        |        yes        |
+| Serverless                            |         no         |        yes        |
 
-### Offline
-
-
-## The Conclusions
+# The Conclusions
 
 In general a short summarizing paragraph will do, and under no circumstances should the paragraph simply repeat material from the Abstract or Introduction. In some cases it's possible to now make the original claims more concrete, e.g., by referring to quantitative performance results.
 
@@ -243,7 +311,7 @@ This material is important -- part of the value of a paper is showing how the wo
 
 ## The Acknowledgements
 
-Don't forget them or you'll have people with hurt feelings. Acknowledge anyone who contributed in any way: through discussions, feedback on drafts, implementation, etc. If in doubt about whether to include someone, include them.
+Thank you XXX who edited this article. 
 
 
 
@@ -255,6 +323,11 @@ Don't forget them or you'll have people with hurt feelings. Acknowledge anyone w
 
 [^4]: [ Adobe Captivate](https://www.adobe.com/products/captivate.html)
 
-[^5]: [Blockchain Networks: Token Design and Management Overview](https://nvlpubs.nist.gov/nistpubs/ir/2021/NIST.IR.8301.pdf) NISTIR 8301. National Institute of Standards and Technology
+[^5]: [Conceptual Overview of cmi5](http://aicc.github.io/CMI-5_Spec_Current/flows/cmi5-overview.html)
 
-[^6]: [Conceptual Overview of cmi5](http://aicc.github.io/CMI-5_Spec_Current/flows/cmi5-overview.html)
+[^6]: [cmi5: Technical 101](https://xapi.com/cmi5/cmi5-technical-101) Terminology.
+
+[^7]: [cmi5 Implementation Flow for an LMS](http://aicc.github.io/CMI-5_Spec_Current/flows/lms-flow.html)
+
+[^8]: [Blockchain Networks: Token Design and Management Overview](https://nvlpubs.nist.gov/nistpubs/ir/2021/NIST.IR.8301.pdf) NISTIR 8301. National Institute of Standards and Technology
+

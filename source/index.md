@@ -238,7 +238,7 @@ lorem ipsum
 
 lorem ipsum , flash example
 
-**Open for extension**
+**Simple but open for extension**
 
 lorem ipsum 
 

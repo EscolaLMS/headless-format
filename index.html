@@ -1,8 +1,465 @@
-<html>
-    <head>
-        <title>Course Headless Format</title>
-    </head>
-    <body>
-        <a href="paper.pdf">paper.pdf</a>
-    </body>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Mateusz Wojczal. November 2021" />
+  <title>Course Headless Format</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 12pt;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: blue;
+    }
+    a:visited {
+      color: blue;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Course Headless Format</h1>
+<p class="subtitle">ver. 50b2a4b</p>
+<p class="author">Mateusz Wojczal. November 2021</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#the-abstract">The Abstract</a></li>
+<li><a href="#the-introduction">The Introduction</a></li>
+<li><a href="#evolution-of-e-learning">Evolution of e-learning</a>
+<ul>
+<li><a href="#history-of-e-learning-formats">History of e-learning formats</a></li>
+<li><a href="#what-is-learning-management-system---lms">What is Learning Management System - LMS</a></li>
+<li><a href="#lms-monolith-architecture">LMS Monolith Architecture</a></li>
+<li><a href="#process-of-publishing-the-course">Process of publishing the course</a></li>
+<li><a href="#introduction-of-experience-api-xapi-and-related-technologies">Introduction of Experience API (xAPI) and related technologies</a>
+<ul>
+<li><a href="#learning-record-store-lrs">Learning Record Store LRS</a></li>
+<li><a href="#limitations-parts-of-current-standards">Limitations parts of current standards</a></li>
+<li><a href="#bad-parts">Bad parts</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#separation-of-concerns">Separation of concerns</a>
+<ul>
+<li><a href="#what-is-headless">What is headless</a></li>
+<li><a href="#pwa-serverless-json-vs-xml">PWA, Serverless, JSON (vs XML)</a></li>
+<li><a href="#ulam-format">Ulam Format</a>
+<ul>
+<li><a href="#good-parts-from-cmi5-xapi">Good parts from cmi5 &amp; xapi</a></li>
+<li><a href="#headless">HEadless</a></li>
+<li><a href="#players">Players</a></li>
+<li><a href="#importexport">Import/Export</a></li>
+<li><a href="#offline">Offline</a></li>
+</ul></li>
+<li><a href="#the-conclusions">The Conclusions</a></li>
+<li><a href="#future-work">Future Work</a></li>
+<li><a href="#the-acknowledgements">The Acknowledgements</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="the-abstract">The Abstract</h1>
+<p>Current e-learning does have a huge technological dept and do not responding to market needs as fast as other segments. The main reason is the obsolete formats like SCORM that are widely used which does not separate data layer from presentation one. There is a need from market of existence of better formats.</p>
+<h1 id="the-introduction">The Introduction</h1>
+<p>Current e-learning formats does not separate data from presentation layers. Current e-learning content are not portable and are not designed to age well.</p>
+<p>With separation of layers the content can be displayed in modern way everything some new devices is used. If SCORM courses where designed in this fashion back in 2000s it would be straigh forward to convert them to any devices, like mobile phones, smartwatches, smart tvs, etc. Because of wrong design decision we’re stuck with this format and obsolete courses.</p>
+<p>Back in the days when Advanced Distributed Learning was creating SCORM adapting older AICC HACP desktop format most of the personal computers used the same browser, on the same operation system with common 1024x768 pixel resolution. If there were variation to this statement they were minimal. Browser were not able to do much more then to show server response in HTML format after client request. Everything showed in browser window was rendered by server and even if there was separation of layers it happened only on server side.</p>
+<p>Organizations that are working on e-learning standards are responding to market needs very slowly. Their latest specification <code>cmi5</code>, which does solve many of the issues, is already 6 years old and not commonly adapted - the most popular format SCORM 2004 4th Edition was published in 2009.</p>
+<p>The headless approach seems to be solving all of the issues that modern e-learning and LMSes do have. The separation of content and it’s players allows to create courses that works well on any device and do age well. Course designed in this favour most likely will be able to be played on device not yet used.</p>
+<h1 id="evolution-of-e-learning">Evolution of e-learning</h1>
+<h2 id="history-of-e-learning-formats">History of e-learning formats</h2>
+<p>The most popular e-learning formats are created and managed by the Advanced Distributed Learning (ADL) Initiative from the Office of the United States Secretary of Defense.</p>
+<p>Before e-learning was used in the web browser environment there was AICC’s format created in 1993. First widely used format was AICC HACP released in 1998 which later evolved into SCORM 1.0 that was released in year 2000.</p>
+<p>SCORM which is an abbreviation of Sharable Content Object Reference Model since this day is the most popular e-learning package standard. Since version 1.0 to latest SCORM 2004 4th Edition this format is a collection of standards and specifications for web-based e-learning. The format itself describes communications between client side content and a host system and how to package whole course into ZIP files that are called “Package Interchange Format.”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Latter is a ZIP package that contains HTML files and XML manifest.</p>
+<p>Since SCORM introduced many issues The Experience API, also known as Tin Can API or xAPI was released and later cmi5 format that provides a set of rules intended to achieve interoperability in a traditional Learning Management System environment.</p>
+<p>xAPI specification removes content for it description, and allows the content to send “statements” based around [actor] [verb] [object], or “I – did – this” to a Learning Record Store (LRS) which can be part of Learning Management System but can live on their own or as part of another system.</p>
+<p>The table below <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> summarizes the comparison of each standard:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 12%" />
+<col style="width: 5%" />
+<col style="width: 13%" />
+<col style="width: 7%" />
+<col style="width: 8%" />
+<col style="width: 7%" />
+<col style="width: 9%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Format</th>
+<th style="text-align: center;">Released</th>
+<th style="text-align: center;">Pages</th>
+<th style="text-align: center;">Widely Used</th>
+<th style="text-align: center;">Run-Time</th>
+<th style="text-align: center;">Pack-aging</th>
+<th style="text-align: center;">Meta-data</th>
+<th style="text-align: center;">Sequen-cing</th>
+<th style="text-align: center;">Works Cross Domain</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">AICC HACP</td>
+<td style="text-align: center;">Feb 1998</td>
+<td style="text-align: center;">337</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SCORM 1.0</td>
+<td style="text-align: center;">Jan 2000</td>
+<td style="text-align: center;">219</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SCORM 1.1</td>
+<td style="text-align: center;">Jan 2001</td>
+<td style="text-align: center;">233</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SCORM 1.2</td>
+<td style="text-align: center;">Oct 2001</td>
+<td style="text-align: center;">524</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SCORM 2004 “1st Edition”</td>
+<td style="text-align: center;">Jan 2004</td>
+<td style="text-align: center;">1,027</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SCORM 2004 2nd Edition</td>
+<td style="text-align: center;">Jul 2004</td>
+<td style="text-align: center;">1,219</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SCORM 2004 3rd Edition</td>
+<td style="text-align: center;">Oct 2006</td>
+<td style="text-align: center;">1137</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SCORM 2004 4th Edition</td>
+<td style="text-align: center;">Mar 2009</td>
+<td style="text-align: center;">1162</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">IMS Common Cartridge</td>
+<td style="text-align: center;">Oct 2008</td>
+<td style="text-align: center;">135</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">IMS LTI</td>
+<td style="text-align: center;">May 2010</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">In Academic LMSs</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">The Experience API (xAPI)</td>
+<td style="text-align: center;">April 26, 2013</td>
+<td style="text-align: center;">85</td>
+<td style="text-align: center;">Not Yet</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Partial</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">cmi5 (a companion to xAPI)</td>
+<td style="text-align: center;">June 1, 2016</td>
+<td style="text-align: center;">48</td>
+<td style="text-align: center;">Not Yet</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-is-learning-management-system---lms">What is Learning Management System - LMS</h2>
+<p>Web accessible application that takes care of administration, documentation, tracking, reporting, automation, and delivery of educational courses, training programs, or learning and development programs is called Learning Management System. LMS systems are kind of software that manage e-Learning.</p>
+<p>The most popular LMS is Moodle <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, released on 20 August 2002 because it’s available for free as open course software, distributed under the GNU General Public License.</p>
+<p>Moodle is program written in PHP that is being served by machine that use PHP. That means that all of the actions for administrators, course creators, students and any other roles does require to connect to machine (server) that serves Moodle. This is a monolith architecture, which means that all moodle components are PHP based working on one machine that parses moodle source code every time there is a request from the browser. Components of the program are interconnected and interdependent in a tightly-coupled architecture.</p>
+<p>Most other popular LMS works very similar, as they monolith architecture is the most popular among the LMS</p>
+<h2 id="lms-monolith-architecture">LMS Monolith Architecture</h2>
+<p>It the diagram below there is Moodle monolith architecture</p>
+<figure>
+<img src="images/moodle1.png" alt="LMS monolith architecture. Moodle technical architecture" /><figcaption aria-hidden="true">LMS monolith architecture. Moodle technical architecture</figcaption>
+</figure>
+<p>All the LMS Features that includes</p>
+<ul>
+<li>Managing courses, users and roles</li>
+<li>Online assessment</li>
+<li>User feedback</li>
+<li>Synchronous and Asynchronous Learning</li>
+<li>Learning Analytics</li>
+</ul>
+<p>are handled directly from the server, the response is prepared before being sent in HTML format by PHP preprocessor, the client gets the HTML already rendered document.</p>
+<figure>
+<img src="images/moodle2.png" alt="LMS monolith architecture. Moodle functional architecture" /><figcaption aria-hidden="true">LMS monolith architecture. Moodle functional architecture</figcaption>
+</figure>
+<p>All the above means that Moodle and dedicated server is required all the time for all e-learning activities.</p>
+<h2 id="process-of-publishing-the-course">Process of publishing the course</h2>
+<p>Standard way of creating and publishing SCORM compliant course is to follow the steps</p>
+<ol type="1">
+<li>Creating of a course in an e-Learning authoring tool (like Adobe Captivate <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>) or in from the LMS environment.</li>
+<li>Course is published as a SCORM package, a ZIP file</li>
+<li>SCORM package is being uploaded with LMS upload form and prepared to be published</li>
+<li>LMS publish the course to the students. All results of activities are stored in the LMS</li>
+</ol>
+<figure>
+<img src="images/authoring-tools.png" alt="Process of publishing the course" /><figcaption aria-hidden="true">Process of publishing the course</figcaption>
+</figure>
+<p>The process above is one direction - which means that SCORM package is closed format, once published it cannot be changed. In order to make any changes, event amending simple typo, the whole process must be repeated - course needs to be changed in authoring tool, then uploaded, etc.</p>
+<h2 id="introduction-of-experience-api-xapi-and-related-technologies">Introduction of Experience API (xAPI) and related technologies</h2>
+<p>One of the limitation of SCORM that decided about introducing extended formats was capability to track and trace activities from students only within the same LMS. That means that the course and LMS are inseparable.</p>
+<p>xAPI specification removes content for it description, and allows the content to send “statements” based around [actor] [verb] [object], or “I – did – this” to a Learning Record Store (LRS) which can be part of Learning Management System but can live on their own or as part of another system. This was the first step for <strong>Separation of concerns</strong> in e-learning.</p>
+<h3 id="learning-record-store-lrs">Learning Record Store LRS</h3>
+<p>A Learning Record Store is an external to course application that receives and sends data in JSON format from and to course runtime - it is an essential component in Experience API process flow. What’s a big difference is that the specification does not tell how does course is being played (course runtime), it just defines that runtime does communicate with the interface (LRS) though xAPI Statements. The statements are open to extend, each implementation can introduce their own statements.</p>
+<figure>
+<img src="images/lrs.png" alt="Experience API (xAPI) process flow with Learning Record Store (LRS)" /><figcaption aria-hidden="true">Experience API (xAPI) process flow with Learning Record Store (LRS)</figcaption>
+</figure>
+<h3 id="limitations-parts-of-current-standards">Limitations parts of current standards</h3>
+<ul>
+<li>no offine (needs a server)</li>
+<li>same domain</li>
+<li>no speparationn betrween layers</li>
+<li>when designed there was no mobile devices</li>
+<li>Assignable Unit (AU) must have launchURL that basically is course starting point</li>
+<li>why cmi5 is not enough (http://aicc.github.io/CMI-5_Spec_Current/flows/lms-flow.html)</li>
+<li>why xapi is good</li>
+</ul>
+<h3 id="bad-parts">Bad parts</h3>
+<h1 id="separation-of-concerns">Separation of concerns</h1>
+<blockquote>
+<p>A design principle for breaking down an application into modules, layers, and encapsulations, the roles of which are independent of one another. <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+</blockquote>
+<h3 id="what-is-headless">What is headless</h3>
+<h3 id="pwa-serverless-json-vs-xml">PWA, Serverless, JSON (vs XML)</h3>
+<h2 id="ulam-format">Ulam Format</h2>
+<p>Why separaion is good https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller</p>
+<p>Universal Learning Asynchronous Model</p>
+<h3 id="good-parts-from-cmi5-xapi">Good parts from cmi5 &amp; xapi</h3>
+<ul>
+<li>xapi verbs</li>
+<li>au</li>
+<li>json &gt; xml</li>
+</ul>
+<p>Tabela z porownanie ulam vs cmi5</p>
+<h3 id="headless">HEadless</h3>
+<h3 id="players">Players</h3>
+<h3 id="importexport">Import/Export</h3>
+<h3 id="offline">Offline</h3>
+<h2 id="the-conclusions">The Conclusions</h2>
+<p>In general a short summarizing paragraph will do, and under no circumstances should the paragraph simply repeat material from the Abstract or Introduction. In some cases it’s possible to now make the original claims more concrete, e.g., by referring to quantitative performance results.</p>
+<h2 id="future-work">Future Work</h2>
+<p>This material is important – part of the value of a paper is showing how the work sets new research directions. I like bullet lists here. (Actually I like them in general.) A couple of things to keep in mind:</p>
+<ul>
+<li>If you’re actively engaged in follow-up work, say so. E.g.: “We are currently extending the algorithm to… blah blah, and preliminary results are encouraging.” This statement serves to mark your territory.</li>
+<li>Conversely, be aware that some researchers look to Future Work sections for research topics. My opinion is that there’s nothing wrong with that – consider it a compliment.</li>
+</ul>
+<h2 id="the-acknowledgements">The Acknowledgements</h2>
+<p>Don’t forget them or you’ll have people with hurt feelings. Acknowledge anyone who contributed in any way: through discussions, feedback on drafts, implementation, etc. If in doubt about whether to include someone, include them.</p>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="https://en.wikipedia.org/wiki/Sharable_Content_Object_Reference_Model">Technical Specification 4th Ed.</a>. SCORM. Retrieved 2017-05-22.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/">A timeline and description of the eLearning standards.</a>. SCORM<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="https://moodle.org/">Moodle - Open-source learning platform | Moodle.org</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p><a href="https://www.adobe.com/products/captivate.html">Adobe Captivate</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p><a href="https://nvlpubs.nist.gov/nistpubs/ir/2021/NIST.IR.8301.pdf">Blockchain Networks: Token Design and Management Overview</a> NISTIR 8301. National Institute of Standards and Technology<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
 </html>

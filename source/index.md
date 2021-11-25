@@ -170,9 +170,23 @@ another. [^5]
 Regular websites and web application works in the way that their own back-end (server side component) and front-end (graphical user interface). 
 Each piece use the same code base and communicate directly on the server machine with each other, making the website as a whole. 
 
-Headless web application is an implementation of **separation of concerns (SoC)**  design principle of the front-end as stand-alone piece of software, and the back-end that doesn't know anything about way the data that is service will be presented. All the communication happens through API as the bridge between both parts. All parts works separately technically (placed on separate servers) and functionally. 
+Headless web application is an implementation of **separation of concerns (SoC)**  design principle of the front-end as stand-alone piece of software, and the back-end that doesn't know anything about way the data that is served will be presented. All the communication happens through API as the bridge between both parts. All parts works separately technically (placed on separate servers) and functionally. 
 
 ### Headless LMS. 
+
+In opposition to Monolith LMS Architecture headless LMS is build upon API as a main component. All other components does communicate though this interface. In most cases API and Database are the only parts that require dedicated server. 
+
+In Monolithic architecture, frontend component, a presentation layers, requires specific know-how, example: you are obliged to use Moodle template system called Mustache 
+In Headless architecture, frontend is framework agnostic. You can use any frontend framework you want. Furthermore you can use few at once, like React on one domain, vue for course details and Angular for admin panel on other domains.  
+
+Headless LMS Architecture
+* **separation of concerns (SoC)**  design principle, separate all od the components. 
+* only API require server  
+* admin panel is serverless 
+* user app is serverless
+* application and admin panel are easy to replicate 
+* other view layouts (eg native mobile application) are easy to add without changes to other layers 
+* to implement courses for students there is no need to specialization knowladge. 
 
 ![Architecture of headless LMS ](images/headless-lms.png) 
 

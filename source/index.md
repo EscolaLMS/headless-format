@@ -43,16 +43,18 @@ The headless approach seems to be solving all of the issues that modern e-learni
 
 - aicc 1993, Scorm 1999, scorm 2004, xapi (tincan) 2013, cmi5 (cmi5: xAPI with Rules)
 - cmi5 defines how the LMS and the content will communicate using the xAPI Learning Record Store (LRS).
-- https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/
+- https://scorm.com/scorm-explained/business-of-scorm/s         corm-versions/
 - https://www.slideshare.net/Nine_Lanterns/interoperability-lti-and-experience-api-formerly-tincan
 
 ### What is LMS, LRS
 
 - definition
-- how does it work monolith struture
+- how does it work monolith struture 
 - diagram
 
 - https://scorm.com/what-is-an-lrs-learning-record-store/?utm_source=google&utm_medium=natural_search
+
+- https://docs.google.com/document/d/1jd0DJUFnKCn4Jj2nsQIFsb2wOZyednxeq-hxvnuOb2E/edit#
 
 #### How does publishing course look like
 

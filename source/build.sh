@@ -1,6 +1,6 @@
 #!/bin/sh
 pandoc index.md \
-    -f gfm \
+    -f markdown \
     -s \
     --include-in-header config.tex \
     -V linkcolor:blue \

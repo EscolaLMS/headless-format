@@ -4,7 +4,7 @@
 
 \hypersetup{
   pdftitle={ULAM Headless Course Format},
-  pdfauthor={learnbyexample},
+  pdfauthor={Mateusz Wojczal},
   pdfsubject={pandoc},
   pdfkeywords={pandoc,pdf,xelatex}
 }
@@ -14,4 +14,13 @@
 \pagestyle{fancy}
 \fancyfoot[CO,CE]{ULAM Headless Course Format}
 \fancyfoot[LE,RO]{\thepage}
+
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
 

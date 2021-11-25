@@ -186,10 +186,20 @@ Headless LMS Architecture
 * user app is serverless
 * application and admin panel are easy to replicate 
 * other view layouts (eg native mobile application) are easy to add without changes to other layers 
-* to implement courses for students there is no need to specialization knowladge. 
+* to implement courses for students there is no need to specialization knowledge. 
 
 ![Architecture of headless LMS ](images/headless-lms.png) 
 
+### Limitations parts of current standards that headless improve 
+
+- Implementing **Separation of concerns** design pattern is complete .  
+- New headless formats can defined content structure. 
+- Presentation, data and logic layers are separable. 
+- Courses cannot can be played offline as server is not required all the time. 
+- Other presentation layouts are easy to add without changes to other layers so __Mobile app launch support__ functionality is easily achievable. 
+
+
+# ULAM Format. 
 
 ### What is headless
 

@@ -207,7 +207,7 @@ A Headless LMS enables teams to deliver omnichannel experiences at scale, global
 A Headless LMS allows brands and companies to engage with users on any device and format. White label was never easier then with headless. 
 A Headless LMS fits into any preferred tech stack or framework, including most popular ones like React, Angular, and Vue.
 
-### Limitations parts of current standards that headless improve 
+## Limitations parts of current standards that Headless can improve 
 
 - Implementing **Separation of concerns** design pattern is complete.
 - New headless formats can defined content structure. 
@@ -275,9 +275,13 @@ lorem ipsum
 
 Frontend agnostinc (no Scorm like object)
 
-### Types and Players 
+### Content Types 
 
 `topic_type` is like `xAPI` word, it can be anything, the standard doesn't specify this. 
+
+### Content Players 
+
+lorem ipsum 
 
 
 ## comparison with `cmi5`

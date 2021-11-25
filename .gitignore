@@ -3,3 +3,5 @@ node_modules
 yarn.lock
 package.lock
 .DS_Store
+
+dist/*

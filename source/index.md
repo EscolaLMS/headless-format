@@ -259,6 +259,8 @@ lorem ipsum
 
 json schema 
 
+uml diagram klas
+
 ## Packaging. 
 
 lorem ipsum 

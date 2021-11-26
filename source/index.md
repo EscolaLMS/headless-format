@@ -26,8 +26,39 @@ output:
 
 # Glosarry 
 
-lorem ipsum 
+**ADL**
+Advanced Distributed Learning (ADL) Initiative from the Office of the United States Secretary of Defense.
 
+**cmi5**
+cmi5 is an xAPI Profile that provides rules for how online courses are imported, launched and tracked using a Learning Management System (LMS) and xAPI
+
+**JSON**	
+JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write.
+
+**JSON Schema**	
+JSON Schema is a vocabulary that allows you to annotate and validate JSON documents.
+
+**LMS**	
+Learning management system (LMS): Software used for developing, using, and storing course content of all types.
+
+**LRS**	
+A Learning Record Store (LRS) is a data store system that serves as a repository for learning records collected from connected systems where learning activities are conducted.
+monolith architecture	In software engineering, a monolithic application describes a single-tiered software application in which the user interface and data access code are combined into a single program from a single platform.
+
+**SCORM**	
+Shareable Content Object Reference Model, is a set of technical standards for eLearning software products.
+
+**Separation of concerns**	
+In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections.
+
+**xAPI**	
+The Experience API is an e-learning software specification that allows learning content and learning systems to speak to each other in a manner that records and tracks all types of learning experiences.
+
+**XML**	
+Extensible Markup Language; A markup language for coding web documents that allows designers to create their own customized tags for structuring a page.
+
+**ZIP**	
+ZIP is an archive file format that supports lossless data compression.
 
 \pagebreak
 
@@ -41,7 +72,7 @@ Current e-learning does have a huge technological dept and do not responding to 
 
 Current e-learning formats does not separate data from presentation layers. Current e-learning content are not portable and are not designed to age well.
 
-With separation of layers the content can be displayed in modern way everything some new devices is used. If SCORM courses where designed in this fashion back in 2000s it would be straigh forward to convert them to any devices, like mobile phones, smartwatches, smart tvs, etc. Because of wrong design decision we're stuck with this format and obsolete courses.
+With separation of layers the content can be displayed in modern way everything some new devices is used. If SCORM courses where designed in this fashion back in 2000s it would be straight forward to convert them to any devices, like mobile phones, smartwatches, smart tvs, etc. Because of wrong design decision we're stuck with this format and obsolete courses.
 
 Back in the days when Advanced Distributed Learning was creating SCORM adapting older AICC HACP desktop format most of the personal computers used the same browser, on the same operation system with common 1024x768 pixel resolution. If there were variation to this statement they were minimal. Browser were not able to do much more then to show server response in HTML format after client request. Everything showed in browser window was rendered by server and even if there was separation of layers it happened only on server side.
 
@@ -285,7 +316,7 @@ The course itself does not know how it will be displayed for a student.
 
 The course is packed in ZIP file that contains `content.json` manifest in main folder. 
 
-The course itself consists of at least one lessons which consists of at least topic. 
+The course itself consists of at least one lessons which consists of at least one topic. Topic is describes by type and value.  
 
 ![Structure of `ulam` course manifest](images/manifest-structure.png)
 
@@ -388,13 +419,9 @@ with relative paths to main `content.json` file.
 * Namespace: `ulam\h5p`
 * Value: Reference to H5P content
 
-
-
-
-
 ## Validating 
 
-The manifest must be validated against json schema file. The latest schema is always available in github repository[^11]. 
+The manifest must be validated against JSON Schema file. The latest schema is always available in github repository[^11]. 
 
 ## Extending 
 
@@ -402,37 +429,90 @@ Except of listed attributes the manifest can be extended by unlimited additional
 
 For example if there is need to describe course by video path or image it's a matter of adding new fields to the course attributes. 
 
+### Topic Types 
+
+One of the most important motivation introducing new format was the ability to add without limits new type of Assignable Unit (AU) in `ULAM` called TopicTypes. 
+
+Each organization that wants to add new type should use it's own namespace for `type`. 
+
+This allows to add new topic types like 
+
+* Augmented Reality assets
+* 3D Models
+* 3D Panoramas 
+* 3D Movies 
+* Metaverse assets 
+* Specialized format for particular industries
+* etc. 
 
 ## Example 
 
-More examples are available in github repository[^11]. 
+The example below show a course with extended fields. 
 
+```json
+{
+    "id": "f7e84b25e6f1f8d5e7dd3f1f438dd5f5",
+    "title": "The title of coure.",
+    "summary": "Summary.\n this is new line",
+    "image_path": "course\/2\/repudiandae.jpg",
+    "image_url": "https:\/\/api.escolalms.com\/\/storage\/course\/2\/repudiandae.jpg",
+    "video_path": "course\/2\/repudiandae.mp4",
+    "video_url": "https:\/\/api.escolalms.com\/\/storage\/course\/2\/repudiandae.mp4",
+    "base_price": 0,
+    "duration": "12H",
+    "active": true,
+    "subtitle": "Ratione nulla voluptate consequatur qui atque et rerum.",
+    "language": "pl",
+    "description": "Rerum numquam ut praesentium nostrum aut officia consequuntur",
+    "level": "expert",
+    "lessons": [{
+        "title": "voluptas",
+        "summary": "Qui aliquam aliquam dolor nihil.",
+        "topics": [{
+            "title": "beatae",
+            "active": true,
+            "preview": true,
+            "type": "ulam\\richtext",
+            "value": {
+                "created_at": "2021-10-14T15:50:29.000000Z",
+                "updated_at": "2021-10-14T15:50:29.000000Z",
+                "value": "Aperiam magni saepe labore accusantium totam animi.\n===================================================\n\nCorporis aut saepe ut mollitia. Deleniti voluptas explicabo expedita voluptas. Illum sit quia debitis recusandae architecto officiis provident. Distinctio velit illum eos architecto ut nobis libero.\n\n* Sint perferendis corrupti qui blanditiis.\n* Eius perspiciatis dolor officia laborum quo deserunt reiciendis.\n* Quisquam est eaque libero molestiae blanditiis."
+            },
+            "summary": "Sit aut fuga repellendus velit harum esse.",            
+            "order": 5
+    
+        }, {
+            "title": "esse",
+            "active": true,
+            "preview": false,
+            "type": "ulam\\image",
+            "value": {
+                "value": "topic\/23\/doloribus.jpg",
+                "width": 640,
+                "height": 480,
+                "url": "https:\/\/api.escolalms.com\/\/storage\/topic\/23\/doloribus.jpg"
+            },
+            "summary": "Ipsa laboriosam.",
+        }]
+}
+```
+
+More examples are available in github repository[^11]. 
 
 ## Packaging. 
 
-lorem ipsum
+Ulam package is similar to SCORM Package. It is zip file that consist of: 
+
+* validated `content.json` in main folder 
+* all the other assets that `content.json` attributes refer to. Those are relative paths 
 
 ### Import
 
-lorem ipsum
+LMS should be able to parse ZIP package, copy essential files, update theirs paths and save course, lessons and topics to database.
 
 ### Export
 
-lorem ipsum
-
-### Example 
-
-## Implementation
-
-Frontend agnostinc (no Scorm like object)
-
-### Content Types
-
-`topic_type` is like `xAPI` word, it can be anything, the standard doesn't specify this.
-
-### Content Players
-
-lorem ipsum
+LMS should be able to create ZIP package, with essential files, update theirs paths and save course, lessons and topics to `content.json`
 
 ## comparison with `cmi5`
 
@@ -452,16 +532,58 @@ lorem ipsum
 |      Advanced activity tracking       |        yes         |        yes        |
 |              Serverless               |         no         |        yes        |
 
+## Frontent. Implementation
+
+The implementation of ULAM courses are Frontend agnostinc. This means that the format itself doesn't describe how to render the course. 
+
+The player should follow `cmi5` lanuch mode and `xAPI` verbs. 
+
+Once the frontend application receice the ULAM content from the LMS endpoint is should parse it and create tree of lessons and topics. 
+
+### Topics Types
+
+`topic_type` is like `xAPI` word, it can be anything, the standard doesn't specify this except of the reserver `ulam` namespace.  
+
+### Topics Types Content Players
+
+Once course is rendered, frontend should parse each topic type and display content depending on the type. 
+
+The course itself is headless so it doesn't know what kind of enviroment and device it is being played on. 
+
+Let take a video topic type as and example: 
+
+```json
+{
+    "title": "esse",
+    "type": "ulam\\video",
+    "value": {
+        "value": "topic\/23\/doloribus.mp4",
+        "width": 640,
+        "height": 480,
+        "url": "https:\/\/api.escolalms.com\/\/storage\/topic\/23\/doloribus.mp4"
+    },
+    "summary": "Ipsa laboriosam.",
+}
+```
+
+The snippet above taken from ulam format means that this topic type is a video that has a dimention 640 width and 480 height. 
+
+There are many scenarios that this can be handled, as this depenend on what is the course current context. Some examples include:  
+
+* HTML5 build-in video player (tag <video>)
+* iOS native application `AVPlayer`
+* React/Vue/Angular video component 
+* React Native video component. 
+
 # The Conclusions
 
-In general a short summarizing paragraph will do, and under no circumstances should the paragraph simply repeat material from the Abstract or Introduction. In some cases it's possible to now make the original claims more concrete, e.g., by referring to quantitative performance results.
+The new format should be able top solve issue that occured during common e-learning lifespam. ULAM format is easy to use, implement, does age well and it's designed for extesions and plugins. 
 
 ## Future Work
 
-This material is important -- part of the value of a paper is showing how the work sets new research directions. I like bullet lists here. (Actually I like them in general.) A couple of things to keep in mind:
+The main focus on the ULAM format is in WELLS LMS system designed and implement by EsolaLMS Ltd. The project is open source and available on github[^12].
 
-- If you're actively engaged in follow-up work, say so. E.g.: "We are currently extending the algorithm to... blah blah, and preliminary results are encouraging." This statement serves to mark your territory.
-- Conversely, be aware that some researchers look to Future Work sections for research topics. My opinion is that there's nothing wrong with that -- consider it a compliment.
+At the moment there is no versioning of ULAM format as this is still proof of concept. 
 
 ## The Acknowledgements
 
@@ -480,3 +602,4 @@ Name ulam ....
 [^9]: [Google Trends](https://trends.google.com/trends/explore?date=all&q=xml,json) XML vs JSON
 [^10]: [An exciting time to watch xAPI and cmi5 adoption numbers](https://xapi.com/blog/an-exciting-time-to-watch-xapi-and-cmi5-adoption-numbers/)
 [^11]: [Ulam Headless Format](https://github.com/EscolaLMS/headless-format/tree/main/schema) Github repository. 
+[^12]: [Wellms LMS](https://github.com/EscolaLMS) Github repositories. 

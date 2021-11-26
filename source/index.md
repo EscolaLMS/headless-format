@@ -19,7 +19,12 @@ output:
 
 \pagebreak
 
+Latest version of this document is available here: [PDF](https://escolalms.github.io/headless-format/paper.pdf), [web](https://escolalms.github.io/headless-format)
+
+
+\hypersetup{linkcolor=black}
 \tableofcontents
+
 
 \pagebreak
 
@@ -589,7 +594,7 @@ At the moment there is no versioning of ULAM format as this is still proof of co
 
 Thank you XXX who edited this article.
 
-Name ulam .... 
+Name ULAM comes from Stanislaw Ulam a Polish scientist in the fields of mathematics and nuclear physics, who worked with von John von Neumann on very first computer based computation methods. 
 
 [^1]: [Technical Specification 4th Ed.](https://adlnet.gov/assets/uploads/SCORM_2004_4ED_v1_1_Doc_Suite.zip). SCORM. Retrieved 2017-05-22.
 [^2]: [A timeline and description of the eLearning standards.](https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/). SCORM

@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Mateusz Wojczal. November 2021" />
-  <title>Course Headless Format</title>
+  <title>E-leadning Course Headless Format</title>
   <style>
     html {
       line-height: 1.5;
@@ -215,8 +215,8 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Course Headless Format</h1>
-<p class="subtitle">ver. 0015b03</p>
+<h1 class="title">E-leadning Course Headless Format</h1>
+<p class="subtitle">ver. ad7ac8e</p>
 <p class="author">Mateusz Wojczal. November 2021</p>
 </header>
 <nav id="TOC" role="doc-toc">
@@ -226,11 +226,8 @@
 <li><a href="#the-introduction">The Introduction</a></li>
 <li><a href="#evolution-of-e-learning">Evolution of e-learning</a>
 <ul>
-<li><a href="#history-of-e-learning-formats">History of e-learning formats</a>
-<ul>
+<li><a href="#history-of-e-learning-formats">History of e-learning formats</a></li>
 <li><a href="#what-is-learning-management-system---lms">What is Learning Management System - LMS</a></li>
-</ul></li>
-<li><a href="#what-is-learning-management-system---lms-1">What is Learning Management System - LMS</a></li>
 <li><a href="#lms-monolith-architecture">LMS Monolith Architecture</a></li>
 <li><a href="#process-of-publishing-the-course">Process of publishing the course</a></li>
 <li><a href="#introduction-of-experience-api-xapi-and-related-technologies">Introduction of Experience API (xAPI) and related technologies</a>
@@ -252,9 +249,9 @@
 <ul>
 <li><a href="#definition">Definition</a>
 <ul>
-<li><a href="#general-description-of-course-attributes">General description of course attributes</a></li>
-<li><a href="#general-description-of-lesson-attributes">General description of lesson attributes</a></li>
-<li><a href="#general-description-of-topic-attributes">General description of topic attributes</a></li>
+<li><a href="#general-description-of-course-attributes">General description of Course attributes</a></li>
+<li><a href="#general-description-of-lesson-attributes">General description of Lesson attributes</a></li>
+<li><a href="#general-description-of-topic-attributes">General description of Topic attributes</a></li>
 <li><a href="#general-description-of-topic-types">General description of Topic types</a></li>
 </ul></li>
 <li><a href="#validating">Validating</a></li>
@@ -475,8 +472,7 @@ The Experience API is an e-learning software specification that allows learning 
 </tr>
 </tbody>
 </table>
-<h3 id="what-is-learning-management-system---lms">What is Learning Management System - LMS</h3>
-<h2 id="what-is-learning-management-system---lms-1">What is Learning Management System - LMS</h2>
+<h2 id="what-is-learning-management-system---lms">What is Learning Management System - LMS</h2>
 <p>The most popular LMS is Moodle <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, released on 20 August 2002 because it’s available for free as open course software, distributed under the GNU General Public License.</p>
 <p>Moodle is program written in PHP that is being served by machine that use PHP. That means that all of the actions for administrators, course creators, students and any other roles does require to connect to machine (server) that serves Moodle. This is a monolith architecture, which means that all moodle components are PHP based working on one machine that parses moodle source code every time there is a request from the browser. Components of the program are interconnected and interdependent in a tightly-coupled architecture.</p>
 <p>Most other popular LMS works very similar, as they monolith architecture is the most popular among the LMS</p>
@@ -622,7 +618,7 @@ The Experience API is an e-learning software specification that allows learning 
 <img src="images/manifest-structure.png" alt="Structure of ulam course manifest" /><figcaption aria-hidden="true">Structure of <code>ulam</code> course manifest</figcaption>
 </figure>
 <p>The manifest contains the following:</p>
-<h3 id="general-description-of-course-attributes">General description of course attributes</h3>
+<h3 id="general-description-of-course-attributes">General description of Course attributes</h3>
 <p>Course is defined by</p>
 <table>
 <colgroup>
@@ -697,7 +693,7 @@ The Experience API is an e-learning software specification that allows learning 
 </tbody>
 </table>
 <p>Except of listed attributes the course can be described by unlimited additional fields.</p>
-<h3 id="general-description-of-lesson-attributes">General description of lesson attributes</h3>
+<h3 id="general-description-of-lesson-attributes">General description of Lesson attributes</h3>
 <table>
 <colgroup>
 <col style="width: 10%" />
@@ -753,7 +749,7 @@ The Experience API is an e-learning software specification that allows learning 
 </tbody>
 </table>
 <p>Except of listed attributes the lesson can be described by unlimited additional fields.</p>
-<h3 id="general-description-of-topic-attributes">General description of topic attributes</h3>
+<h3 id="general-description-of-topic-attributes">General description of Topic attributes</h3>
 <table>
 <colgroup>
 <col style="width: 10%" />

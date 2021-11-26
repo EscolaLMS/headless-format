@@ -19,13 +19,17 @@ output:
 
 \pagebreak
 
-# **ULAM** Headless Course Format
+\tableofcontents
 
-## The Abstract
+\pagebreak
+
+# The Abstract
 
 Current e-learning does have a huge technological dept and do not responding to market needs as fast as other segments. The main reason is the obsolete formats like SCORM that are widely used which does not separate data layer from presentation one. There is a need from market of existence of better formats.
 
-## The Introduction
+\pagebreak
+
+# The Introduction
 
 Current e-learning formats does not separate data from presentation layers. Current e-learning content are not portable and are not designed to age well.
 
@@ -36,6 +40,10 @@ Back in the days when Advanced Distributed Learning was creating SCORM adapting 
 Organizations that are working on e-learning standards are responding to market needs very slowly. Their latest specification `cmi5`, which does solve many of the issues, is already 6 years old and not commonly adapted - the most popular format SCORM 2004 4th Edition was published in 2009.
 
 The headless approach seems to be solving all of the issues that modern e-learning and LMSes do have. The separation of content and it's players allows to create courses that works well on any device and do age well. Course designed in this favour most likely will be able to be played on device not yet used.
+
+\pagebreak
+
+# Evolution of e-learning
 
 ## History of e-learning formats
 
@@ -48,6 +56,8 @@ SCORM which is an abbreviation of Sharable Content Object Reference Model since 
 Since SCORM introduced many issues The Experience API, also known as Tin Can API or xAPI was released and later cmi5 format that provides a set of rules intended to achieve interoperability in a traditional Learning Management System environment.
 
 xAPI specification removes content for it description, and allows the content to send “statements” based around [actor] [verb] [object], or “I – did – this” to a Learning Record Store (LRS) which can be part of Learning Management System but can live on their own or as part of another system.
+
+\pagebreak
 
 The table below [^2] summarizes the comparison of each standard:
 
@@ -68,7 +78,7 @@ The table below [^2] summarizes the comparison of each standard:
 
 ### What is Learning Management System - LMS
 
-Web accessible application that takes care of administration, documentation, tracking, reporting, automation, and delivery of educational courses, training programs, or learning and development programs is called Learning Management System. LMS systems are kind of software that manage e-Learning.
+## What is Learning Management System - LMS
 
 The most popular LMS is Moodle [^3], released on 20 August 2002 because it's available for free as open course software, distributed under the GNU General Public License.
 
@@ -76,15 +86,13 @@ Moodle is program written in PHP that is being served by machine that use PHP. T
 
 Most other popular LMS works very similar, as they monolith architecture is the most popular among the LMS
 
-#### Monolith Architecture
+## LMS Monolith Architecture
 
 It the diagram below there is Moodle monolith architecture
 
-![Moodle monolith architecture](images/moodle1.png)
+![LMS monolith architecture. Moodle technical architecture](images/moodle1.png)
 
 All the LMS Features that includes
-
-fddfsdsf
 
 - Managing courses, users and roles
 - Online assessment
@@ -94,70 +102,203 @@ fddfsdsf
 
 are handled directly from the server, the response is prepared before being sent in HTML format by PHP preprocessor, the client gets the HTML already rendered document.
 
-![Moodle monolith architecture](images/moodle2.png)
+![LMS monolith architecture. Moodle functional architecture](images/moodle2.png)
 
-All the above means that Moodle and special server is required all the time for all e-learning activities.
+All the above means that Moodle and dedicated server is required all the time for all e-learning activities.
 
-- aicc 1993, Scorm 1999, scorm 2004, xapi (tincan) 2013, cmi5 (cmi5: xAPI with Rules)
-- cmi5 defines how the LMS and the content will communicate using the xAPI Learning Record Store (LRS).
-- https://scorm.com/scorm-explained/business-of-scorm/s corm-versions/
-- https://www.slideshare.net/Nine_Lanterns/interoperability-lti-and-experience-api-formerly-tincan
+## Process of publishing the course
 
-- definition
-- how does it work monolith struture
-- diagram
+Standard way of creating and publishing SCORM compliant course is to follow the steps
 
-- https://docs.google.com/document/d/1jd0DJUFnKCn4Jj2nsQIFsb2wOZyednxeq-hxvnuOb2E/edit#
+1. Creating of a course in an e-Learning authoring tool (like Adobe Captivate [^4]) or in from the LMS environment.
+2. Course is published as a SCORM package, a ZIP file
+3. SCORM package is being uploaded with LMS upload form and prepared to be published
+4. LMS publish the course to the students. All results of activities are stored in the LMS
 
-#### How does publishing course look like
+![Process of publishing the course](images/authoring-tools.png)
 
-- scorm is closed format, once published it cannot be changed.
+The process above is one direction - which means that SCORM package is closed format, once published it cannot be changed.
+In order to make any changes, event amending simple typo, the whole process must be repeated - course needs to be changed in authoring tool, then uploaded, etc.
 
-### Bad parts
+## Introduction of Experience API (xAPI) and related technologies
 
-- no offine (needs a server)
-- same domain
-- no speparationn betrween layers
-- when designed there was no mobile devices
-- Assignable Unit (AU) must have launchURL that basically is course starting point
-- why cmi5 is not enough (http://aicc.github.io/CMI-5_Spec_Current/flows/lms-flow.html)
-- why xapi is good
+One of the limitation of SCORM that decided about introducing extended formats was capability to track and trace activities from students only within the same LMS.
+That means that the course and LMS are inseparable.
 
-### What is headless
+xAPI specification removes content for it description, and allows the content to send “statements” based around [actor] [verb] [object], or “I – did – this” to a Learning Record Store (LRS) which can be part of Learning Management System but can live on their own or as part of another system. This was the first step for **Separation of concerns** in e-learning.
 
-### PWA, Serverless, JSON (vs XML)
+### Learning Record Store LRS
 
-## Ulam Format
+A Learning Record Store is an external to course application that receives and sends data in JSON format from and to course runtime - it is an essential component in Experience API process flow. What's a big difference is that the specification does not tell how does course is being played (course runtime), it just defines that runtime does communicate with the interface (LRS) though xAPI Statements. The statements are open to extend, each implementation can introduce their own statements.
 
-Why separaion is good https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
+![Experience API (xAPI) process flow with Learning Record Store (LRS)](images/lrs.png)
 
-Universal Learning Asynchronous Model
+### cmi5 Specification
 
-### Good parts from cmi5 & xapi
+> cmi5 is a "profile" for using the xAPI specification with traditional learning management (LMS) systems. [^6]
+
+The Specification of cmi5 is a set of rules providing all the capabilities of SCORM and xAPI.
+It is similar to SCORM in a way that it also contains XML file manifest, yet it does introduce the Assignable Unit (AU) - separately launchable learning content presentation. The AU is the unit of tracking and management. The AU collects data on the learner and sends it to the LMS.
+
+![Conceptual Overview of cmi5 [^5] ](images/cmi5-concept-overview.png)
+
+cmi5 also requires Determine Launch Mode, defines some xAPI statements that must appear in correct order.
+The course itself describes `moveOn` rules
+
+> Setting that captures how a learner moves through the AUs/Blocks of a Course. Determines what is required for an AU to be considered “Satisfied”. Blocks are “Satisfied” when all of their direct descendent AUs or Blocks are “Satisfied”. The Course is “Satisfied” when all of its direct descendent AUs or Blocks are “Satisfied”. [^6]
+
+![cmi5 Implementation Flow for an LMS [^7] ](images/lms-flow-chart.png)
+
+### Limitations parts of current standards
+
+Regardless of all the efforts for evolution of e-learning standard there are still limitations:
+
+- SCORM is limited by design, there is no way to improve it implementing **Separation of concerns** design pattern.
+- Even with latest standard `cmi5` the **Separation of concerns** is not complete.
+- Assignable Unit defines only entry URL for the content, but it does not define the content structure in any way.
+- Specification of Assignable Unit (AU) require to have `launchURL` that basically is course starting point. There is no way to extend this to replace `launchURL` with the content itself.
+- There is no separation of layers in content delivery. Presentation, data and logic layers are inseparable.
+- Courses cannot be played offline as server is required all the time.
+- Even though cmi5 provides **Mobile app launch support** functionality there is no specification for that, it is possible yet not defined.
+
+\pagebreak
+
+# Separation of concerns
+
+The main motivation of introducing new e-learning format is to allow to separate all of the e-learning components into independent elements and follow the **separation of concerns (SoC)** computer science design principle.
+
+> A design principle for breaking down an application into modules,
+> layers, and encapsulations, the roles of which are independent of one
+> another. [^8]
+
+## Headless
+
+Regular websites and web application works in the way that their own back-end (server side component) and front-end (graphical user interface).
+Each piece use the same code base and communicate directly on the server machine with each other, making the website as a whole.
+
+Headless web application is an implementation of **separation of concerns (SoC)** design principle of the front-end as stand-alone piece of software, and the back-end that doesn't know anything about way the data that is served will be presented. All the communication happens through API as the bridge between both parts. All parts works separately technically (placed on separate servers) and functionally.
+
+### Headless LMS.
+
+In opposition to Monolith LMS Architecture headless LMS is build upon API as a main component. All other components does communicate though this interface. In most cases API and Database are the only parts that require dedicated server.
+
+In Monolithic architecture, frontend component, a presentation layers, requires specific know-how, example: you are obliged to use Moodle template system called Mustache
+In Headless architecture, frontend is framework agnostic. You can use any frontend framework you want. Furthermore you can use few at once, like React on one domain, vue for course details and Angular for admin panel on other domains.
+
+**Headless LMS Architecture**
+
+- **separation of concerns (SoC)** design principle, separate all of the components.
+- only API require server
+- admin panel is serverless
+- user app is serverless
+- application and admin panel are easy to replicate
+- other view layouts (eg native mobile application) are easy to add without changes to other layers
+- to implement courses for students there is no need to specialization knowledge.
+
+![Architecture of headless LMS ](images/headless-lms.png)
+
+A Headless LMS is a "Course Repository" that makes content accessible to any platform via an API. We provide blocks to build one, yet you’re free to change those od use your own.
+Unlike a traditional LMS such as Moodle, a Headless LMS does not dictate where or how content is shown. Also you don’t need any additional software to show a course - it’s just a matter of API communication
+
+A Headless LMS enables teams to deliver omnichannel experiences at scale, globally, without restrictions like templates, devices, or pre-defined technologies.
+A Headless LMS allows brands and companies to engage with users on any device and format. White label was never easier then with headless.
+A Headless LMS fits into any preferred tech stack or framework, including most popular ones like React, Angular, and Vue.
+
+## Limitations parts of current standards that Headless can improve
+
+- Implementing **Separation of concerns** design pattern is complete.
+- New headless formats can defined content structure.
+- Presentation, data and logic layers are separable.
+- Courses cannot can be played offline as server is not required all the time.
+- Other presentation layouts are easy to add without changes to other layers so **Mobile app launch support** functionality is easily achievable.
+
+# ULAM Format.
+
+Because of the existing limitation new format **ULAM** **Universal Learning Asynchronous Model** for course content is needed.
+
+The main motivation for the above are
+
+**Separation content layer from separation layer**
+
+lorem ipsum
+
+**Use of JSON format instead of XML**
+
+lorem ipsum
+
+**Easy implementation**
+
+lorem ipsum
+
+**Format that age well**
+
+lorem ipsum , flash example
+
+**Simple but open for extension**
+
+lorem ipsum
+
+**Standalone**
+
+lorem ipsum
+
+**Using well design standards, reject obsolete ones**
+
+lorem ipsum
 
 - xapi verbs
 - au
 - json > xml
 
-### HEadless
+## Definition
 
-### Players
+lorem ipsum
 
-### Import/Export
+json schema
 
-### Offline
+## Packaging.
 
-**Guideline #1:** A clear new important technical contribution should have been articulated by the time the reader finishes page 3 (i.e., a quarter of the way through the paper).
+lorem ipsum
 
-**Guideline #2:** Every section of the paper should tell a story. (Don't, however, fall into the common trap of telling the entire story of how you arrived at your results. Just tell the story of the results themselves.) The story should be linear, keeping the reader engaged at every step and looking forward to the next step. There should be no significant interruptions -- those can go in the Appendix; see below.
+### Import
 
-Aside from these guidelines, which apply to every paper, the structure of the body varies a lot depending on content. Important components are:
+lorem ipsum
 
-- **Running Example:** When possible, use a running example throughout the paper. It can be introduced either as a subsection at the end of the Introduction, or its own Section 2 or 3 (depending on Related Work).
-- **Preliminaries:** This section, which follows the Introduction and possibly Related Work and/or Running Example, sets up notation and terminology that is not part of the technical contribution. One important function of this section is to delineate material that's not original but is needed for the paper. Be concise -- remember Guideline #1.
-- **Content:** The meat of the paper includes algorithms, system descriptions, new language constructs, analyses, etc. Whenever possible use a "top-down" description: readers should be able to see where the material is going, and they should be able to skip ahead and still get the idea.
+### Export
 
-## The Conclusions
+lorem ipsum
+
+## Implementation
+
+Frontend agnostinc (no Scorm like object)
+
+### Content Types
+
+`topic_type` is like `xAPI` word, it can be anything, the standard doesn't specify this.
+
+### Content Players
+
+lorem ipsum
+
+## comparison with `cmi5`
+
+|                                       |        cmi5        |       ulam        |
+| :-----------------------------------: | :----------------: | :---------------: |
+|               use xAPI                |        yes         |        yes        |
+|            Manifest format            |        xml         |       json        |
+|     Defined course type structure     |         no         |        yes        |
+| Separation of concerns in course data |         no         |        yes        |
+|           Connection to LRS           |      required      |   not required    |
+|            Mobile friendly            | no (only tracking) |        yes        |
+|           Run-Time required           |        yes         |        no         |
+|        Content Package format         |        yes         |        yes        |
+|      Definition of Course launch      |        yes         | yes, same as cmi5 |
+|            Client Agnostic            |        yes         |        yes        |
+|          Distributed Content          |        yes         |        no         |
+|      Advanced activity tracking       |        yes         |        yes        |
+|              Serverless               |         no         |        yes        |
+
+# The Conclusions
 
 In general a short summarizing paragraph will do, and under no circumstances should the paragraph simply repeat material from the Abstract or Introduction. In some cases it's possible to now make the original claims more concrete, e.g., by referring to quantitative performance results.
 
@@ -170,58 +311,13 @@ This material is important -- part of the value of a paper is showing how the wo
 
 ## The Acknowledgements
 
-Don't forget them or you'll have people with hurt feelings. Acknowledge anyone who contributed in any way: through discussions, feedback on drafts, implementation, etc. If in doubt about whether to include someone, include them.
-
-## Citations
-
-Spend the effort to make all citations complete and consistent. Do _not_ just copy random inconsistent BibTex (or other) entries from the web and call it a day. Check over your final bibliography carefully and make sure every entry looks right.
-
-## Appendices
-
-Appendices should contain detailed proofs and algorithms only. Appendices can be crucial for overlength papers, but are still useful otherwise. Think of appendices as random-access substantiation of underlying gory details. As a rule of thumb:
-
-- Appendices should not contain any material necessary for understanding the contributions of the paper.
-- Appendices should contain all material that most readers would not be interested in.
-
-#### Grammar and Small-Scale Presentation Issues
-
-In general everyone writing papers is strongly encouraged to read the short and very useful [The Elements of Style](http://en.wikipedia.org/wiki/Strunk_and_White) by Strunk and White. Here's a random list of pet peeves.
-
-- Just like a program, all "variables" (terminology and notation) in the paper should be defined before being used, and should be defined only once. (Exception: Sometimes after a long hiatus it's useful to remind the reader of a definition.) Global definitions should be grouped into the Preliminaries section; other definitions should be given just before their first use.
-- Do not use "etc." unless the remaining items are completely obvious.
-
-  - Acceptable: _We shall number the phases 1, 3, 5, 7, etc._
-  - Unacceptable: _We measure performance factors such as volatility, scalability, etc._
-
-  (**Exercise:** The above rule is violated at least once in this document. Find the violations.)
-
-- Never say "for various reasons". (Example: _We decided not to consider the alternative, for various reasons._) Tell the reader the reasons!
-- Avoid nonreferential use of "this", "that", "these", "it", and so on (Ullman pet peeve). Requiring explicit identification of what "this" refers to enforces clarity of writing. Here is a typical example of nonreferential "this": _Our experiments test several different environments and the algorithm does well in some but not all of them. This is important because ..._
-
-  (**Exercise:** The above rule is violated at least once in this document. Find the violations.)
-
-- Italics are for definitions or quotes, not for emphasis (Gries pet peeve). Your writing should be constructed such that context alone provides sufficient emphasis.
-
-  (**Exercise:** The above rule is violated at least once in this document. Find the violations.)
-
-- People frequently use "which" versus "that" incorrectly. "That" is defining; "which" is nondefining. Examples of correct use:
-  - _The algorithms that are easy to implement all run in linear time._
-  - _The algorithms, which are easy to implement, all run in linear time._
-
-#### Mechanics
-
-- Always run a spelling checker on your final paper, no excuses.
-- For drafts and technical reports use 11 point font, generous spacing, 1" margins, and single-column format. There's no need to torture your casual readers with the tiny fonts and tight spacing used in conference proceedings these days.
-- In drafts and final camera-ready, fonts in figures should be approximately the same font size as used for the text in the body of the paper.
-- Tables, figures, graphs, and algorithms should always be placed on the top of a page or column, not in the body of the text unless it is very small and fits into the flow of the paper.
-- Every table, figure, graph, or algorithm should appear on the same page as its first reference, or on the following page (LaTex willing...).
-- Before final submission or publication of your paper, _print it_ once and take a look -- you might be quite surprised how different it looks on paper from how it looked on your screen (if you even bothered to look at it after you ran Latex the last time...).
-
-## Versions and Distribution
-
-- Many papers have a submitted (and later published) conference version, along with a "full paper" technical report on the web. It's important to manage versions carefully, both in content and proliferation. My recommendation is, whenever possible, for the full paper to consist of simply the conference version plus appendices. The full paper should be the only public one aside from conference proceedings, it should be coordinated with latest (final) conference version, and modifications to the full paper should always overwrite all publicly accessible previous versions of it.
-- I believe in putting papers on the web the minute they're finished. They should be dated and can be referenced as technical reports -- it's not necessary to have an actual technical report number. Never, ever put up a paper with a conference copyright notice when it's only been submitted, and never, ever reference a paper as "submitted to conference X." You're only asking for embarrassment when the paper is finally published in conference Y a year or two later.
+Thank you XXX who edited this article.
 
 [^1]: [Technical Specification 4th Ed.](https://en.wikipedia.org/wiki/Sharable_Content_Object_Reference_Model). SCORM. Retrieved 2017-05-22.
 [^2]: [A timeline and description of the eLearning standards.](https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/). SCORM
 [^3]: [Moodle - Open-source learning platform | Moodle.org](https://moodle.org/)
+[^4]: [ Adobe Captivate](https://www.adobe.com/products/captivate.html)
+[^5]: [Conceptual Overview of cmi5](http://aicc.github.io/CMI-5_Spec_Current/flows/cmi5-overview.html)
+[^6]: [cmi5: Technical 101](https://xapi.com/cmi5/cmi5-technical-101) Terminology.
+[^7]: [cmi5 Implementation Flow for an LMS](http://aicc.github.io/CMI-5_Spec_Current/flows/lms-flow.html)
+[^8]: [Blockchain Networks: Token Design and Management Overview](https://nvlpubs.nist.gov/nistpubs/ir/2021/NIST.IR.8301.pdf) NISTIR 8301. National Institute of Standards and Technology

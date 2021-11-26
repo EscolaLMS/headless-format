@@ -153,17 +153,21 @@
 <body>
 <header id="title-block-header">
 <h1 class="title">Course Headless Format</h1>
-<p class="subtitle">ver. eac176b</p>
+<p class="subtitle">ver. 6ea643e</p>
 <p class="author">Mateusz Wojczal. November 2021</p>
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
+<li><a href="#glosarry">Glosarry</a></li>
 <li><a href="#the-abstract">The Abstract</a></li>
 <li><a href="#the-introduction">The Introduction</a></li>
 <li><a href="#evolution-of-e-learning">Evolution of e-learning</a>
 <ul>
-<li><a href="#history-of-e-learning-formats">History of e-learning formats</a></li>
+<li><a href="#history-of-e-learning-formats">History of e-learning formats</a>
+<ul>
 <li><a href="#what-is-learning-management-system---lms">What is Learning Management System - LMS</a></li>
+</ul></li>
+<li><a href="#what-is-learning-management-system---lms-1">What is Learning Management System - LMS</a></li>
 <li><a href="#lms-monolith-architecture">LMS Monolith Architecture</a></li>
 <li><a href="#process-of-publishing-the-course">Process of publishing the course</a></li>
 <li><a href="#introduction-of-experience-api-xapi-and-related-technologies">Introduction of Experience API (xAPI) and related technologies</a>
@@ -183,11 +187,21 @@
 </ul></li>
 <li><a href="#ulam-format.">ULAM Format.</a>
 <ul>
-<li><a href="#definition">Definition</a></li>
+<li><a href="#definition">Definition</a>
+<ul>
+<li><a href="#general-description-of-course-attributes">General description of course attributes</a></li>
+<li><a href="#general-description-of-lesson-attributes">General description of lesson attributes</a></li>
+<li><a href="#general-description-of-topic-attributes">General description of topic attributes</a></li>
+<li><a href="#general-description-of-topic-types">General description of Topic types</a></li>
+</ul></li>
+<li><a href="#validating">Validating</a></li>
+<li><a href="#extending">Extending</a></li>
+<li><a href="#example">Example</a></li>
 <li><a href="#packaging.">Packaging.</a>
 <ul>
 <li><a href="#import">Import</a></li>
 <li><a href="#export">Export</a></li>
+<li><a href="#example-1">Example</a></li>
 </ul></li>
 <li><a href="#implementation">Implementation</a>
 <ul>
@@ -203,6 +217,8 @@
 </ul></li>
 </ul>
 </nav>
+<h1 id="glosarry">Glosarry</h1>
+<p>lorem ipsum</p>
 <h1 id="the-abstract">The Abstract</h1>
 <p>Current e-learning does have a huge technological dept and do not responding to market needs as fast as other segments. The main reason is the obsolete formats like SCORM that are widely used which does not separate data layer from presentation one. There is a need from market of existence of better formats.</p>
 <h1 id="the-introduction">The Introduction</h1>
@@ -219,13 +235,13 @@
 <p>Since SCORM introduced many issues The Experience API, also known as Tin Can API or xAPI was released and later cmi5 format that provides a set of rules intended to achieve interoperability in a traditional Learning Management System environment.</p>
 <p>xAPI specification removes content for it description, and allows the content to send “statements” based around [actor] [verb] [object], or “I – did – this” to a Learning Record Store (LRS) which can be part of Learning Management System but can live on their own or as part of another system.</p>
 <p>The table below <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> summarizes the comparison of each standard:</p>
-<table style="width:100%;">
+<table>
 <colgroup>
-<col style="width: 21%" />
-<col style="width: 12%" />
-<col style="width: 5%" />
+<col style="width: 22%" />
+<col style="width: 11%" />
+<col style="width: 4%" />
 <col style="width: 13%" />
-<col style="width: 7%" />
+<col style="width: 6%" />
 <col style="width: 8%" />
 <col style="width: 7%" />
 <col style="width: 9%" />
@@ -379,8 +395,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="what-is-learning-management-system---lms">What is Learning Management System - LMS</h2>
-<p>Web accessible application that takes care of administration, documentation, tracking, reporting, automation, and delivery of educational courses, training programs, or learning and development programs is called Learning Management System. LMS systems are kind of software that manage e-Learning.</p>
+<h3 id="what-is-learning-management-system---lms">What is Learning Management System - LMS</h3>
+<h2 id="what-is-learning-management-system---lms-1">What is Learning Management System - LMS</h2>
 <p>The most popular LMS is Moodle <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, released on 20 August 2002 because it’s available for free as open course software, distributed under the GNU General Public License.</p>
 <p>Moodle is program written in PHP that is being served by machine that use PHP. That means that all of the actions for administrators, course creators, students and any other roles does require to connect to machine (server) that serves Moodle. This is a monolith architecture, which means that all moodle components are PHP based working on one machine that parses moodle source code every time there is a request from the browser. Components of the program are interconnected and interdependent in a tightly-coupled architecture.</p>
 <p>Most other popular LMS works very similar, as they monolith architecture is the most popular among the LMS</p>
@@ -484,30 +500,311 @@
 </ul>
 <h1 id="ulam-format.">ULAM Format.</h1>
 <p>Because of the existing limitation new format <strong>ULAM</strong> <strong>Universal Learning Asynchronous Model</strong> for course content is needed.</p>
-<p>The main motivation for the above are</p>
-<p><strong>Separation content layer from separation layer</strong></p>
-<p>lorem ipsum</p>
-<p><strong>Use of JSON format instead of XML</strong></p>
-<p>lorem ipsum</p>
-<p><strong>Easy implementation</strong></p>
-<p>lorem ipsum</p>
-<p><strong>Format that age well</strong></p>
-<p>lorem ipsum , flash example</p>
-<p><strong>Simple but open for extension</strong></p>
-<p>lorem ipsum</p>
-<p><strong>Standalone</strong></p>
-<p>lorem ipsum</p>
-<p><strong>Using well design standards, reject obsolete ones</strong></p>
-<p>lorem ipsum - xapi verbs - au - json &gt; xml</p>
+<p>The main motivation for the above are the following statements.</p>
+<p><strong>Separation content layer from presentation layer.</strong></p>
+<p>All of the most popular e-learning format, mostly SCORM mix view, data and logic layer into one as inseparable. New format should separate all the layers to follow separation of concerns (SoC) design principle.</p>
+<p><strong>Use of JSON format instead of XML.</strong></p>
+<p>When SCORM was published for the first time JSON format did not exists. During evolution of standards ADL use JSON for <code>xAPI</code>. Comparing to XML JSON is light-weight and has an easy to parse data format requiring no additional code for parsing. It is more popular then XML <a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a></p>
+<p><strong>Easy implementation.</strong></p>
+<p>Since SCORM first version implementing the format wasn’t trivial for implementation. Until this day SCORM is the most popular, and latest format cmi5 has problems with adaptations <a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a>. New format must be easy to implement.</p>
+<p><strong>Format that age well.</strong></p>
+<p>SCORM does not age well. There are many courses that were created in 2010s using obsolete Flash technologies, which are useless now because none of the browsers still support Flash Player. New format must be able to prevent this kind of issues and <strong>Separation of concerns</strong> design pattern is a solution, because it does separate course pure data from presentation.</p>
+<p><strong>Simple but open for extension.</strong></p>
+<p>New format must be open for extensions which implies that it is possible to create new features without changing old ones.</p>
+<p><strong>Standalone.</strong></p>
+<p>New format package must be able to be played as course without any external services.</p>
+<p><strong>Headless.</strong></p>
+<p>The course itself does not know how it will be displayed for a student.</p>
+<p><strong>Using well design standards, reject obsolete ones.</strong></p>
+<p><strong>From SCORM</strong></p>
+<ul>
+<li>Content packaging as ZIP file</li>
+<li>Importing from ZIP</li>
+<li>Exporting as ZIP</li>
+<li>Sequencing</li>
+</ul>
+<p><strong>From xAPI</strong></p>
+<ul>
+<li>usage of JSON Format</li>
+<li>xAPI Statements</li>
+<li>Learning Record Store</li>
+</ul>
+<p><strong>From cmi5</strong></p>
+<ul>
+<li>Launch Method with <code>moveOn</code> Rules</li>
+<li>Manifest with blocks and Assignable Units (AU)</li>
+<li>9 xAPI Verbs (Launched, Initialized, Completed, Passed, Failed, Abandoned, Waived, Terminated, Satisfied)</li>
+</ul>
 <h2 id="definition">Definition</h2>
-<p>lorem ipsum</p>
-<p>json schema</p>
+<p>The course is packed in ZIP file that contains <code>content.json</code> manifest in main folder.</p>
+<p>The course itself consists of at least one lessons which consists of at least topic.</p>
+<figure>
+<img src="images/manifest-structure.png" alt="Structure of ulam course manifest" /><figcaption aria-hidden="true">Structure of <code>ulam</code> course manifest</figcaption>
+</figure>
+<p>The manifest contains the following:</p>
+<h3 id="general-description-of-course-attributes">General description of course attributes</h3>
+<p>Course is defined by</p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 11%" />
+<col style="width: 71%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Attribute name</th>
+<th style="text-align: center;">type</th>
+<th style="text-align: center;">description</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">id</td>
+<td style="text-align: center;">number | string</td>
+<td style="text-align: center;">Unique ID of the course. Can be used to identify during import process whether this is a new course or update</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">description</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Description of the course</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">title</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Title of the course</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">base_price</td>
+<td style="text-align: center;">number</td>
+<td style="text-align: center;">Base price of the course. Value 0 means that it’s free</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">lessons</td>
+<td style="text-align: center;">array</td>
+<td style="text-align: center;">List of lessons</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">language</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Unique ID of the language of the course. Prefered in ISO 639-1 format</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">subtitle</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Subtitle of the course</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">summary</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Summary</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">duration</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">How long does the course take. Prefered in ISO 8601 duration format</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<p>Except of listed attributes the course can be described by unlimited additional fields.</p>
+<h3 id="general-description-of-lesson-attributes">General description of lesson attributes</h3>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 11%" />
+<col style="width: 71%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Attribute name</th>
+<th style="text-align: center;">type</th>
+<th style="text-align: center;">description</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">id</td>
+<td style="text-align: center;">number | string</td>
+<td style="text-align: center;">Unique ID of the course. Can be used to identify during import process whether this is a new lesson or update</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">title</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Title of the lesson</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">order</td>
+<td style="text-align: center;">number</td>
+<td style="text-align: center;">Sorting order</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">duration</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">How long does the lesson take. Prefered in ISO 8601 duration format</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">summary</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Summary of the lesson</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">topis</td>
+<td style="text-align: center;">array</td>
+<td style="text-align: center;">List of Topics</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<p>Except of listed attributes the lesson can be described by unlimited additional fields.</p>
+<h3 id="general-description-of-topic-attributes">General description of topic attributes</h3>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 11%" />
+<col style="width: 71%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Attribute name</th>
+<th style="text-align: center;">type</th>
+<th style="text-align: center;">description</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">id</td>
+<td style="text-align: center;">number | string</td>
+<td style="text-align: center;">Unique ID of the course. Can be used to identify during import process whether this is a new topic or update</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">title</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Title of the topic</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">order</td>
+<td style="text-align: center;">number</td>
+<td style="text-align: center;">Sorting order</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">duration</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">How long does the lesson take. Prefered in ISO 8601 duration format</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">summary</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Summary of the lesson</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">preview</td>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">Can user preview this Assignable Unit without launching the course</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">description</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Description of the lesson</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">type</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Type of Topic</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">value</td>
+<td style="text-align: center;">object</td>
+<td style="text-align: center;">Value of the Topic depending on the Type</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="general-description-of-topic-types">General description of Topic types</h3>
+<p>Topic is describes by type and value. In the first version of the format there are following Topic Types.</p>
+<p>Topic type attribute is in string format with namespace, with default namespace <code>ulam</code>.</p>
+<p>Topic type is an abstract type and polymorphic. This means that has different meaning based on the <code>type</code> value.</p>
+<p>If the value of the Topic contains references (url) to assets (audio, video, images, etc), they must be placed with relative paths to main <code>content.json</code> file.</p>
+<h4 id="text">Text</h4>
+<ul>
+<li>Namespace: <code>ulam\text</code></li>
+<li>Value: Unformatted text with newlines</li>
+</ul>
+<h4 id="richtext">RichText</h4>
+<ul>
+<li>Namespace: <code>ulam\richtext</code></li>
+<li>Value: Formatted with Markdown text with newlines</li>
+</ul>
+<h4 id="htmltext">HTMLText</h4>
+<ul>
+<li>Namespace: <code>ulam\html</code></li>
+<li>Value: Formatted with HTML text</li>
+</ul>
+<h4 id="audio">Audio</h4>
+<ul>
+<li>Namespace: <code>ulam\audio</code></li>
+<li>Value: Reference to audio file</li>
+</ul>
+<h4 id="video">Video</h4>
+<ul>
+<li>Namespace: <code>ulam\video</code></li>
+<li>Value: Reference to Video file</li>
+</ul>
+<h4 id="pdf">PDF</h4>
+<ul>
+<li>Namespace: <code>ulam\pdf</code></li>
+<li>Value: Reference to PDF file</li>
+</ul>
+<h4 id="image">Image</h4>
+<ul>
+<li>Namespace: <code>ulam\image</code></li>
+<li>Value: Reference to Image file</li>
+</ul>
+<h4 id="h5p">H5P</h4>
+<ul>
+<li>Namespace: <code>ulam\h5p</code></li>
+<li>Value: Reference to H5P content</li>
+</ul>
+<h2 id="validating">Validating</h2>
+<p>The manifest must be validated against json schema file. The latest schema is always available in github repository<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a>.</p>
+<h2 id="extending">Extending</h2>
+<p>Except of listed attributes the manifest can be extended by unlimited additional fields.</p>
+<p>For example if there is need to describe course by video path or image it’s a matter of adding new fields to the course attributes.</p>
+<h2 id="example">Example</h2>
+<p>More examples are available in github repository<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a>.</p>
 <h2 id="packaging.">Packaging.</h2>
 <p>lorem ipsum</p>
 <h3 id="import">Import</h3>
 <p>lorem ipsum</p>
 <h3 id="export">Export</h3>
 <p>lorem ipsum</p>
+<h3 id="example-1">Example</h3>
 <h2 id="implementation">Implementation</h2>
 <p>Frontend agnostinc (no Scorm like object)</p>
 <h3 id="content-types">Content Types</h3>
@@ -601,10 +898,11 @@
 </ul>
 <h2 id="the-acknowledgements">The Acknowledgements</h2>
 <p>Thank you XXX who edited this article.</p>
+<p>Name ulam ….</p>
 <section class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p><a href="https://en.wikipedia.org/wiki/Sharable_Content_Object_Reference_Model">Technical Specification 4th Ed.</a>. SCORM. Retrieved 2017-05-22.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="https://adlnet.gov/assets/uploads/SCORM_2004_4ED_v1_1_Doc_Suite.zip">Technical Specification 4th Ed.</a>. SCORM. Retrieved 2017-05-22.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p><a href="https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/">A timeline and description of the eLearning standards.</a>. SCORM<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3" role="doc-endnote"><p><a href="https://moodle.org/">Moodle - Open-source learning platform | Moodle.org</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4" role="doc-endnote"><p><a href="https://www.adobe.com/products/captivate.html">Adobe Captivate</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
@@ -613,6 +911,10 @@
 <li id="fn7" role="doc-endnote"><p><a href="https://xapi.com/cmi5/cmi5-technical-101">cmi5: Technical 101</a> Terminology.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn8" role="doc-endnote"><p><a href="http://aicc.github.io/CMI-5_Spec_Current/flows/lms-flow.html">cmi5 Implementation Flow for an LMS</a><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn9" role="doc-endnote"><p><a href="https://nvlpubs.nist.gov/nistpubs/ir/2021/NIST.IR.8301.pdf">Blockchain Networks: Token Design and Management Overview</a> NISTIR 8301. National Institute of Standards and Technology<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10" role="doc-endnote"><p><a href="https://trends.google.com/trends/explore?date=all&amp;q=xml,json">Google Trends</a> XML vs JSON<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11" role="doc-endnote"><p><a href="https://xapi.com/blog/an-exciting-time-to-watch-xapi-and-cmi5-adoption-numbers/">An exciting time to watch xAPI and cmi5 adoption numbers</a><a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12" role="doc-endnote"><p><a href="https://github.com/EscolaLMS/headless-format/tree/main/schema">Ulam Headless Format</a> Github repository.<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13" role="doc-endnote"><p><a href="https://github.com/EscolaLMS/headless-format/tree/main/schema">Ulam Headless Format</a> Github repository.<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </body>

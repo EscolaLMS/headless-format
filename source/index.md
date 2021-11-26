@@ -120,8 +120,6 @@ The table below [^2] summarizes the comparison of each standard:
 | The Experience API (xAPI)  | April 26, 2013 |  85   |     Not Yet      |   Yes    |  Partial   |    No     |     No      |        Yes         |
 | cmi5 (a companion to xAPI) |  June 1, 2016  |  48   |     Not Yet      |   Yes    |    Yes     |    No     |     No      |        Yes         |
 
-### What is Learning Management System - LMS
-
 ## What is Learning Management System - LMS
 
 The most popular LMS is Moodle [^3], released on 20 August 2002 because it's available for free as open course software, distributed under the GNU General Public License.
@@ -327,7 +325,7 @@ The course itself consists of at least one lessons which consists of at least on
 
 The manifest contains the following: 
 
-### General description of course attributes
+### General description of Course attributes
 
 Course is defined by 
 
@@ -345,7 +343,7 @@ Course is defined by
 
 Except of listed attributes the course can be described by unlimited additional fields.
 
-### General description of lesson attributes
+### General description of Lesson attributes
 
 | Attribute name |       type       |                                                  description                                                  | required |
 |:--------------:|:----------------:|:-------------------------------------------------------------------------------------------------------------:|----------|
@@ -358,7 +356,7 @@ Except of listed attributes the course can be described by unlimited additional 
 
 Except of listed attributes the lesson can be described by unlimited additional fields.
 
-### General description of topic attributes
+### General description of Topic attributes
 
 | Attribute name |       type       |                                                  description                                                 | required |
 |:--------------:|:----------------:|:------------------------------------------------------------------------------------------------------------:|----------|
@@ -372,7 +370,7 @@ Except of listed attributes the lesson can be described by unlimited additional 
 | type           | string           | Type of Topic                                                                                                | yes      |
 | value          | object           | Value of the Topic depending on the Type                                                                     | yes      |
 
-### General description of  Topic types 
+### General description of Topic types 
 
 Topic is describes by type and value. In the first version of the format there are following Topic Types. 
 

@@ -15,7 +15,7 @@ pandoc index.md \
 
 pandoc index.md \
     -s \
-    --metadata title="Course Headless Format" \
+    --metadata title="E-leadning Course Headless Format" \
     -V linkcolor:blue \
     --toc \
     -M subtitle="ver. $(git rev-parse --short HEAD)" \

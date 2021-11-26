@@ -218,13 +218,14 @@ Because of the existing limitation new format **ULAM** **Universal Learning Asyn
 
 The main motivation for the above are
 
-**Separation content layer from separation layer**
+**Separation content layer from presentation layer**
 
-lorem ipsum
+All of the most popular e-learning format, mostly SCORM mix view, data and logic layer into one as inseparable.
+New format should separate all the layers to follow separation of concerns (SoC) design principle.
 
 **Use of JSON format instead of XML**
 
-lorem ipsum
+JSON is [^9]
 
 **Easy implementation**
 
@@ -321,3 +322,4 @@ Thank you XXX who edited this article.
 [^6]: [cmi5: Technical 101](https://xapi.com/cmi5/cmi5-technical-101) Terminology.
 [^7]: [cmi5 Implementation Flow for an LMS](http://aicc.github.io/CMI-5_Spec_Current/flows/lms-flow.html)
 [^8]: [Blockchain Networks: Token Design and Management Overview](https://nvlpubs.nist.gov/nistpubs/ir/2021/NIST.IR.8301.pdf) NISTIR 8301. National Institute of Standards and Technology
+[^9]: [Google Trends](https://trends.google.com/trends/explore?date=all&q=xml,json) XML vs JSON

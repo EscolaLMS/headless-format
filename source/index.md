@@ -35,32 +35,34 @@ Latest version of this document is available here: [PDF](https://escolalms.githu
 Advanced Distributed Learning (ADL) Initiative from the Office of the United States Secretary of Defense.
 
 **cmi5**
-cmi5 is an xAPI Profile that provides rules for how online courses are imported, launched and tracked using a Learning Management System (LMS) and xAPI
+cmi5 is an xAPI Profile that provides rules defining how online courses are imported, launched and tracked using a Learning Management System (LMS) and xAPI.
 
 **JSON**	
-JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write.
+JavaScript Object Notation (JSON) is a lightweight data-interchange format, that is both easy to read and write for humans and easy to parse and generate by machines.
 
 **JSON Schema**	
 JSON Schema is a vocabulary that allows you to annotate and validate JSON documents.
 
 **LMS**	
-Learning management system (LMS): Software used for developing, using, and storing course content of all types.
+Learning management system (LMS) is a type of software used for creation, administration and presentation of educational courses and their contents.
 
 **LRS**	
 A Learning Record Store (LRS) is a data store system that serves as a repository for learning records collected from connected systems where learning activities are conducted.
-monolith architecture	In software engineering, a monolithic application describes a single-tiered software application in which the user interface and data access code are combined into a single program from a single platform.
+
+**Monolith architecture**
+In software engineering, a monolithic application describes a single-tiered software application in which the user interface and data access code are combined into a single program from a single platform.
 
 **SCORM**	
-Shareable Content Object Reference Model, is a set of technical standards for eLearning software products.
+Shareable Content Object Reference Model (SCORM) is a set of technical standards for eLearning software products.
 
 **Separation of concerns**	
-In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections.
+In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, each of which addresses a separate concern.
 
 **xAPI**	
-The Experience API is an e-learning software specification that allows learning content and learning systems to speak to each other in a manner that records and tracks all types of learning experiences.
+The Experience API (xAPI) is an e-learning software specification that allows learning content and learning systems to speak to each other in a manner that records and tracks all types of learning experiences.
 
 **XML**	
-Extensible Markup Language; A markup language for coding web documents that allows designers to create their own customized tags for structuring a page.
+Extensible Markup Language (XML) is a markup language for coding documents, that allows designers to create their own customized tags for structuring document contents. XML is widely used as a data-interchange format in web services.
 
 **ZIP**	
 ZIP is an archive file format that supports lossless data compression.
@@ -69,21 +71,21 @@ ZIP is an archive file format that supports lossless data compression.
 
 # The Abstract
 
-Current e-learning does have a huge technological dept and do not responding to market needs as fast as other segments. The main reason is the obsolete formats like SCORM that are widely used which does not separate data layer from presentation one. There is a need from market of existence of better formats.
+Current e-learning software comes with a huge technological debt and does not respond to market needs as fast as other IT segments can. The main reason is dependency on obsolete formats like SCORM that are still widely used, and which do not separate data layer from the presentation layer. There is a need from market for existence of better designed and better implemented formats.
 
 \pagebreak
 
 # The Introduction
 
-Current e-learning formats does not separate data from presentation layers. Current e-learning content are not portable and are not designed to age well.
+Current e-learning formats do not separate data from presentation layers. Current e-learning content is not portable and is not designed to age well.
 
-With separation of layers the content can be displayed in modern way everything some new devices is used. If SCORM courses where designed in this fashion back in 2000s it would be straight forward to convert them to any devices, like mobile phones, smartwatches, smart tvs, etc. Because of wrong design decision we're stuck with this format and obsolete courses.
+With separation of layers the content could be presented in a modern way every time a new device is introduced. If SCORM courses were designed in this fashion back in 2000s it would be straightforward to convert them to any of commonly used devices, like smartphones, smartwatches, smart TVs, and anything else capable of running current software. But because of a few wrong design decisions made without necessary foresight, we are now stuck with this format and with obsolete courses.
 
-Back in the days when Advanced Distributed Learning was creating SCORM adapting older AICC HACP desktop format most of the personal computers used the same browser, on the same operation system with common 1024x768 pixel resolution. If there were variation to this statement they were minimal. Browser were not able to do much more then to show server response in HTML format after client request. Everything showed in browser window was rendered by server and even if there was separation of layers it happened only on server side.
+Back in the days when Advanced Distributed Learning was creating SCORM (adapting older AICC HACP desktop format) there was little variance in commonly available devices capable of interacting with eLearning software - most personal computers used the same web browser, same operating system and had similar displays with common 1024x768 pixel resolution. If there were any exceptions, they were minimal and negligible. Browsers were not able to do much more than to show server response in HTML format after (synchronous) client request. Everything displayed in browser window was rendered by server, and even if there was any separation of layers, it existed only on the server side.
 
-Organizations that are working on e-learning standards are responding to market needs very slowly. Their latest specification `cmi5`, which does solve many of the issues, is already 6 years old and not commonly adapted - the most popular format SCORM 2004 4th Edition was published in 2009.
+Organizations that are working on e-learning standards are responding to market needs very slowly. Their latest specification `cmi5`, which does solve many of the shortcomings of previous standards, is already 6 years old and not commonly adopted - the most popular format SCORM 2004 4th Edition was published in 2009.
 
-The headless approach seems to be solving all of the issues that modern e-learning and LMSes do have. The separation of content and it's players allows to create courses that works well on any device and do age well. Course designed in this favour most likely will be able to be played on device not yet used.
+The headless approach seems to be solving all of the issues that modern e-learning and LMSes do have. The separation of content and it's players allows to create courses that works well on any device and do age well. Courses designed in this favour most likely will be able to be played on smart devices not yet in existence.
 
 \pagebreak
 
@@ -93,13 +95,14 @@ The headless approach seems to be solving all of the issues that modern e-learni
 
 The most popular e-learning formats are created and managed by the Advanced Distributed Learning (ADL) Initiative from the Office of the United States Secretary of Defense.
 
-Before e-learning was used in the web browser environment there was AICC’s format created in 1993. First widely used format was AICC HACP released in 1998 which later evolved into SCORM 1.0 that was released in year 2000.
+Before e-learning was used in the web browser environment there was AICC’s format created in 1993. First widely used format was AICC HACP (released in 1998) which later evolved into SCORM 1.0 that was released in year 2000.
+Since then, up to the latest SCORM 2004 4th Edition version (released in 2009) it is the most popular and adopted collection of standards and specifications for web-based e-learning.
 
-SCORM which is an abbreviation of Sharable Content Object Reference Model since this day is the most popular e-learning package standard. Since version 1.0 to latest SCORM 2004 4th Edition this format is a collection of standards and specifications for web-based e-learning. The format itself describes communications between client side content and a host system and how to package whole course into ZIP files that are called "Package Interchange Format."[^1]. Latter is a ZIP package that contains HTML files and XML manifest.
+SCORM (which is an abbreviation of Sharable Content Object Reference Model) describes communication between client side content and a host system, and describes package structure, defining how whole course, consisting of resource files and XML manifest can be packaged into ZIP archives that are called "Package Interchange Format"[^1].
 
-Since SCORM introduced many issues The Experience API, also known as Tin Can API or xAPI was released and later cmi5 format that provides a set of rules intended to achieve interoperability in a traditional Learning Management System environment.
+Since SCORM has many shortcomings, The Experience API, also known as Tin Can API or `xAPI` was released, and later cmi5 format was created, providing a set of rules intended to achieve interoperability in a traditional Learning Management System environment.
 
-xAPI specification removes content for it description, and allows the content to send “statements” based around [actor] [verb] [object], or “I – did – this” to a Learning Record Store (LRS) which can be part of Learning Management System but can live on their own or as part of another system.
+xAPI specification removes content for it description, and allows the content to send “statements” based around [actor] [verb] [object], or “I – did – this” to a Learning Record Store (LRS) which can be a part of a Learning Management System, but can also live on its own, or as part of another separate system.
 
 \pagebreak
 
@@ -122,19 +125,19 @@ The table below [^2] summarizes the comparison of each standard:
 
 ## What is Learning Management System - LMS
 
-The most popular LMS is Moodle [^3], released on 20 August 2002 because it's available for free as open course software, distributed under the GNU General Public License.
+The most popular LMS in the world is Moodle [^3], released on 20 August 2002, as Open Source software, distributed under the GNU General Public License, which is probably one of the reasons of its popularity.
 
-Moodle is program written in PHP that is being served by machine that use PHP. That means that all of the actions for administrators, course creators, students and any other roles does require to connect to machine (server) that serves Moodle. This is a monolith architecture, which means that all moodle components are PHP based working on one machine that parses moodle source code every time there is a request from the browser. Components of the program are interconnected and interdependent in a tightly-coupled architecture.
+Moodle is an application written in PHP that is being served by a machine that uses PHP. That means that all of the actions for administrators, course creators, students and any other roles does require to connect to the hosting machine (server) that serves Moodle. This is an example of monolith architecture, which means that all Moodle components are PHP based working on one machine that parses moodle source code every time there is a request from the browser. Components of the program are interconnected and interdependent in a tightly-coupled architecture.
 
-Most other popular LMS works very similar, as they monolith architecture is the most popular among the LMS
+Most other popular LMS work very similarly, as the monolith architecture is the most prevalent design among available LMS software.
 
 ## LMS Monolith Architecture
 
-It the diagram below there is Moodle monolith architecture
+The diagram below show Moodle monolith architecture
 
 ![LMS monolith architecture. Moodle technical architecture](images/moodle1.png)
 
-All the LMS Features that includes
+All the LMS Features, including
 
 - Managing courses, users and roles
 - Online assessment
@@ -142,7 +145,7 @@ All the LMS Features that includes
 - Synchronous and Asynchronous Learning
 - Learning Analytics
 
-are handled directly from the server, the response is prepared before being sent in HTML format by PHP preprocessor, the client gets the HTML already rendered document.
+are handled directly from the server, the response is prepared before being sent in HTML format by PHP preprocessor, and the client gets the final rendered HTML document.
 
 ![LMS monolith architecture. Moodle functional architecture](images/moodle2.png)
 
@@ -150,28 +153,29 @@ All the above means that Moodle and dedicated server is required all the time fo
 
 ## Process of publishing the course
 
-Standard way of creating and publishing SCORM compliant course is to follow the steps
+Standard way of creating and publishing SCORM compliant course is described by these four steps:
 
-1. Creating of a course in an e-Learning authoring tool (like Adobe Captivate [^4]) or in from the LMS environment.
-2. Course is published as a SCORM package, a ZIP file
-3. SCORM package is being uploaded with LMS upload form and prepared to be published
-4. LMS publish the course to the students. All results of activities are stored in the LMS
+1. Creating of a course in an e-Learning authoring tool (like Adobe Captivate [^4]) or using tools integrated with the LMS software
+2. Course is published as a SCORM package (a ZIP file)
+3. SCORM package is being uploaded to the LMS, using an upload form, and is prepared to be published
+4. LMS publishes the course to the students; all results of activities are stored in the LMS
 
 ![Process of publishing the course](images/authoring-tools.png)
 
-The process above is one direction - which means that SCORM package is closed format, once published it cannot be changed.
-In order to make any changes, event amending simple typo, the whole process must be repeated - course needs to be changed in authoring tool, then uploaded, etc.
+The process above is one directional - which means that SCORM package is a closed format, once published it cannot be edited.
+In order to make any changes, even correcting simple typo, the whole process must be repeated - course needs to be changed in authoring tool, packaged into zip, then uploaded and (re)published.
 
 ## Introduction of Experience API (xAPI) and related technologies
 
-One of the limitation of SCORM that decided about introducing extended formats was capability to track and trace activities from students only within the same LMS.
-That means that the course and LMS are inseparable.
+One of the shortcomings of SCORM that influenced the introduction of extended formats was the limitation of capability to track and analyse activities of students to only within the same LMS.
 
-xAPI specification removes content for it description, and allows the content to send “statements” based around [actor] [verb] [object], or “I – did – this” to a Learning Record Store (LRS) which can be part of Learning Management System but can live on their own or as part of another system. This was the first step for **Separation of concerns** in e-learning.
+That means that the course, LMS and student progress were inseparable.
 
-### Learning Record Store LRS
+xAPI specification removes content for it description, and allows the content to send “statements” based around [actor] [verb] [object], or “I – did – this” to a Learning Record Store (LRS) which can be a part of a Learning Management System, but can also live on its own (or as a part of another, separate, system). This was the first step for **Separation of concerns** in e-learning.
 
-A Learning Record Store is an external to course application that receives and sends data in JSON format from and to course runtime - it is an essential component in Experience API process flow. What's a big difference is that the specification does not tell how does course is being played (course runtime), it just defines that runtime does communicate with the interface (LRS) though xAPI Statements. The statements are open to extend, each implementation can introduce their own statements.
+### Learning Record Store (LRS)
+
+A Learning Record Store is an application, external to course runtime, that receives and sends data in JSON format from and to the course runtime - it is an essential component in Experience API process flow. What is a big difference from previous e-learing standards, is that the specification does not tell how the course should be played (how course runtime should work), it just defines how the runtime must communicate with the interface (LRS) though xAPI Statements. The statements are open to be extended and each implementation can introduce its own statements.
 
 ![Experience API (xAPI) process flow with Learning Record Store (LRS)](images/lrs.png)
 
@@ -179,12 +183,12 @@ A Learning Record Store is an external to course application that receives and s
 
 > cmi5 is a "profile" for using the xAPI specification with traditional learning management (LMS) systems. [^6]
 
-The Specification of cmi5 is a set of rules providing all the capabilities of SCORM and xAPI.
-It is similar to SCORM in a way that it also contains XML file manifest, yet it does introduce the Assignable Unit (AU) - separately launchable learning content presentation. The AU is the unit of tracking and management. The AU collects data on the learner and sends it to the LMS.
+The specification of cmi5 is a set of rules providing all the capabilities of SCORM and xAPI.
+It is similar to SCORM in a way, as it also requires a XML file manifest, yet it does introduce the Assignable Unit (AU) - separately launchable learning content presentation. The AU is the unit of tracking and management. The AU collects data on the learner and sends it to the LMS (through an LRS).
 
 ![Conceptual Overview of cmi5 [^5] ](images/cmi5-concept-overview.png)
 
-cmi5 also requires Determine Launch Mode, defines some xAPI statements that must appear in correct order.
+cmi5 also requires Determine Launch Mode, defining some xAPI statements that must appear in correct order.
 The course itself describes `moveOn` rules
 
 > Setting that captures how a learner moves through the AUs/Blocks of a Course. Determines what is required for an AU to be considered “Satisfied”. Blocks are “Satisfied” when all of their direct descendent AUs or Blocks are “Satisfied”. The Course is “Satisfied” when all of its direct descendent AUs or Blocks are “Satisfied”. [^6]

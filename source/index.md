@@ -578,6 +578,8 @@ There are many scenarios that this can be handled, as this depenend on what is t
 * React/Vue/Angular video component 
 * React Native video component. 
 
+![Implementation of Courses with `ulam` format](images/frontend.png)
+
 # The Conclusions
 
 The new format should be able top solve issue that occured during common e-learning lifespam. ULAM format is easy to use, implement, does age well and it's designed for extesions and plugins. 

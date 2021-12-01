@@ -216,12 +216,12 @@
 <body>
 <header id="title-block-header">
 <h1 class="title">E-leadning Course Headless Format</h1>
-<p class="subtitle">ver. e8b4040</p>
+<p class="subtitle">ver. b7305bd</p>
 <p class="author">Mateusz Wojczal. November 2021</p>
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#glosarry">Glosarry</a></li>
+<li><a href="#glossary">Glossary</a></li>
 <li><a href="#the-abstract">The Abstract</a></li>
 <li><a href="#the-introduction">The Introduction</a></li>
 <li><a href="#evolution-of-e-learning">Evolution of e-learning</a>
@@ -268,6 +268,8 @@
 <li><a href="#comparison-with-cmi5">comparison with <code>cmi5</code></a></li>
 <li><a href="#frontent.-implementation">Frontent. Implementation</a>
 <ul>
+<li><a href="#single-page-application">Single Page Application</a></li>
+<li><a href="#progressive-web-app">Progressive Web App</a></li>
 <li><a href="#topics-types">Topics Types</a></li>
 <li><a href="#topics-types-content-players">Topics Types Content Players</a></li>
 </ul></li>
@@ -280,21 +282,19 @@
 </ul>
 </nav>
 <p>Latest version of this document is available here: <a href="https://escolalms.github.io/headless-format/paper.pdf">PDF</a>, <a href="https://escolalms.github.io/headless-format">web</a></p>
-<h1 id="glosarry">Glosarry</h1>
+<h1 id="glossary">Glossary</h1>
 <p><strong>ADL</strong> Advanced Distributed Learning (ADL) Initiative from the Office of the United States Secretary of Defense.</p>
 <p><strong>cmi5</strong> cmi5 is an xAPI Profile that provides rules defining how online courses are imported, launched and tracked using a Learning Management System (LMS) and xAPI.</p>
-<p><strong>JSON</strong><br />
-JavaScript Object Notation (JSON) is a lightweight data-interchange format, that is both easy to read and write for humans and easy to parse and generate by machines.</p>
+<p><strong>JSON</strong> JavaScript Object Notation (JSON) is a lightweight data-interchange format, that is both easy to read and write for humans and easy to parse and generate by machines.</p>
 <p><strong>JSON Schema</strong> JSON Schema is a vocabulary that allows you to annotate and validate JSON documents.</p>
 <p><strong>LMS</strong> Learning management system (LMS) is a type of software used for creation, administration and presentation of educational courses and their contents.</p>
 <p><strong>LRS</strong> A Learning Record Store (LRS) is a data store system that serves as a repository for learning records collected from connected systems where learning activities are conducted.</p>
 <p><strong>Monolith architecture</strong> In software engineering, a monolithic application describes a single-tiered software application in which the user interface and data access code are combined into a single program from a single platform.</p>
-<p><strong>SCORM</strong><br />
-Shareable Content Object Reference Model (SCORM) is a set of technical standards for eLearning software products.</p>
-<p><strong>Separation of concerns</strong><br />
-In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, each of which addresses a separate concern.</p>
-<p><strong>xAPI</strong><br />
-The Experience API (xAPI) is an e-learning software specification that allows learning content and learning systems to speak to each other in a manner that records and tracks all types of learning experiences.</p>
+<p><strong>PWA</strong> A progressive web application (PWA), is a type of application software delivered through the web, built using common web technologies. It is intended to work on any platform that uses a standards-compliant browser, including both desktop and mobile devices.</p>
+<p><strong>SCORM</strong> Shareable Content Object Reference Model (SCORM) is a set of technical standards for eLearning software products.</p>
+<p><strong>Separation of concerns</strong> In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, each of which addresses a separate concern.</p>
+<p><strong>SPA</strong> A single-page application (SPA) is a web application or website that interacts with the user by dynamically rewriting the current web page with new data from the web server, instead of the default method of a web browser loading entire new pages.</p>
+<p><strong>xAPI</strong> The Experience API (xAPI) is an e-learning software specification that allows learning content and learning systems to speak to each other in a manner that records and tracks all types of learning experiences.</p>
 <p><strong>XML</strong> Extensible Markup Language (XML) is a markup language for coding documents, that allows designers to create their own customized tags for structuring document contents. XML is widely used as a data-interchange format in web services.</p>
 <p><strong>ZIP</strong> ZIP is an archive file format that supports lossless data compression.</p>
 <h1 id="the-abstract">The Abstract</h1>
@@ -617,17 +617,17 @@ The Experience API (xAPI) is an e-learning software specification that allows le
 <p>The course is packed in ZIP file that contains <code>content.json</code> manifest in main folder.</p>
 <p>The course itself consists of at least one lessons which consists of at least one topic. Topic is describes by type and value.</p>
 <figure>
-<img src="images/manifest-structure.png" alt="Structure of ulam course manifest" /><figcaption aria-hidden="true">Structure of <code>ulam</code> course manifest</figcaption>
+<img src="images/manifest-structure.png" alt="Structure of ULAM course manifest" /><figcaption aria-hidden="true">Structure of <code>ULAM</code> course manifest</figcaption>
 </figure>
 <p>The manifest contains the following:</p>
 <h3 id="general-description-of-course-attributes">General description of Course attributes</h3>
 <p>Course is defined by</p>
 <table>
 <colgroup>
+<col style="width: 9%" />
 <col style="width: 10%" />
-<col style="width: 11%" />
-<col style="width: 71%" />
-<col style="width: 6%" />
+<col style="width: 74%" />
+<col style="width: 5%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -671,7 +671,7 @@ The Experience API (xAPI) is an e-learning software specification that allows le
 <tr class="even">
 <td style="text-align: center;">language</td>
 <td style="text-align: center;">string</td>
-<td style="text-align: center;">Unique ID of the language of the course. Prefered in ISO 639-1 format</td>
+<td style="text-align: center;">Unique ID of the language of the course. Preferred in ISO 639-1 format</td>
 <td>no</td>
 </tr>
 <tr class="odd">
@@ -689,7 +689,7 @@ The Experience API (xAPI) is an e-learning software specification that allows le
 <tr class="odd">
 <td style="text-align: center;">duration</td>
 <td style="text-align: center;">string</td>
-<td style="text-align: center;">How long does the course take. Prefered in ISO 8601 duration format</td>
+<td style="text-align: center;">How long does the course take. Preferred in ISO 8601 duration format</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -698,10 +698,10 @@ The Experience API (xAPI) is an e-learning software specification that allows le
 <h3 id="general-description-of-lesson-attributes">General description of Lesson attributes</h3>
 <table>
 <colgroup>
+<col style="width: 9%" />
 <col style="width: 10%" />
-<col style="width: 11%" />
-<col style="width: 71%" />
-<col style="width: 6%" />
+<col style="width: 74%" />
+<col style="width: 5%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -733,7 +733,7 @@ The Experience API (xAPI) is an e-learning software specification that allows le
 <tr class="even">
 <td style="text-align: center;">duration</td>
 <td style="text-align: center;">string</td>
-<td style="text-align: center;">How long does the lesson take. Prefered in ISO 8601 duration format</td>
+<td style="text-align: center;">How long does the lesson take. Preferred in ISO 8601 duration format</td>
 <td>no</td>
 </tr>
 <tr class="odd">
@@ -754,10 +754,10 @@ The Experience API (xAPI) is an e-learning software specification that allows le
 <h3 id="general-description-of-topic-attributes">General description of Topic attributes</h3>
 <table>
 <colgroup>
+<col style="width: 9%" />
 <col style="width: 10%" />
-<col style="width: 11%" />
-<col style="width: 71%" />
-<col style="width: 6%" />
+<col style="width: 73%" />
+<col style="width: 5%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -789,7 +789,7 @@ The Experience API (xAPI) is an e-learning software specification that allows le
 <tr class="even">
 <td style="text-align: center;">duration</td>
 <td style="text-align: center;">string</td>
-<td style="text-align: center;">How long does the lesson take. Prefered in ISO 8601 duration format</td>
+<td style="text-align: center;">How long does the lesson take. Preferred in ISO 8601 duration format</td>
 <td>no</td>
 </tr>
 <tr class="odd">
@@ -826,7 +826,7 @@ The Experience API (xAPI) is an e-learning software specification that allows le
 </table>
 <h3 id="general-description-of-topic-types">General description of Topic types</h3>
 <p>Topic is describes by type and value. In the first version of the format there are following Topic Types.</p>
-<p>Topic type attribute is in string format with namespace, with default namespace <code>ulam</code>.</p>
+<p>Topic type attribute is in string format with namespace, with default namespace <code>ULAM</code>.</p>
 <p>Topic type is an abstract type and polymorphic. This means that has different meaning based on the <code>type</code> value.</p>
 <p>If the value of the Topic contains references (url) to assets (audio, video, images, etc), they must be placed with relative paths to main <code>content.json</code> file.</p>
 <h4 id="text">Text</h4>
@@ -891,7 +891,7 @@ The Experience API (xAPI) is an e-learning software specification that allows le
 <p>The example below show a course with extended fields.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;f7e84b25e6f1f8d5e7dd3f1f438dd5f5&quot;</span><span class="fu">,</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;The title of coure.&quot;</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;The title of course.&quot;</span><span class="fu">,</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;summary&quot;</span><span class="fu">:</span> <span class="st">&quot;Summary.</span><span class="ch">\n</span><span class="st"> this is new line&quot;</span><span class="fu">,</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;image_path&quot;</span><span class="fu">:</span> <span class="st">&quot;course</span><span class="ch">\/</span><span class="st">2</span><span class="ch">\/</span><span class="st">repudiandae.jpg&quot;</span><span class="fu">,</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;image_url&quot;</span><span class="fu">:</span> <span class="st">&quot;https:</span><span class="ch">\/\/</span><span class="st">api.escolalms.com</span><span class="ch">\/\/</span><span class="st">storage</span><span class="ch">\/</span><span class="st">course</span><span class="ch">\/</span><span class="st">2</span><span class="ch">\/</span><span class="st">repudiandae.jpg&quot;</span><span class="fu">,</span></span>
@@ -917,9 +917,9 @@ The Experience API (xAPI) is an e-learning software specification that allows le
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;updated_at&quot;</span><span class="fu">:</span> <span class="st">&quot;2021-10-14T15:50:29.000000Z&quot;</span><span class="fu">,</span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;Aperiam magni saepe labore accusantium totam animi.</span><span class="ch">\n</span><span class="st">===================================================</span><span class="ch">\n\n</span><span class="st">Corporis aut saepe ut mollitia. Deleniti voluptas explicabo expedita voluptas. Illum sit quia debitis recusandae architecto officiis provident. Distinctio velit illum eos architecto ut nobis libero.</span><span class="ch">\n\n</span><span class="st">* Sint perferendis corrupti qui blanditiis.</span><span class="ch">\n</span><span class="st">* Eius perspiciatis dolor officia laborum quo deserunt reiciendis.</span><span class="ch">\n</span><span class="st">* Quisquam est eaque libero molestiae blanditiis.&quot;</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>            <span class="fu">},</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;summary&quot;</span><span class="fu">:</span> <span class="st">&quot;Sit aut fuga repellendus velit harum esse.&quot;</span><span class="fu">,</span>            </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;summary&quot;</span><span class="fu">:</span> <span class="st">&quot;Sit aut fuga repellendus velit harum esse.&quot;</span><span class="fu">,</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;order&quot;</span><span class="fu">:</span> <span class="dv">5</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span><span class="ot">,</span> <span class="fu">{</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;esse&quot;</span><span class="fu">,</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;active&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
@@ -951,7 +951,7 @@ The Experience API (xAPI) is an e-learning software specification that allows le
 <tr class="header">
 <th style="text-align: center;"></th>
 <th style="text-align: center;">cmi5</th>
-<th style="text-align: center;">ulam</th>
+<th style="text-align: center;">ULAM</th>
 </tr>
 </thead>
 <tbody>
@@ -1024,8 +1024,25 @@ The Experience API (xAPI) is an e-learning software specification that allows le
 </table>
 <h2 id="frontent.-implementation">Frontent. Implementation</h2>
 <p>The implementation of ULAM courses are Frontend agnostinc. This means that the format itself doesn’t describe how to render the course.</p>
-<p>The player should follow <code>cmi5</code> lanuch mode and <code>xAPI</code> verbs.</p>
+<p>The player should follow <code>cmi5</code> lanuch mode and all <code>xAPI</code> 9 verbs.</p>
 <p>Once the frontend application receice the ULAM content from the LMS endpoint is should parse it and create tree of lessons and topics.</p>
+<h3 id="single-page-application">Single Page Application</h3>
+<p>Modern web application does not require server side component to render its content, since evolution of JavaScript all of rendering is possible only in browser on the client side.</p>
+<p>A Single-page application (SPA) is a web app implementation that loads only a single web document, and then updates the body content of that single document via JavaScript API, which results in websites without loading whole new pages from the server, that finally result in performance gains and a more dynamic experience. Those kind off appliaction can load more quickly, fetching data in the background. Support of incremental updates, saving partially completed forms or documents without the user having to click a button to submit a form and wait for the whole page to reload. Also support of rich frontend behaviors, such as drag-and-drop, copy and paste, file picker, local files preview and editing and many more. Those kind of application can run in a disconnected mode, making updates to a client-side model that are eventually synchronized back to the server once a connection is re-established, which sometimes is names offline mode.</p>
+<p>The client-side implementation of ULAM format can be Single Page Application becase the format itself just defines content data, leaving presentation model up to the implementation phase. The SPA would handle a logic and presentation layer.</p>
+<h3 id="progressive-web-app">Progressive Web App</h3>
+<p>Progressive Web Apps are web apps that use modern web technologies like service workers, manifests, in combination with progressive enhancement to give users an experience on par with native apps. They provide a number of advantages to users like the following</p>
+<ul>
+<li><strong>being installable</strong> - users to have app icons on their home screen, and be able to tap to open apps into their own native container that feels nicely integrated with the underlying platform.</li>
+<li><strong>progressively enhanced</strong> - provide an excellent experience to fully capable devices, and an acceptable experience to less capable browsers.</li>
+<li><strong>responsively designed</strong> - appliaction User Interfaces will fit any form factor: desktop, mobile, tablet, or whatever comes next.</li>
+<li><strong>re-engageable</strong> - ease with which users can be re-engaged by updates and new content, even when they aren’t looking at the app or using their devices, eg Push Notifications.</li>
+<li><strong>linkable</strong> - ability to link to an app at a specific URL without the need for an app store or complex installation proces</li>
+<li><strong>discoverable</strong> - better representation in search engines, be easier to expose, catalog and rank, and have metadata usable by browsers to give them special capabilities. Also beong able to be installed be Operation System package managers and shops, eg Android Play.</li>
+<li><strong>network independent</strong> - can work when the network is unreliable, or even non-existent</li>
+<li><strong>secure</strong> - working in browser sandbox and takich take advantage of HTTPS make them secure.</li>
+</ul>
+<p>The client-side implementation of ULAM format fits all capabilities to be a Progressive Web App without any special preparation.</p>
 <h3 id="topics-types">Topics Types</h3>
 <p><code>topic_type</code> is like <code>xAPI</code> word, it can be anything, the standard doesn’t specify this except of the reserver <code>ulam</code> namespace.</p>
 <h3 id="topics-types-content-players">Topics Types Content Players</h3>
@@ -1033,17 +1050,17 @@ The Experience API (xAPI) is an e-learning software specification that allows le
 <p>The course itself is headless so it doesn’t know what kind of enviroment and device it is being played on.</p>
 <p>Let take a video topic type as and example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;esse&quot;</span><span class="fu">,</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;ulam</span><span class="ch">\\</span><span class="st">video&quot;</span><span class="fu">,</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;topic</span><span class="ch">\/</span><span class="st">23</span><span class="ch">\/</span><span class="st">doloribus.mp4&quot;</span><span class="fu">,</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;width&quot;</span><span class="fu">:</span> <span class="dv">640</span><span class="fu">,</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;height&quot;</span><span class="fu">:</span> <span class="dv">480</span><span class="fu">,</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;url&quot;</span><span class="fu">:</span> <span class="st">&quot;https:</span><span class="ch">\/\/</span><span class="st">api.escolalms.com</span><span class="ch">\/\/</span><span class="st">storage</span><span class="ch">\/</span><span class="st">topic</span><span class="ch">\/</span><span class="st">23</span><span class="ch">\/</span><span class="st">doloribus.mp4&quot;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;summary&quot;</span><span class="fu">:</span> <span class="st">&quot;Ipsa laboriosam.&quot;</span><span class="fu">,</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;esse&quot;</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;ulam</span><span class="ch">\\</span><span class="st">video&quot;</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;topic/23/doloribus.mp4&quot;</span><span class="fu">,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;width&quot;</span><span class="fu">:</span> <span class="dv">640</span><span class="fu">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;height&quot;</span><span class="fu">:</span> <span class="dv">480</span><span class="fu">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;url&quot;</span><span class="fu">:</span> <span class="st">&quot;https://api.escolalms.com//storage/topic/23/doloribus.mp4&quot;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;summary&quot;</span><span class="fu">:</span> <span class="st">&quot;Ipsa laboriosam.&quot;</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
-<p>The snippet above taken from ulam format means that this topic type is a video that has a dimention 640 width and 480 height.</p>
+<p>The snippet above taken from ULAM format means that this topic type is a video that has a dimention 640 width and 480 height.</p>
 <p>There are many scenarios that this can be handled, as this depenend on what is the course current context. Some examples include:</p>
 <ul>
 <li>HTML5 build-in video player (tag <video>)</li>
@@ -1052,7 +1069,7 @@ The Experience API (xAPI) is an e-learning software specification that allows le
 <li>React Native video component.</li>
 </ul>
 <figure>
-<img src="images/frontend.png" alt="Implementation of Courses with ulam format" /><figcaption aria-hidden="true">Implementation of Courses with <code>ulam</code> format</figcaption>
+<img src="images/frontend.png" alt="Implementation of Courses with ULAM format" /><figcaption aria-hidden="true">Implementation of Courses with <code>ULAM</code> format</figcaption>
 </figure>
 <h1 id="the-conclusions">The Conclusions</h1>
 <p>The new format should be able top solve issue that occured during common e-learning lifespam. ULAM format is easy to use, implement, does age well and it’s designed for extesions and plugins.</p>

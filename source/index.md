@@ -21,15 +21,12 @@ output:
 
 Latest version of this document is available here: [PDF](https://escolalms.github.io/headless-format/paper.pdf), [web](https://escolalms.github.io/headless-format)
 
-
 \hypersetup{linkcolor=black}
 \tableofcontents
 
-
 \pagebreak
 
-
-# Glosarry 
+# Glossary
 
 **ADL**
 Advanced Distributed Learning (ADL) Initiative from the Office of the United States Secretary of Defense.
@@ -37,34 +34,40 @@ Advanced Distributed Learning (ADL) Initiative from the Office of the United Sta
 **cmi5**
 cmi5 is an xAPI Profile that provides rules defining how online courses are imported, launched and tracked using a Learning Management System (LMS) and xAPI.
 
-**JSON**	
+**JSON**
 JavaScript Object Notation (JSON) is a lightweight data-interchange format, that is both easy to read and write for humans and easy to parse and generate by machines.
 
-**JSON Schema**	
+**JSON Schema**
 JSON Schema is a vocabulary that allows you to annotate and validate JSON documents.
 
-**LMS**	
+**LMS**
 Learning management system (LMS) is a type of software used for creation, administration and presentation of educational courses and their contents.
 
-**LRS**	
+**LRS**
 A Learning Record Store (LRS) is a data store system that serves as a repository for learning records collected from connected systems where learning activities are conducted.
 
 **Monolith architecture**
 In software engineering, a monolithic application describes a single-tiered software application in which the user interface and data access code are combined into a single program from a single platform.
 
-**SCORM**	
+**PWA**
+A progressive web application (PWA), is a type of application software delivered through the web, built using common web technologies. It is intended to work on any platform that uses a standards-compliant browser, including both desktop and mobile devices.
+
+**SCORM**
 Shareable Content Object Reference Model (SCORM) is a set of technical standards for eLearning software products.
 
-**Separation of concerns**	
+**Separation of concerns**
 In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, each of which addresses a separate concern.
 
-**xAPI**	
+**SPA**
+A single-page application (SPA) is a web application or website that interacts with the user by dynamically rewriting the current web page with new data from the web server, instead of the default method of a web browser loading entire new pages.
+
+**xAPI**
 The Experience API (xAPI) is an e-learning software specification that allows learning content and learning systems to speak to each other in a manner that records and tracks all types of learning experiences.
 
-**XML**	
+**XML**
 Extensible Markup Language (XML) is a markup language for coding documents, that allows designers to create their own customized tags for structuring document contents. XML is widely used as a data-interchange format in web services.
 
-**ZIP**	
+**ZIP**
 ZIP is an archive file format that supports lossless data compression.
 
 \pagebreak
@@ -271,47 +274,47 @@ New format should separate all the layers to follow separation of concerns (SoC)
 
 **Use of JSON format instead of XML.**
 
-When SCORM was published for the first time JSON format did not exists. During evolution of standards ADL use JSON for `xAPI`. 
-Comparing to XML JSON is light-weight and has an easy to parse data format requiring no additional code for parsing. 
+When SCORM was published for the first time JSON format did not exists. During evolution of standards ADL use JSON for `xAPI`.
+Comparing to XML JSON is light-weight and has an easy to parse data format requiring no additional code for parsing.
 It is more popular then XML [^9]
 
 **Easy implementation.**
 
-Since SCORM first version implementing the format wasn't trivial for implementation. Until this day SCORM is the most popular, and latest format cmi5 has problems with adaptations [^10]. 
-New format must be easy to implement. 
+Since SCORM first version implementing the format wasn't trivial for implementation. Until this day SCORM is the most popular, and latest format cmi5 has problems with adaptations [^10].
+New format must be easy to implement.
 
 **Format that age well.**
 
-SCORM does not age well. 
+SCORM does not age well.
 There are many courses that were created in 2010s using obsolete Flash technologies, which are useless now because none of the browsers still support Flash Player.
-New format must be able to prevent this kind of issues and **Separation of concerns** design pattern is a solution, because it does separate course pure data from presentation. 
+New format must be able to prevent this kind of issues and **Separation of concerns** design pattern is a solution, because it does separate course pure data from presentation.
 
 **Simple but open for extension.**
 
-New format must be open for extensions which implies that it is possible to create new features without changing old ones. 
+New format must be open for extensions which implies that it is possible to create new features without changing old ones.
 
 **Standalone.**
 
-New format package must be able to be played as course without any external services. 
+New format package must be able to be played as course without any external services.
 
-**Headless.** 
+**Headless.**
 
-The course itself does not know how it will be displayed for a student. 
+The course itself does not know how it will be displayed for a student.
 
 **Using well design standards, reject obsolete ones.**
 
 **From SCORM**
 
-- Content packaging as ZIP file 
-- Importing from ZIP 
-- Exporting as ZIP 
-- Sequencing 
+- Content packaging as ZIP file
+- Importing from ZIP
+- Exporting as ZIP
+- Sequencing
 
 **From xAPI**
 
 - usage of JSON Format
 - xAPI Statements
-- Learning Record Store  
+- Learning Record Store
 
 **From cmi5**
 
@@ -321,145 +324,144 @@ The course itself does not know how it will be displayed for a student.
 
 ## Definition
 
-The course is packed in ZIP file that contains `content.json` manifest in main folder. 
+The course is packed in ZIP file that contains `content.json` manifest in main folder.
 
-The course itself consists of at least one lessons which consists of at least one topic. Topic is describes by type and value.  
+The course itself consists of at least one lessons which consists of at least one topic. Topic is describes by type and value.
 
-![Structure of `ulam` course manifest](images/manifest-structure.png)
+![Structure of `ULAM` course manifest](images/manifest-structure.png)
 
-The manifest contains the following: 
+The manifest contains the following:
 
 ### General description of Course attributes
 
-Course is defined by 
+Course is defined by
 
 | Attribute name |       type       |                                                  description                                                  | required |
-|:--------------:|:----------------:|:-------------------------------------------------------------------------------------------------------------:|----------|
-| id             | number \| string | Unique ID of the course. Can be used to identify during import process whether this is a new course or update | no       |
-| description    | string           | Description of the course                                                                                     | no       |
-| title          | string           | Title of the course                                                                                           | yes      |
-| base_price     | number           | Base price of the course. Value 0 means that it's free                                                        | no       |
-| lessons        | array            | List of lessons                                                                                               | yes      |
-| language       | string           | Unique ID of the language of the course. Prefered in ISO 639-1 format                                         | no       |
-| subtitle       | string           | Subtitle of the course                                                                                        | no       |
-| summary        | string           | Summary                                                                                                       | no       |
-| duration       | string           | How long does the course take.  Prefered in ISO 8601 duration format                                          | no       |
+| :------------: | :--------------: | :-----------------------------------------------------------------------------------------------------------: | -------- |
+|       id       | number \| string | Unique ID of the course. Can be used to identify during import process whether this is a new course or update | no       |
+|  description   |      string      |                                           Description of the course                                           | no       |
+|     title      |      string      |                                              Title of the course                                              | yes      |
+|   base_price   |      number      |                            Base price of the course. Value 0 means that it's free                             | no       |
+|    lessons     |      array       |                                                List of lessons                                                | yes      |
+|    language    |      string      |                    Unique ID of the language of the course. Preferred in ISO 639-1 format                     | no       |
+|    subtitle    |      string      |                                            Subtitle of the course                                             | no       |
+|    summary     |      string      |                                                    Summary                                                    | no       |
+|    duration    |      string      |                     How long does the course take. Preferred in ISO 8601 duration format                      | no       |
 
 Except of listed attributes the course can be described by unlimited additional fields.
 
 ### General description of Lesson attributes
 
 | Attribute name |       type       |                                                  description                                                  | required |
-|:--------------:|:----------------:|:-------------------------------------------------------------------------------------------------------------:|----------|
-| id             | number \| string | Unique ID of the course. Can be used to identify during import process whether this is a new lesson or update | no       |
-| title          | string           | Title of the lesson                                                                                           | yes      |
-| order          | number           | Sorting order                                                                                                 | no       |
-| duration       | string           | How long does the lesson take. Prefered in ISO 8601 duration format                                           | no       |
-| summary        | string           | Summary of the lesson                                                                                         | no       |
-| topis         | array            | List of Topics                                                                                                | yes      
+| :------------: | :--------------: | :-----------------------------------------------------------------------------------------------------------: | -------- |
+|       id       | number \| string | Unique ID of the course. Can be used to identify during import process whether this is a new lesson or update | no       |
+|     title      |      string      |                                              Title of the lesson                                              | yes      |
+|     order      |      number      |                                                 Sorting order                                                 | no       |
+|    duration    |      string      |                     How long does the lesson take. Preferred in ISO 8601 duration format                      | no       |
+|    summary     |      string      |                                             Summary of the lesson                                             | no       |
+|     topis      |      array       |                                                List of Topics                                                 | yes      |
 
 Except of listed attributes the lesson can be described by unlimited additional fields.
 
 ### General description of Topic attributes
 
-| Attribute name |       type       |                                                  description                                                 | required |
-|:--------------:|:----------------:|:------------------------------------------------------------------------------------------------------------:|----------|
-| id             | number \| string | Unique ID of the course. Can be used to identify during import process whether this is a new topic or update | no       |
-| title          | string           | Title of the topic                                                                                           | yes      |
-| order          | number           | Sorting order                                                                                                | no       |
-| duration       | string           | How long does the lesson take. Prefered in ISO 8601 duration format                                          | no       |
-| summary        | string           | Summary of the lesson                                                                                        | no       |
-| preview        | boolean          | Can user preview this Assignable Unit without launching the course                                           | no       |
-| description    | string           | Description of the lesson                                                                                    | no       |
-| type           | string           | Type of Topic                                                                                                | yes      |
-| value          | object           | Value of the Topic depending on the Type                                                                     | yes      |
+| Attribute name |       type       |                                                 description                                                  | required |
+| :------------: | :--------------: | :----------------------------------------------------------------------------------------------------------: | -------- |
+|       id       | number \| string | Unique ID of the course. Can be used to identify during import process whether this is a new topic or update | no       |
+|     title      |      string      |                                              Title of the topic                                              | yes      |
+|     order      |      number      |                                                Sorting order                                                 | no       |
+|    duration    |      string      |                     How long does the lesson take. Preferred in ISO 8601 duration format                     | no       |
+|    summary     |      string      |                                            Summary of the lesson                                             | no       |
+|    preview     |     boolean      |                      Can user preview this Assignable Unit without launching the course                      | no       |
+|  description   |      string      |                                          Description of the lesson                                           | no       |
+|      type      |      string      |                                                Type of Topic                                                 | yes      |
+|     value      |      object      |                                   Value of the Topic depending on the Type                                   | yes      |
 
-### General description of Topic types 
+### General description of Topic types
 
-Topic is describes by type and value. In the first version of the format there are following Topic Types. 
+Topic is describes by type and value. In the first version of the format there are following Topic Types.
 
-Topic type attribute is in string format with namespace, with default namespace `ulam`. 
+Topic type attribute is in string format with namespace, with default namespace `ULAM`.
 
-Topic type is an abstract type and polymorphic. This means that has different meaning based on the `type` value. 
+Topic type is an abstract type and polymorphic. This means that has different meaning based on the `type` value.
 
-If the value of the Topic contains references (url) to assets (audio, video, images, etc), they must be placed 
-with relative paths to main `content.json` file. 
+If the value of the Topic contains references (url) to assets (audio, video, images, etc), they must be placed
+with relative paths to main `content.json` file.
 
+#### Text
 
-#### Text 
+- Namespace: `ulam\text`
+- Value: Unformatted text with newlines
 
-* Namespace: `ulam\text`
-* Value: Unformatted text with newlines
+#### RichText
 
-#### RichText 
+- Namespace: `ulam\richtext`
+- Value: Formatted with Markdown text with newlines
 
-* Namespace: `ulam\richtext`
-* Value: Formatted with Markdown text with newlines
+#### HTMLText
 
-#### HTMLText 
+- Namespace: `ulam\html`
+- Value: Formatted with HTML text
 
-* Namespace: `ulam\html`
-* Value: Formatted with HTML text
+#### Audio
 
-#### Audio 
+- Namespace: `ulam\audio`
+- Value: Reference to audio file
 
-* Namespace: `ulam\audio`
-* Value: Reference to audio file 
+#### Video
 
-#### Video 
+- Namespace: `ulam\video`
+- Value: Reference to Video file
 
-* Namespace: `ulam\video`
-* Value: Reference to Video file 
+#### PDF
 
-#### PDF 
+- Namespace: `ulam\pdf`
+- Value: Reference to PDF file
 
-* Namespace: `ulam\pdf`
-* Value: Reference to PDF file 
+#### Image
 
-#### Image 
+- Namespace: `ulam\image`
+- Value: Reference to Image file
 
-* Namespace: `ulam\image`
-* Value: Reference to Image file 
+#### H5P
 
-#### H5P 
+- Namespace: `ulam\h5p`
+- Value: Reference to H5P content
 
-* Namespace: `ulam\h5p`
-* Value: Reference to H5P content
+## Validating
 
-## Validating 
+The manifest must be validated against JSON Schema file. The latest schema is always available in github repository[^11].
 
-The manifest must be validated against JSON Schema file. The latest schema is always available in github repository[^11]. 
-
-## Extending 
+## Extending
 
 Except of listed attributes the manifest can be extended by unlimited additional fields.
 
-For example if there is need to describe course by video path or image it's a matter of adding new fields to the course attributes. 
+For example if there is need to describe course by video path or image it's a matter of adding new fields to the course attributes.
 
-### Topic Types 
+### Topic Types
 
-One of the most important motivation introducing new format was the ability to add without limits new type of Assignable Unit (AU) in `ULAM` called TopicTypes. 
+One of the most important motivation introducing new format was the ability to add without limits new type of Assignable Unit (AU) in `ULAM` called TopicTypes.
 
-Each organization that wants to add new type should use it's own namespace for `type`. 
+Each organization that wants to add new type should use it's own namespace for `type`.
 
-This allows to add new topic types like 
+This allows to add new topic types like
 
-* Augmented Reality assets
-* 3D Models
-* 3D Panoramas 
-* 3D Movies 
-* Metaverse assets 
-* Specialized format for particular industries
-* etc. 
+- Augmented Reality assets
+- 3D Models
+- 3D Panoramas
+- 3D Movies
+- Metaverse assets
+- Specialized format for particular industries
+- etc.
 
-## Example 
+## Example
 
-The example below show a course with extended fields. 
+The example below show a course with extended fields.
 
 ```json
 {
     "id": "f7e84b25e6f1f8d5e7dd3f1f438dd5f5",
-    "title": "The title of coure.",
+    "title": "The title of course.",
     "summary": "Summary.\n this is new line",
     "image_path": "course\/2\/repudiandae.jpg",
     "image_url": "https:\/\/api.escolalms.com\/\/storage\/course\/2\/repudiandae.jpg",
@@ -485,9 +487,9 @@ The example below show a course with extended fields.
                 "updated_at": "2021-10-14T15:50:29.000000Z",
                 "value": "Aperiam magni saepe labore accusantium totam animi.\n===================================================\n\nCorporis aut saepe ut mollitia. Deleniti voluptas explicabo expedita voluptas. Illum sit quia debitis recusandae architecto officiis provident. Distinctio velit illum eos architecto ut nobis libero.\n\n* Sint perferendis corrupti qui blanditiis.\n* Eius perspiciatis dolor officia laborum quo deserunt reiciendis.\n* Quisquam est eaque libero molestiae blanditiis."
             },
-            "summary": "Sit aut fuga repellendus velit harum esse.",            
+            "summary": "Sit aut fuga repellendus velit harum esse.",
             "order": 5
-    
+
         }, {
             "title": "esse",
             "active": true,
@@ -504,14 +506,14 @@ The example below show a course with extended fields.
 }
 ```
 
-More examples are available in github repository[^11]. 
+More examples are available in github repository[^11].
 
-## Packaging. 
+## Packaging.
 
-Ulam package is similar to SCORM Package. It is zip file that consist of: 
+Ulam package is similar to SCORM Package. It is zip file that consist of:
 
-* validated `content.json` in main folder 
-* all the other assets that `content.json` attributes refer to. Those are relative paths 
+- validated `content.json` in main folder
+- all the other assets that `content.json` attributes refer to. Those are relative paths
 
 ### Import
 
@@ -523,7 +525,7 @@ LMS should be able to create ZIP package, with essential files, update theirs pa
 
 ## comparison with `cmi5`
 
-|                                       |        cmi5        |       ulam        |
+|                                       |        cmi5        |       ULAM        |
 | :-----------------------------------: | :----------------: | :---------------: |
 |               use xAPI                |        yes         |        yes        |
 |            Manifest format            |        xml         |       json        |
@@ -541,64 +543,87 @@ LMS should be able to create ZIP package, with essential files, update theirs pa
 
 ## Frontent. Implementation
 
-The implementation of ULAM courses are Frontend agnostinc. This means that the format itself doesn't describe how to render the course. 
+The implementation of ULAM courses are Frontend agnostinc. This means that the format itself doesn't describe how to render the course.
 
-The player should follow `cmi5` lanuch mode and `xAPI` verbs. 
+The player should follow `cmi5` lanuch mode and all `xAPI` 9 verbs.
 
-Once the frontend application receice the ULAM content from the LMS endpoint is should parse it and create tree of lessons and topics. 
+Once the frontend application receice the ULAM content from the LMS endpoint is should parse it and create tree of lessons and topics.
+
+### Single Page Application
+
+Modern web application does not require server side component to render its content, since evolution of JavaScript all of rendering is possible only in browser on the client side.
+
+A Single-page application (SPA) is a web app implementation that loads only a single web document, and then updates the body content of that single document via JavaScript API, which results in websites without loading whole new pages from the server, that finally result in performance gains and a more dynamic experience. Those kind off appliaction can load more quickly, fetching data in the background. Support of incremental updates, saving partially completed forms or documents without the user having to click a button to submit a form and wait for the whole page to reload. Also support of rich frontend behaviors, such as drag-and-drop, copy and paste, file picker, local files preview and editing and many more. Those kind of application can run in a disconnected mode, making updates to a client-side model that are eventually synchronized back to the server once a connection is re-established, which sometimes is names offline mode.
+
+The client-side implementation of ULAM format can be Single Page Application becase the format itself just defines content data, leaving presentation model up to the implementation phase. The SPA would handle a logic and presentation layer.
+
+### Progressive Web App
+
+Progressive Web Apps are web apps that use modern web technologies like service workers, manifests, in combination with progressive enhancement to give users an experience on par with native apps. They provide a number of advantages to users like the following
+
+- **being installable** - users to have app icons on their home screen, and be able to tap to open apps into their own native container that feels nicely integrated with the underlying platform.
+- **progressively enhanced** - provide an excellent experience to fully capable devices, and an acceptable experience to less capable browsers.
+- **responsively designed** - appliaction User Interfaces will fit any form factor: desktop, mobile, tablet, or whatever comes next.
+- **re-engageable** - ease with which users can be re-engaged by updates and new content, even when they aren't looking at the app or using their devices, eg Push Notifications.
+- **linkable** - ability to link to an app at a specific URL without the need for an app store or complex installation proces
+- **discoverable** - better representation in search engines, be easier to expose, catalog and rank, and have metadata usable by browsers to give them special capabilities. Also beong able to be installed be Operation System package managers and shops, eg Android Play.
+- **network independent** - can work when the network is unreliable, or even non-existent
+- **secure** - working in browser sandbox and takich take advantage of HTTPS make them secure.
+
+The client-side implementation of ULAM format fits all capabilities to be a Progressive Web App without any special preparation.
 
 ### Topics Types
 
-`topic_type` is like `xAPI` word, it can be anything, the standard doesn't specify this except of the reserver `ulam` namespace.  
+`topic_type` is like `xAPI` word, it can be anything, the standard doesn't specify this except of the reserver `ulam` namespace.
 
 ### Topics Types Content Players
 
-Once course is rendered, frontend should parse each topic type and display content depending on the type. 
+Once course is rendered, frontend should parse each topic type and display content depending on the type.
 
-The course itself is headless so it doesn't know what kind of enviroment and device it is being played on. 
+The course itself is headless so it doesn't know what kind of enviroment and device it is being played on.
 
-Let take a video topic type as and example: 
+Let take a video topic type as and example:
 
 ```json
 {
-    "title": "esse",
-    "type": "ulam\\video",
-    "value": {
-        "value": "topic\/23\/doloribus.mp4",
-        "width": 640,
-        "height": 480,
-        "url": "https:\/\/api.escolalms.com\/\/storage\/topic\/23\/doloribus.mp4"
-    },
-    "summary": "Ipsa laboriosam.",
+  "title": "esse",
+  "type": "ulam\\video",
+  "value": {
+    "value": "topic/23/doloribus.mp4",
+    "width": 640,
+    "height": 480,
+    "url": "https://api.escolalms.com//storage/topic/23/doloribus.mp4"
+  },
+  "summary": "Ipsa laboriosam."
 }
 ```
 
-The snippet above taken from ulam format means that this topic type is a video that has a dimention 640 width and 480 height. 
+The snippet above taken from ULAM format means that this topic type is a video that has a dimention 640 width and 480 height.
 
-There are many scenarios that this can be handled, as this depenend on what is the course current context. Some examples include:  
+There are many scenarios that this can be handled, as this depenend on what is the course current context. Some examples include:
 
-* HTML5 build-in video player (tag <video>)
-* iOS native application `AVPlayer`
-* React/Vue/Angular video component 
-* React Native video component. 
+- HTML5 build-in video player (tag <video>)
+- iOS native application `AVPlayer`
+- React/Vue/Angular video component
+- React Native video component.
 
-![Implementation of Courses with `ulam` format](images/frontend.png)
+![Implementation of Courses with `ULAM` format](images/frontend.png)
 
 # The Conclusions
 
-The new format should be able top solve issue that occured during common e-learning lifespam. ULAM format is easy to use, implement, does age well and it's designed for extesions and plugins. 
+The new format should be able top solve issue that occured during common e-learning lifespam. ULAM format is easy to use, implement, does age well and it's designed for extesions and plugins.
 
 ## Future Work
 
 The main focus on the ULAM format is in WELLS LMS system designed and implement by EsolaLMS Ltd. The project is open source and available on github[^12].
 
-At the moment there is no versioning of ULAM format as this is still proof of concept. 
+At the moment there is no versioning of ULAM format as this is still proof of concept.
 
 ## The Acknowledgements
 
 Thank you XXX who edited this article.
 
-Name ULAM comes from Stanislaw Ulam a Polish scientist in the fields of mathematics and nuclear physics, who worked with von John von Neumann on very first computer based computation methods. 
+Name ULAM comes from Stanislaw Ulam a Polish scientist in the fields of mathematics and nuclear physics, who worked with von John von Neumann on very first computer based computation methods.
 
 [^1]: [Technical Specification 4th Ed.](https://adlnet.gov/assets/uploads/SCORM_2004_4ED_v1_1_Doc_Suite.zip). SCORM. Retrieved 2017-05-22.
 [^2]: [A timeline and description of the eLearning standards.](https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/). SCORM
@@ -610,5 +635,5 @@ Name ULAM comes from Stanislaw Ulam a Polish scientist in the fields of mathemat
 [^8]: [Blockchain Networks: Token Design and Management Overview](https://nvlpubs.nist.gov/nistpubs/ir/2021/NIST.IR.8301.pdf) NISTIR 8301. National Institute of Standards and Technology
 [^9]: [Google Trends](https://trends.google.com/trends/explore?date=all&q=xml,json) XML vs JSON
 [^10]: [An exciting time to watch xAPI and cmi5 adoption numbers](https://xapi.com/blog/an-exciting-time-to-watch-xapi-and-cmi5-adoption-numbers/)
-[^11]: [Ulam Headless Format](https://github.com/EscolaLMS/headless-format/tree/main/schema) Github repository. 
-[^12]: [Wellms LMS](https://github.com/EscolaLMS) Github repositories. 
+[^11]: [Ulam Headless Format](https://github.com/EscolaLMS/headless-format/tree/main/schema) Github repository.
+[^12]: [Wellms LMS](https://github.com/EscolaLMS) Github repositories.

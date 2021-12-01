@@ -1,9 +1,4 @@
-export type UlamTopicResource = Record<string, any> & {
-  name: string;
-  url: string;
-};
-
-export type UlamTopicableBase = Record<string, any> & {
+export type UlamTopicTypeBase = Record<string, any> & {
   value: string;
 };
 
@@ -15,7 +10,7 @@ export type UlamTopicBase = Record<string, any> & {
   description?: string | null;
   summary?: string | null;
   type: string;
-  value: UlamTopicableBase;
+  value: UlamTopicTypeBase;
 };
 export type UlamLesson = Record<string, any> & {
   id: number | string;

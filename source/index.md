@@ -50,7 +50,7 @@ A Learning Record Store (LRS) is a data store system that serves as a repository
 In software engineering, a monolithic application describes a single-tiered software application in which the user interface and data access code are combined into a single program from a single platform.
 
 **PWA**
-A progressive web application (PWA), is a type of application software delivered through the web, built using common web technologies. It is intended to work on any platform that uses a standards-compliant browser, including both desktop and mobile devices.
+A progressive web application (PWA), is a type of application software delivered through the web, built using common web technologies, employing the progressive enhancement web development strategy (allowing everyone to access the basic content and functionality of the app, while users with additional browser features or better devices receive the enhanced version instead). It is intended to work on any platform that uses a standards-compliant browser, including both desktop and mobile devices.
 
 **SCORM**
 Shareable Content Object Reference Model (SCORM) is a set of technical standards for eLearning software products.
@@ -170,7 +170,7 @@ In order to make any changes, even correcting simple typo, the whole process mus
 
 ## Introduction of Experience API (xAPI) and related technologies
 
-One of the shortcomings of SCORM that influenced the introduction of extended formats was the limitation of capability to track and analyse activities of students to only within the same LMS.
+One of the shortcomings of SCORM that influenced the introduction of extended formats was the limitation of capability to track and analyse activities of students to only data available within the same LMS.
 
 That means that the course, LMS and student progress were inseparable.
 
@@ -222,76 +222,85 @@ The main motivation of introducing new e-learning format is to allow to separate
 
 ## Headless
 
-Regular websites and web application works in the way that their own back-end (server side component) and front-end (graphical user interface).
-Each piece use the same code base and communicate directly on the server machine with each other, making the website as a whole.
+Regular design of websites and web application intertwines back-end (server side component) and front-end (graphical user interface), by having back-end serve prerendered content in form of html pages and/or by having the back-end decide which content to serve (routing).
 
-Headless web application is an implementation of **separation of concerns (SoC)** design principle of the front-end as stand-alone piece of software, and the back-end that doesn't know anything about way the data that is served will be presented. All the communication happens through API as the bridge between both parts. All parts works separately technically (placed on separate servers) and functionally.
+Headless web application is an implementation of **separation of concerns (SoC)** design principle, decoupling front-end and back-end, ensuring that the front-end can exist as a stand-alone piece of software, and that the back-end does not know (and has no reason to know) anything about the way the data that it serves will be presented. All the communication happens through APIs as the bridge between both layers.
 
 ### Headless LMS.
 
-In opposition to Monolith LMS Architecture headless LMS is build upon API as a main component. All other components does communicate though this interface. In most cases API and Database are the only parts that require dedicated server.
+In opposition to Monolith LMS Architecture, a Headless LMS is build upon API as a main component. All other components communicate though this interface. In most cases API and Database are the only parts that require dedicated server.
 
-In Monolithic architecture, frontend component, a presentation layers, requires specific know-how, example: you are obliged to use Moodle template system called Mustache
-In Headless architecture, frontend is framework agnostic. You can use any frontend framework you want. Furthermore you can use few at once, like React on one domain, vue for course details and Angular for admin panel on other domains.
+In Monolithic architecture, frontend component, a presentation layers, requires specific know-how, for example you are obliged to use Moodle template system called Mustache when working with MoodleLMS.
+
+In Headless architecture, frontend is not determined by backend in any way, and is framework agnostic. You can use any frontend frameworks and technologies you want. Furthermore you can create multiple frontend solutions working with same backend, for example a React app for Learners on one domain, a Vue app for Admins on other domain, and another sepearate Learner app for mobile devices.
 
 **Headless LMS Architecture**
 
-- **separation of concerns (SoC)** design principle, separate all of the components.
-- only API require server
-- admin panel is serverless
-- user app is serverless
-- application and admin panel are easy to replicate
+- **separation of concerns (SoC)** design principle, separate all of the components
+- decoupled architecture (separate frontend and backend)
+- only API requires server
+- admin panel can be serverless
+- user app can be serverless
+- application and admin panel are easy to replicate/scale
 - other view layouts (eg native mobile application) are easy to add without changes to other layers
-- to implement courses for students there is no need to specialization knowledge.
+- to implement Courses for Students there is little to none required knowledge of specific backend implementation
 
 ![Architecture of headless LMS ](images/headless-lms.png)
 
-A Headless LMS is a "Course Repository" that makes content accessible to any platform via an API. We provide blocks to build one, yet you’re free to change those od use your own.
-Unlike a traditional LMS such as Moodle, a Headless LMS does not dictate where or how content is shown. Also you don’t need any additional software to show a course - it’s just a matter of API communication
+A Headless LMS is a "Course Repository" that makes content accessible to any platform via an API. We provide blocks to build one, yet you’re free to change those and use your own.
+Unlike a traditional LMS such as Moodle, a Headless LMS does not dictate where or how content is shown. Also you don’t need any additional software to show a course - it’s just a matter of API communication.
 
 A Headless LMS enables teams to deliver omnichannel experiences at scale, globally, without restrictions like templates, devices, or pre-defined technologies.
-A Headless LMS allows brands and companies to engage with users on any device and format. White label was never easier then with headless.
+A Headless LMS allows brands and companies to engage with users on any device and format. White label was never easier than with headless.
 A Headless LMS fits into any preferred tech stack or framework, including most popular ones like React, Angular, and Vue.
 
-## Limitations parts of current standards that Headless can improve
+## Limitations of current standards that Headless can improve
 
-- Implementing **Separation of concerns** design pattern is complete.
-- New headless formats can defined content structure.
-- Presentation, data and logic layers are separable.
-- Courses cannot can be played offline as server is not required all the time.
-- Other presentation layouts are easy to add without changes to other layers so **Mobile app launch support** functionality is easily achievable.
+- Implementing **Separation of concerns** design pattern
+- New headless formats can be defined with new course structure
+- Presentation, data and logic layers are decoupled
+- Courses can be played offline as communication with server is not required all the time
+- New presentation methods and designs can be easily added without making changes to other layers, so for example **Mobile app launch support** functionality is relatively easy to achieve
 
 # ULAM Format.
 
-Because of the existing limitation new format **ULAM** **Universal Learning Asynchronous Model** for course content is needed.
+Because of the shortcomings of existing standards of course content definitions, I thereby propose a new standard which I will call **ULAM** or **Universal Learning Asynchronous Model**.
 
-The main motivation for the above are the following statements.
+The main motivation for creation of the new standard are following:
 
 **Separation content layer from presentation layer.**
 
-All of the most popular e-learning format, mostly SCORM mix view, data and logic layer into one as inseparable.
-New format should separate all the layers to follow separation of concerns (SoC) design principle.
+All of the most popular e-learning format (and especially SCORM) mix view, data and logic layer into one inseparable whole.
+
+New format must separate all the layers to follow separation of concerns (SoC) design principle.
 
 **Use of JSON format instead of XML.**
 
-When SCORM was published for the first time JSON format did not exists. During evolution of standards ADL use JSON for `xAPI`.
-Comparing to XML JSON is light-weight and has an easy to parse data format requiring no additional code for parsing.
-It is more popular then XML [^9]
+When SCORM was published for the first time JSON format did not exists. During evolution of standards ADL used JSON for `xAPI`.
+Compared to XML, JSON is lighter and easier to parse data format, requiring no additional code for parsing when used in JavaScript environment.
+It is currently more popular then XML [^9]
+
+New format must use JSON and JSON Schema.
 
 **Easy implementation.**
 
-Since SCORM first version implementing the format wasn't trivial for implementation. Until this day SCORM is the most popular, and latest format cmi5 has problems with adaptations [^10].
-New format must be easy to implement.
+SCORM format is complicated and was never easy for implementation, but nevertheless it is still the most popular standard.
 
-**Format that age well.**
+And both `xAPI` and much newer `cmi5` still have very small adoption rates [^10].
 
-SCORM does not age well.
-There are many courses that were created in 2010s using obsolete Flash technologies, which are useless now because none of the browsers still support Flash Player.
-New format must be able to prevent this kind of issues and **Separation of concerns** design pattern is a solution, because it does separate course pure data from presentation.
+New format must be not only easy to implement, but must be enticing for potential users to adopt.
 
-**Simple but open for extension.**
+**Format that is futureproof.**
 
-New format must be open for extensions which implies that it is possible to create new features without changing old ones.
+SCORM did not age well.
+
+There are many courses that were created in 2010s using obsolete Flash technologies, which are useless now, because none of the browsers support Flash Player anymore.
+
+New format must be futureproof, and **Separation of concerns** design pattern is a solution for preventing future problems that SCORM faces, because it implies decoupling of Course raw data from Presentation.
+
+**Simple, but open for extension.**
+
+New format must be open for extensions, which means that it must be possible to implement new features without changing old ones.
 
 **Standalone.**
 
@@ -348,7 +357,7 @@ Course is defined by
 |    summary     |      string      |                                                    Summary                                                    | no       |
 |    duration    |      string      |                     How long does the course take. Preferred in ISO 8601 duration format                      | no       |
 
-Except of listed attributes the course can be described by unlimited additional fields.
+_Apart of the above list of attributes, the course can be described by any number of additional fields._
 
 ### General description of Lesson attributes
 
@@ -361,7 +370,7 @@ Except of listed attributes the course can be described by unlimited additional 
 |    summary     |      string      |                                             Summary of the lesson                                             | no       |
 |     topis      |      array       |                                                List of Topics                                                 | yes      |
 
-Except of listed attributes the lesson can be described by unlimited additional fields.
+_Apart of the above list of attributes, the lesson can be described by any number of additional fields._
 
 ### General description of Topic attributes
 
@@ -379,7 +388,7 @@ Except of listed attributes the lesson can be described by unlimited additional 
 
 ### General description of Topic types
 
-Topic is describes by type and value. In the first version of the format there are following Topic Types.
+Topic is describes by type and value.
 
 Topic type attribute is in string format with namespace, with default namespace `ULAM`.
 
@@ -387,6 +396,8 @@ Topic type is an abstract type and polymorphic. This means that has different me
 
 If the value of the Topic contains references (url) to assets (audio, video, images, etc), they must be placed
 with relative paths to main `content.json` file.
+
+### In the first version of the format, following Topic Types are specified:
 
 #### Text
 
@@ -396,17 +407,17 @@ with relative paths to main `content.json` file.
 #### RichText
 
 - Namespace: `ulam\richtext`
-- Value: Formatted with Markdown text with newlines
+- Value: Markdown formatted text with newlines
 
 #### HTMLText
 
 - Namespace: `ulam\html`
-- Value: Formatted with HTML text
+- Value: HTML document content
 
 #### Audio
 
 - Namespace: `ulam\audio`
-- Value: Reference to audio file
+- Value: Reference to Audio file
 
 #### Video
 
@@ -434,17 +445,17 @@ The manifest must be validated against JSON Schema file. The latest schema is al
 
 ## Extending
 
-Except of listed attributes the manifest can be extended by unlimited additional fields.
+Apart of the listed attributes, the manifest can be extended by any number of additional fields.
 
-For example if there is need to describe course by video path or image it's a matter of adding new fields to the course attributes.
+For example, if there is a need to describe course by video path or image it is a matter of adding new fields to the course attributes.
 
 ### Topic Types
 
 One of the most important motivation introducing new format was the ability to add without limits new type of Assignable Unit (AU) in `ULAM` called TopicTypes.
 
-Each organization that wants to add new type should use it's own namespace for `type`.
+Each organization that wants to add new type should use its own namespace for `type`.
 
-This allows to add new topic types like
+This allows to add new topic types, for example:
 
 - Augmented Reality assets
 - 3D Models
@@ -456,7 +467,7 @@ This allows to add new topic types like
 
 ## Example
 
-The example below show a course with extended fields.
+The example below shows a course with extended fields.
 
 ```json
 {
@@ -510,7 +521,7 @@ More examples are available in github repository[^11].
 
 ## Packaging.
 
-Ulam package is similar to SCORM Package. It is zip file that consist of:
+Ulam package is similar to SCORM Package. It is a zip file that consist of:
 
 - validated `content.json` in main folder
 - all the other assets that `content.json` attributes refer to. Those are relative paths
@@ -541,48 +552,48 @@ LMS should be able to create ZIP package, with essential files, update theirs pa
 |      Advanced activity tracking       |        yes         |        yes        |
 |              Serverless               |         no         |        yes        |
 
-## Frontent. Implementation
+## Frontend. Implementation
 
-The implementation of ULAM courses are Frontend agnostinc. This means that the format itself doesn't describe how to render the course.
+The implementation of ULAM courses are Frontend agnostic. This means that the format itself does not describe how to render the course.
 
-The player should follow `cmi5` lanuch mode and all `xAPI` 9 verbs.
+The player should follow `cmi5` launch mode and all `xAPI` 9 verbs.
 
-Once the frontend application receice the ULAM content from the LMS endpoint is should parse it and create tree of lessons and topics.
+Once the frontend application retrieve the ULAM content from the LMS endpoint, it should parse it and create tree of lessons and topics.
 
 ### Single Page Application
 
-Modern web application does not require server side component to render its content, since evolution of JavaScript all of rendering is possible only in browser on the client side.
+Modern web application does not require server side component to render its content, since evolution of JavaScript all of rendering can be done client-side, utilising web browser functionality.
 
-A Single-page application (SPA) is a web app implementation that loads only a single web document, and then updates the body content of that single document via JavaScript API, which results in websites without loading whole new pages from the server, that finally result in performance gains and a more dynamic experience. Those kind off appliaction can load more quickly, fetching data in the background. Support of incremental updates, saving partially completed forms or documents without the user having to click a button to submit a form and wait for the whole page to reload. Also support of rich frontend behaviors, such as drag-and-drop, copy and paste, file picker, local files preview and editing and many more. Those kind of application can run in a disconnected mode, making updates to a client-side model that are eventually synchronized back to the server once a connection is re-established, which sometimes is names offline mode.
+A Single-page application (SPA) is a web app implementation that loads only a single web document, and then updates the body content of that single document via JavaScript API. As the web app only retrieves partial data from the server (and not whole rendered pages) it results in performance gains and a more dynamic experience - as the app can load everything more quickly, fetching data in the background as needed. SPA often come with support of incremental updates, saving partially completed forms or documents without the user having to click a button to submit a form and wait for the whole page to reload, support of rich frontend behaviors, such as drag-and-drop, copy and paste, file picker, local files preview and editing and many more. SPA can also run in a disconnected mode (sometimes called offline mode), making updates to a client-side model that are eventually synchronized back to the server once a connection is re-established.
 
 The client-side implementation of ULAM format can be Single Page Application becase the format itself just defines content data, leaving presentation model up to the implementation phase. The SPA would handle a logic and presentation layer.
 
 ### Progressive Web App
 
-Progressive Web Apps are web apps that use modern web technologies like service workers, manifests, in combination with progressive enhancement to give users an experience on par with native apps. They provide a number of advantages to users like the following
+Progressive Web Apps are web apps that use modern web technologies like service workers, manifests, in combination with progressive enhancement to give users an experience on par with native apps. They provide a number of advantages to users, some of which include the following:
 
-- **being installable** - users to have app icons on their home screen, and be able to tap to open apps into their own native container that feels nicely integrated with the underlying platform.
-- **progressively enhanced** - provide an excellent experience to fully capable devices, and an acceptable experience to less capable browsers.
-- **responsively designed** - appliaction User Interfaces will fit any form factor: desktop, mobile, tablet, or whatever comes next.
-- **re-engageable** - ease with which users can be re-engaged by updates and new content, even when they aren't looking at the app or using their devices, eg Push Notifications.
+- **being installable** - users can install the app to their device, to have the app icon shown on their home screen, and be able to tap to open the app into their own native container that feels nicely integrated with the underlying platform
+- **progressively enhanced** - provide an excellent experience to fully capable devices, and an acceptable experience to less capable browsers
+- **responsively designed** - application User Interfaces will fit any display sizes: desktop, mobile, tablet, or whatever comes next
+- **re-engageable** - ease with which users can be re-engaged by updates and new content, even when they are not looking at the app or using their devices, eg Push Notifications
 - **linkable** - ability to link to an app at a specific URL without the need for an app store or complex installation proces
-- **discoverable** - better representation in search engines, be easier to expose, catalog and rank, and have metadata usable by browsers to give them special capabilities. Also beong able to be installed be Operation System package managers and shops, eg Android Play.
+- **discoverable** - better representation in search engines, be easier to expose, catalog and rank, and have metadata usable by browsers to give them special capabilities. Also being able to be installed by Operating System package managers and shops, eg Android Play
 - **network independent** - can work when the network is unreliable, or even non-existent
-- **secure** - working in browser sandbox and takich take advantage of HTTPS make them secure.
+- **secure** - working in browser sandbox and taking advantage of HTTPS to make them secure
 
 The client-side implementation of ULAM format fits all capabilities to be a Progressive Web App without any special preparation.
 
 ### Topics Types
 
-`topic_type` is like `xAPI` word, it can be anything, the standard doesn't specify this except of the reserver `ulam` namespace.
+`topic_type` is like `xAPI` word, it can be anything, the standard doesn't specify this except of the reserved `ulam` namespace.
 
 ### Topics Types Content Players
 
 Once course is rendered, frontend should parse each topic type and display content depending on the type.
 
-The course itself is headless so it doesn't know what kind of enviroment and device it is being played on.
+The course itself is headless so it does not know what kind of environment and device it is being played on.
 
-Let take a video topic type as and example:
+Lets take a video topic type as an example:
 
 ```json
 {
@@ -598,9 +609,9 @@ Let take a video topic type as and example:
 }
 ```
 
-The snippet above taken from ULAM format means that this topic type is a video that has a dimention 640 width and 480 height.
+The snippet abovem taken from ULAM format, means that this topic type is a video, that has a width of 640 pixels and height of 480 pixels.
 
-There are many scenarios that this can be handled, as this depenend on what is the course current context. Some examples include:
+There are many ways in which this topic description can be handled, as it depends on what is the course current context. Some examples include:
 
 - HTML5 build-in video player (tag <video>)
 - iOS native application `AVPlayer`
@@ -611,19 +622,19 @@ There are many scenarios that this can be handled, as this depenend on what is t
 
 # The Conclusions
 
-The new format should be able top solve issue that occured during common e-learning lifespam. ULAM format is easy to use, implement, does age well and it's designed for extesions and plugins.
+The new format should be able to prevent and solve issues that occur during normal e-learning system lifespan. ULAM format is easy to use, implement, futureproof and it is designed with extensions and plugins in mind.
 
 ## Future Work
 
-The main focus on the ULAM format is in WELLS LMS system designed and implement by EsolaLMS Ltd. The project is open source and available on github[^12].
+The first implementation and main development of the ULAM format is currently held in WELLS LMS system designed and implemented by EscolaLMS Ltd. The project is open source and available on github[^12].
 
-At the moment there is no versioning of ULAM format as this is still proof of concept.
+At the moment there is no versioning of ULAM format, as this is still a proof of concept.
 
 ## The Acknowledgements
 
-Thank you XXX who edited this article.
+Thanks to Paweł Chołaj <pawel.cholaj@escolasoft.com> who helped proofread and edit this article.
 
-Name ULAM comes from Stanislaw Ulam a Polish scientist in the fields of mathematics and nuclear physics, who worked with von John von Neumann on very first computer based computation methods.
+Name `ULAM` comes from Stanislaw Ulam, a Polish scientist in the fields of mathematics and nuclear physics, who worked with John von Neumann on the very first computer based computational methods.
 
 [^1]: [Technical Specification 4th Ed.](https://adlnet.gov/assets/uploads/SCORM_2004_4ED_v1_1_Doc_Suite.zip). SCORM. Retrieved 2017-05-22.
 [^2]: [A timeline and description of the eLearning standards.](https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/). SCORM

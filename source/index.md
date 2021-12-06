@@ -2,7 +2,7 @@
 title:
   - ULAM Headless Course Format
 author:
-  - Mateusz Wojczal. November 2021
+  - Mateusz Wojczal <mateusz@wojczal.com>
 papersize:
   - a4
 fontsize:

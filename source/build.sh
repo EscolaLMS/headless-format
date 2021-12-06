@@ -10,7 +10,7 @@ pandoc index.md \
     -V geometry:a4paper \
     -V geometry:margin=2cm \
     --pdf-engine=xelatex \
-    -M subtitle="ver. $(git rev-parse --short HEAD)" \
+    -M subtitle="ver. $(git rev-parse --short HEAD) $(date +'%d/%m/%Y')"  \
     -o ../dist/paper.pdf
 
 pandoc index.md \
@@ -18,7 +18,7 @@ pandoc index.md \
     --metadata title="E-leadning Course Headless Format" \
     -V linkcolor:blue \
     --toc \
-    -M subtitle="ver. $(git rev-parse --short HEAD)" \
+    -M subtitle="ver. $(git rev-parse --short HEAD) $(date +'%d/%m/%Y')"  \
     -o ../dist/index.html
 
 cp -r images ../dist   

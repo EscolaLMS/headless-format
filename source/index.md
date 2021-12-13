@@ -19,7 +19,9 @@ output:
 
 \pagebreak
 
-Latest version of this document is available here: [PDF](https://escolalms.github.io/headless-format/paper.pdf), [web](https://escolalms.github.io/headless-format)
+Latest version of this document is available here: [PDF](https://escolalms.github.io/headless-format/paper.pdf), [web](https://escolalms.github.io/headless-format).
+
+Current status of this paper is **Work in Progress**. 
 
 \hypersetup{linkcolor=black}
 \tableofcontents

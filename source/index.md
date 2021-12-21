@@ -578,7 +578,6 @@ The example below shows a course with extended fields.
             "title": "esse",
             "active": true,
             "preview": false,
-            "type": "ulam\\image",
             "value": "https://example.com/course1/topic1.json"
         }]
 }

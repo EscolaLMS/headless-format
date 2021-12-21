@@ -1,6 +1,6 @@
 ---
 title:
-  - `ulam` Headless Course Format
+  - ULAM Headless Course Format
 author:
   - Mateusz Wojczal <mateusz@wojczal.com>
 papersize:

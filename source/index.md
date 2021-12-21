@@ -711,7 +711,7 @@ There are many ways in which this topic description can be handled, as it depend
 
 ![Implementation of Courses with ``ulam`` format](images/frontend.png)
 
-# `ulam` format as CMI5 extension.
+## `ulam` format as CMI5 extension.
 
 The CMI5 aggregation level and the manifest format are somehow headless. What is not headless is the AU url point that in most cases directs to HTML content that does not separate content from presentation layer.
 

@@ -779,7 +779,7 @@ Thanks to Paweł Chołaj <pawel.cholaj@escolasoft.com> who helped proofread and 
 
 Thanks to Sébastien FRAYSSE who helped proofread and came into idea using `ulam` format as extension of `cmi5` manifest and other ideas.
 
-Thanks to Sébastien FRAYSSE who helped proofread and came into idea using `ulam` format as extension of `cmi5` manifest and other ideas.
+Thanks to Krzysztof Wojewodzic who invested funds in creating this paper.
 
 Name `ulam` comes from Stanislaw Ulam, a Polish scientist in the fields of mathematics and nuclear physics, who worked with John von Neumann on the very first computer based computational methods.
 

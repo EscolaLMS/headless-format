@@ -1,6 +1,6 @@
 ---
 title:
-  - ULAM Headless Course Format
+  - `ulam` Headless Course Format
 author:
   - Mateusz Wojczal <mateusz@wojczal.com>
 papersize:
@@ -21,7 +21,7 @@ output:
 
 Latest version of this document is available here: [PDF](https://escolalms.github.io/headless-format/paper.pdf), [web](https://escolalms.github.io/headless-format).
 
-Current status of this paper is **Work in Progress**. 
+Current status of this paper is **proofread and edit**.
 
 \hypersetup{linkcolor=black}
 \tableofcontents
@@ -96,6 +96,26 @@ The headless approach seems to be solving all of the issues that modern e-learni
 
 # Evolution of e-learning
 
+## E-learning Content Granularity
+
+Before describing courses, content and related formats we should explicitly describe what does each of the following keywords means.
+
+- **Course** is an shareable independent peace of packed sequenced interactive multimedia elements that connect (two way communication) with LMS to track user interactivity
+
+- **Packaging** is a way of packaging course into one file that can be shareable between LMSes
+
+- **Importing** is a process of importing course from the package
+
+- **Exporting** is a process of creating the package
+
+- **Asset** is a small pieces of course content which are not intended to be consumed alone, eg. image, video, audio files.
+
+- **Resource** is a learning resource that can be consumed by a learner to get a specific knowledge or develop a simple competency. A resource synonym is **Lesson** or **Article**
+
+- **Aggregations** is a set of resources organized in a specific way. Synonym is sometimes Course, but this is misleading as Course is a bigger entity.
+
+- **Sequencing** is a way to describe sequence of resources with tracking meta description.
+
 ## History of e-learning formats
 
 The most popular e-learning formats are created and managed by the Advanced Distributed Learning (ADL) Initiative from the Office of the United States Secretary of Defense.
@@ -129,6 +149,8 @@ The table below [^2] summarizes the comparison of each standard:
 | cmi5 (a companion to xAPI) |  June 1, 2016  |  48   |     Not Yet      |   Yes    |    Yes     |    No     |     No      |        Yes         |
 
 ## What is Learning Management System - LMS
+
+> A learning management system is a software application for the administration, documentation, tracking, reporting, automation, and delivery of educational courses, training programs, or learning and development programs. The learning management system concept emerged directly from e-Learning.
 
 The most popular LMS in the world is Moodle [^3], released on 20 August 2002, as Open Source software, distributed under the GNU General Public License, which is probably one of the reasons of its popularity.
 
@@ -264,9 +286,19 @@ A Headless LMS fits into any preferred tech stack or framework, including most p
 - Courses can be played offline as communication with server is not required all the time
 - New presentation methods and designs can be easily added without making changes to other layers, so for example **Mobile app launch support** functionality is relatively easy to achieve
 
-# ULAM Format.
+## Content granularity of the formats
 
-Because of the shortcomings of existing standards of course content definitions, I thereby propose a new standard which I will call **ULAM** or **Universal Learning Asynchronous Model**.
+|             | SCORM                          | CMI5                                             | Headless format                |
+| ----------- | ------------------------------ | ------------------------------------------------ | ------------------------------ |
+| Assets      | All assets in the package      | either remote or local assets                    | All assets in the package      |
+| Packaging   | ZIP Package with local resouce | ZIP package with either remote or local resurces | ZIP Package with local resouce |
+| Resources   | Each SCO is Resource           | each AU is Resource                              | each Lesson is a Resource      |
+| Aggregation | Made of items                  | Made of blocks                                   | Made of blocks                 |
+| Sequencing  | XML Manifest                   | XML Manifest                                     | XML/JSON Manifest              |
+
+# `ulam` Format.
+
+Because of the shortcomings of existing standards of course content definitions, I thereby propose a new standard which I will call **`ulam`** or **Universal Learning Asynchronous Model**.
 
 The main motivation for creation of the new standard are following:
 
@@ -339,7 +371,7 @@ The course is packed in ZIP file that contains `content.json` manifest in main f
 
 The course itself consists of at least one lessons which consists of at least one topic. Topic is describes by type and value.
 
-![Structure of `ULAM` course manifest](images/manifest-structure.png)
+![Structure of ``ulam`` course manifest](images/manifest-structure.png)
 
 The manifest contains the following:
 
@@ -363,14 +395,15 @@ _Apart of the above list of attributes, the course can be described by any numbe
 
 ### General description of Lesson attributes
 
-| Attribute name |       type       |                                                  description                                                  | required |
-| :------------: | :--------------: | :-----------------------------------------------------------------------------------------------------------: | -------- |
-|       id       | number \| string | Unique ID of the course. Can be used to identify during import process whether this is a new lesson or update | no       |
-|     title      |      string      |                                              Title of the lesson                                              | yes      |
-|     order      |      number      |                                                 Sorting order                                                 | no       |
-|    duration    |      string      |                     How long does the lesson take. Preferred in ISO 8601 duration format                      | no       |
-|    summary     |      string      |                                             Summary of the lesson                                             | no       |
-|     topis      |      array       |                                                List of Topics                                                 | yes      |
+| Attribute name | type             | description                                                                                                   | required |
+| -------------- | ---------------- | ------------------------------------------------------------------------------------------------------------- | -------- |
+| id             | number \| string | Unique ID of the course. Can be used to identify during import process whether this is a new lesson or update | no       |
+| title          | string           | Title of the lesson                                                                                           | yes      |
+| order          | number           | Sorting order                                                                                                 | no       |
+| duration       | string           | How long does the lesson take. Preferred in ISO 8601 duration format                                          | no       |
+| summary        | string           | Summary of the lesson                                                                                         | no       |
+| topis          | array            | List of Topics                                                                                                | yes      |
+| lessons        | array            | List of child Lessons                                                                                         | no       |
 
 _Apart of the above list of attributes, the lesson can be described by any number of additional fields._
 
@@ -388,11 +421,17 @@ _Apart of the above list of attributes, the lesson can be described by any numbe
 |      type      |      string      |                                                Type of Topic                                                 | yes      |
 |     value      |      object      |                                   Value of the Topic depending on the Type                                   | yes      |
 
+### Topic can he remote.
+
+The topics itself can be remote just like `cmi5` AU items.
+
+In case that topic is describe by string URL not by the object describing Topic then this is a remote topic.
+
 ### General description of Topic types
 
 Topic is describes by type and value.
 
-Topic type attribute is in string format with namespace, with default namespace `ULAM`.
+Topic type attribute is in string format with namespace, with default namespace `ulam`.
 
 Topic type is an abstract type and polymorphic. This means that has different meaning based on the `type` value.
 
@@ -453,7 +492,7 @@ For example, if there is a need to describe course by video path or image it is 
 
 ### Topic Types
 
-One of the most important motivation introducing new format was the ability to add without limits new type of Assignable Unit (AU) in `ULAM` called TopicTypes.
+One of the most important motivation introducing new format was the ability to add without limits new type of Assignable Unit (AU) in `ulam` called TopicTypes.
 
 Each organization that wants to add new type should use its own namespace for `type`.
 
@@ -519,11 +558,62 @@ The example below shows a course with extended fields.
 }
 ```
 
+### Example of remote topic.
+
+```json
+{
+    "id": "f7e84b25e6f1f8d5e7dd3f1f438dd5f3",
+    "title": "The title of course.",
+    "lessons": [{
+        "title": "voluptas",
+        "topics": [
+          {
+            "title": "beatae",
+            "active": true,
+            "preview": true,
+            "value": "topic1.json",
+            "summary": "Sit aut fuga repellendus velit harum esse.",
+            "order": 5
+        }, {
+            "title": "esse",
+            "active": true,
+            "preview": false,
+            "type": "ulam\\image",
+            "value": "https://example.com/course1/topic1.json"
+        }]
+}
+```
+
+Either local to current path file `topic1.json` or remote one `https://example.com/course1/topic1.json` can consitis of structure like
+
+```json
+{
+  "type": "ulam\\richtext",
+  "value": {
+    "value": "Aperiam magni saepe labore accusantium totam animi.\n===================================================\n\nCorporis aut saepe ut mollitia. Deleniti voluptas explicabo expedita voluptas. Illum sit quia debitis recusandae architecto officiis provident. Distinctio velit illum eos architecto ut nobis libero.\n\n* Sint perferendis corrupti qui blanditiis.\n* Eius perspiciatis dolor officia laborum quo deserunt reiciendis.\n* Quisquam est eaque libero molestiae blanditiis."
+  }
+}
+```
+
 More examples are available in github repository[^11].
+
+## Levels of granularity
+
+Levels of resources granularity supported in `ulam` is similar to one from SCORM and CMI5.
+
+- **Course > Lessons > ... > Topic** for `ulam` format
+- **Organization > Item > … > Item** for SCORM format
+- **Course > Block > … > AU** for CMI5 format
+
+Course must have at least one lesson.
+
+Each Lesson can have child lessons.
+
+Each lesson must have either child lessons or at leason one topic.
 
 ## Packaging.
 
-Ulam package is similar to SCORM Package. It is a zip file that consist of:
+Ulam package is similar to SCORM and cmi5 Package. It is a zip file that consist of:
 
 - validated `content.json` in main folder
 - all the other assets that `content.json` attributes refer to. Those are relative paths
@@ -538,7 +628,7 @@ LMS should be able to create ZIP package, with essential files, update theirs pa
 
 ## comparison with `cmi5`
 
-|                                       |        cmi5        |       ULAM        |
+|                                       |        cmi5        |      `ulam`       |
 | :-----------------------------------: | :----------------: | :---------------: |
 |               use xAPI                |        yes         |        yes        |
 |            Manifest format            |        xml         |       json        |
@@ -556,11 +646,11 @@ LMS should be able to create ZIP package, with essential files, update theirs pa
 
 ## Frontend. Implementation
 
-The implementation of ULAM courses are Frontend agnostic. This means that the format itself does not describe how to render the course.
+The implementation of `ulam` courses are Frontend agnostic. This means that the format itself does not describe how to render the course.
 
 The player should follow `cmi5` launch mode and all `xAPI` 9 verbs.
 
-Once the frontend application retrieve the ULAM content from the LMS endpoint, it should parse it and create tree of lessons and topics.
+Once the frontend application retrieve the `ulam` content from the LMS endpoint, it should parse it and create tree of lessons and topics.
 
 ### Single Page Application
 
@@ -568,7 +658,7 @@ Modern web application does not require server side component to render its cont
 
 A Single-page application (SPA) is a web app implementation that loads only a single web document, and then updates the body content of that single document via JavaScript API. As the web app only retrieves partial data from the server (and not whole rendered pages) it results in performance gains and a more dynamic experience - as the app can load everything more quickly, fetching data in the background as needed. SPA often come with support of incremental updates, saving partially completed forms or documents without the user having to click a button to submit a form and wait for the whole page to reload, support of rich frontend behaviors, such as drag-and-drop, copy and paste, file picker, local files preview and editing and many more. SPA can also run in a disconnected mode (sometimes called offline mode), making updates to a client-side model that are eventually synchronized back to the server once a connection is re-established.
 
-The client-side implementation of ULAM format can be Single Page Application becase the format itself just defines content data, leaving presentation model up to the implementation phase. The SPA would handle a logic and presentation layer.
+The client-side implementation of `ulam` format can be Single Page Application becase the format itself just defines content data, leaving presentation model up to the implementation phase. The SPA would handle a logic and presentation layer.
 
 ### Progressive Web App
 
@@ -583,7 +673,7 @@ Progressive Web Apps are web apps that use modern web technologies like service 
 - **network independent** - can work when the network is unreliable, or even non-existent
 - **secure** - working in browser sandbox and taking advantage of HTTPS to make them secure
 
-The client-side implementation of ULAM format fits all capabilities to be a Progressive Web App without any special preparation.
+The client-side implementation of `ulam` format fits all capabilities to be a Progressive Web App without any special preparation.
 
 ### Topics Types
 
@@ -611,7 +701,7 @@ Lets take a video topic type as an example:
 }
 ```
 
-The snippet abovem taken from ULAM format, means that this topic type is a video, that has a width of 640 pixels and height of 480 pixels.
+The snippet abovem taken from `ulam` format, means that this topic type is a video, that has a width of 640 pixels and height of 480 pixels.
 
 There are many ways in which this topic description can be handled, as it depends on what is the course current context. Some examples include:
 
@@ -620,23 +710,85 @@ There are many ways in which this topic description can be handled, as it depend
 - React/Vue/Angular video component
 - React Native video component.
 
-![Implementation of Courses with `ULAM` format](images/frontend.png)
+![Implementation of Courses with ``ulam`` format](images/frontend.png)
+
+# `ulam` format as CMI5 extension.
+
+The CMI5 aggregation level and the manifest format are somehow headless. What is not headless is the AU url point that in most cases directs to HTML content that does not separate content from presentation layer.
+
+Yet because XML does have namespaces `ulam` format can be adaptem in the cmi5 manifest xml file
+
+Typically, where we have entry point for AU in the following format
+
+- `<url>my-learning-resource.html</url>`
+
+which could be replaced with
+
+- `<url schema=”http://ulam.org/course.schema.json”>my-learning-resource.json</url>`
+
+or even when define xml namespace `xmlns:ulam="http://ulam.org/course.schema"`
+
+- `<url ulam:schema="1.0">http://course-repository.example.edu/identifiers/courses/02baafcf/aus/4c07/launch.json</url>`
+
+The `schema` attribute indicates we have a headless content which follows the specified format. So a player which is compliant with this format could render this content, be it `ulam` or any other format. The JSON structure of the resource stays outside of the `cmi5.xml`, so it does not affect the CMI5 XML structure.
+
+Furthermore we could add ulam attributes with defining `ulam` namespace and `xsd` schema
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<courseStructure xmlns="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd" xmlns:ulam="http://ulam.org/course.schema">
+  <course id="http://course-repository.example.edu/identifiers/courses/02baafcf">
+    <title>
+      <langstring lang="en-US">Introduction to Geology</langstring>
+    </title>
+    <ulam:baseprice>0</f:baseprice>
+    <description>
+      <langstring lang="en-US">
+        This course will introduce you into the basics of geology
+      </langstring>
+    </description>
+  </course>
+  <au id="http://course-repository.example.edu/identifiers/courses/02baafcf/aus/4c07">
+    <title>
+      <langstring lang="en-US">Introduction to Geology</langstring>
+    </title>
+    <description>
+      <langstring lang="en-US">
+        This course will introduce you into the basics of geology
+      </langstring>
+    </description>
+    <url ulam:schema="1.0">http://course-repository.example.edu/identifiers/courses/02baafcf/aus/4c07/launch.json</url>
+  </au>
+</courseStructure>
+```
+
+The above would work exactly like `ulam` in JSON format with remote topics.
 
 # The Conclusions
 
-The new format should be able to prevent and solve issues that occur during normal e-learning system lifespan. ULAM format is easy to use, implement, futureproof and it is designed with extensions and plugins in mind.
+The new format should be able to prevent and solve issues that occur during normal e-learning system lifespan. `ulam` format is easy to use, implement, futureproof and it is designed with extensions and plugins in mind.
 
 ## Future Work
 
-The first implementation and main development of the ULAM format is currently held in WELLS LMS system designed and implemented by EscolaLMS Ltd. The project is open source and available on github[^12].
+The first implementation and main development of the `ulam` format is currently held in [WELLMS](https://www.wellms.io/)[^12] system designed and implemented by EscolaLMS Ltd. The project is open source and available on github[^13].
 
-At the moment there is no versioning of ULAM format, as this is still a proof of concept.
+At the moment there is no versioning of `ulam` format, as this is still a proof of concept.
 
 ## The Acknowledgements
 
 Thanks to Paweł Chołaj <pawel.cholaj@escolasoft.com> who helped proofread and edit this article.
 
-Name `ULAM` comes from Stanislaw Ulam, a Polish scientist in the fields of mathematics and nuclear physics, who worked with John von Neumann on the very first computer based computational methods.
+Thanks to Sébastien FRAYSSE who helped proofread and came into idea using `ulam` format as extension of `cmi5` manifest and other ideas.
+
+Thanks to Sébastien FRAYSSE who helped proofread and came into idea using `ulam` format as extension of `cmi5` manifest and other ideas.
+
+Name `ulam` comes from Stanislaw Ulam, a Polish scientist in the fields of mathematics and nuclear physics, who worked with John von Neumann on the very first computer based computational methods.
+
+## Discussion and Related Work
+
+This document is open course and [hosted on Github](https://github.com/EscolaLMS/headless-format/). It is written in `Markdown` and `LaTeX` format supported by `pandoc` toolset.
+
+One can start a [discusion using Github plaform](https://github.com/EscolaLMS/headless-format/discussions). In case of finding issue in the document please [raise one in the platform](https://github.com/EscolaLMS/headless-format/issues). One can propose changes by cloning the repository and [submitting Pull Reqest](https://github.com/EscolaLMS/headless-format/pulls).
 
 [^1]: [Technical Specification 4th Ed.](https://adlnet.gov/assets/uploads/SCORM_2004_4ED_v1_1_Doc_Suite.zip). SCORM. Retrieved 2017-05-22.
 [^2]: [A timeline and description of the eLearning standards.](https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/). SCORM
@@ -649,4 +801,5 @@ Name `ULAM` comes from Stanislaw Ulam, a Polish scientist in the fields of mathe
 [^9]: [Google Trends](https://trends.google.com/trends/explore?date=all&q=xml,json) XML vs JSON
 [^10]: [An exciting time to watch xAPI and cmi5 adoption numbers](https://xapi.com/blog/an-exciting-time-to-watch-xapi-and-cmi5-adoption-numbers/)
 [^11]: [Ulam Headless Format](https://github.com/EscolaLMS/headless-format/tree/main/schema) Github repository.
-[^12]: [Wellms LMS](https://github.com/EscolaLMS) Github repositories.
+[^12]: [Wellms LMS](https://www.wellms.io/) headless Learning Management System.
+[^13]: [Wellms LMS](https://github.com/EscolaLMS) Github repositories.

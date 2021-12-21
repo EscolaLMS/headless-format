@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Mateusz Wojczal mateusz@wojczal.com" />
+  <title>E-leadning Course Headless Format</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 12pt;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: blue;
+    }
+    a:visited {
+      color: blue;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">E-leadning Course Headless Format</h1>
+<p class="subtitle">ver. 7ce5451 21/12/2021</p>
+<p class="author">Mateusz Wojczal <a href="mailto:mateusz@wojczal.com" class="email">mateusz@wojczal.com</a></p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#glossary">Glossary</a></li>
+<li><a href="#the-abstract">The Abstract</a></li>
+<li><a href="#the-introduction">The Introduction</a></li>
+<li><a href="#evolution-of-e-learning">Evolution of e-learning</a>
+<ul>
+<li><a href="#e-learning-content-granularity">E-learning Content Granularity</a></li>
+<li><a href="#history-of-e-learning-formats">History of e-learning formats</a></li>
+<li><a href="#what-is-learning-management-system---lms">What is Learning Management System - LMS</a></li>
+<li><a href="#lms-monolith-architecture">LMS Monolith Architecture</a></li>
+<li><a href="#process-of-publishing-the-course">Process of publishing the course</a></li>
+<li><a href="#introduction-of-experience-api-xapi-and-related-technologies">Introduction of Experience API (xAPI) and related technologies</a>
+<ul>
+<li><a href="#learning-record-store-lrs">Learning Record Store (LRS)</a></li>
+<li><a href="#cmi5-specification">cmi5 Specification</a></li>
+<li><a href="#limitations-parts-of-current-standards">Limitations parts of current standards</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#separation-of-concerns">Separation of concerns</a>
+<ul>
+<li><a href="#headless">Headless</a>
+<ul>
+<li><a href="#headless-lms.">Headless LMS.</a></li>
+</ul></li>
+<li><a href="#limitations-of-current-standards-that-headless-can-improve">Limitations of current standards that Headless can improve</a></li>
+<li><a href="#content-granularity-of-the-formats">Content granularity of the formats</a></li>
+</ul></li>
+<li><a href="#ulam-format."><code>ulam</code> Format.</a>
+<ul>
+<li><a href="#definition">Definition</a>
+<ul>
+<li><a href="#general-description-of-course-attributes">General description of Course attributes</a></li>
+<li><a href="#general-description-of-lesson-attributes">General description of Lesson attributes</a></li>
+<li><a href="#general-description-of-topic-attributes">General description of Topic attributes</a></li>
+<li><a href="#topic-can-he-remote.">Topic can he remote.</a></li>
+<li><a href="#general-description-of-topic-types">General description of Topic types</a></li>
+<li><a href="#in-the-first-version-of-the-format-following-topic-types-are-specified">In the first version of the format, following Topic Types are specified:</a></li>
+</ul></li>
+<li><a href="#validating">Validating</a></li>
+<li><a href="#extending">Extending</a>
+<ul>
+<li><a href="#topic-types">Topic Types</a></li>
+</ul></li>
+<li><a href="#example">Example</a>
+<ul>
+<li><a href="#example-of-remote-topic.">Example of remote topic.</a></li>
+</ul></li>
+<li><a href="#levels-of-granularity">Levels of granularity</a></li>
+<li><a href="#packaging.">Packaging.</a>
+<ul>
+<li><a href="#import">Import</a></li>
+<li><a href="#export">Export</a></li>
+</ul></li>
+<li><a href="#comparison-with-cmi5">comparison with <code>cmi5</code></a></li>
+<li><a href="#frontend.-implementation">Frontend. Implementation</a>
+<ul>
+<li><a href="#single-page-application">Single Page Application</a></li>
+<li><a href="#progressive-web-app">Progressive Web App</a></li>
+<li><a href="#topics-types">Topics Types</a></li>
+<li><a href="#topics-types-content-players">Topics Types Content Players</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#ulam-format-as-cmi5-extension."><code>ulam</code> format as CMI5 extension.</a></li>
+<li><a href="#the-conclusions">The Conclusions</a>
+<ul>
+<li><a href="#future-work">Future Work</a></li>
+<li><a href="#the-acknowledgements">The Acknowledgements</a></li>
+<li><a href="#discussion-and-related-work">Discussion and Related Work</a></li>
+</ul></li>
+</ul>
+</nav>
+<p>Latest version of this document is available here: <a href="https://escolalms.github.io/headless-format/paper.pdf">PDF</a>, <a href="https://escolalms.github.io/headless-format">web</a>.</p>
+<p>Current status of this paper is <strong>proofread and edit</strong>.</p>
+<h1 id="glossary">Glossary</h1>
+<p><strong>ADL</strong> Advanced Distributed Learning (ADL) Initiative from the Office of the United States Secretary of Defense.</p>
+<p><strong>cmi5</strong> cmi5 is an xAPI Profile that provides rules defining how online courses are imported, launched and tracked using a Learning Management System (LMS) and xAPI.</p>
+<p><strong>JSON</strong> JavaScript Object Notation (JSON) is a lightweight data-interchange format, that is both easy to read and write for humans and easy to parse and generate by machines.</p>
+<p><strong>JSON Schema</strong> JSON Schema is a vocabulary that allows you to annotate and validate JSON documents.</p>
+<p><strong>LMS</strong> Learning management system (LMS) is a type of software used for creation, administration and presentation of educational courses and their contents.</p>
+<p><strong>LRS</strong> A Learning Record Store (LRS) is a data store system that serves as a repository for learning records collected from connected systems where learning activities are conducted.</p>
+<p><strong>Monolith architecture</strong> In software engineering, a monolithic application describes a single-tiered software application in which the user interface and data access code are combined into a single program from a single platform.</p>
+<p><strong>PWA</strong> A progressive web application (PWA), is a type of application software delivered through the web, built using common web technologies, employing the progressive enhancement web development strategy (allowing everyone to access the basic content and functionality of the app, while users with additional browser features or better devices receive the enhanced version instead). It is intended to work on any platform that uses a standards-compliant browser, including both desktop and mobile devices.</p>
+<p><strong>SCORM</strong> Shareable Content Object Reference Model (SCORM) is a set of technical standards for eLearning software products.</p>
+<p><strong>Separation of concerns</strong> In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, each of which addresses a separate concern.</p>
+<p><strong>SPA</strong> A single-page application (SPA) is a web application or website that interacts with the user by dynamically rewriting the current web page with new data from the web server, instead of the default method of a web browser loading entire new pages.</p>
+<p><strong>xAPI</strong> The Experience API (xAPI) is an e-learning software specification that allows learning content and learning systems to speak to each other in a manner that records and tracks all types of learning experiences.</p>
+<p><strong>XML</strong> Extensible Markup Language (XML) is a markup language for coding documents, that allows designers to create their own customized tags for structuring document contents. XML is widely used as a data-interchange format in web services.</p>
+<p><strong>ZIP</strong> ZIP is an archive file format that supports lossless data compression.</p>
+<h1 id="the-abstract">The Abstract</h1>
+<p>Current e-learning software comes with a huge technological debt and does not respond to market needs as fast as other IT segments can. The main reason is dependency on obsolete formats like SCORM that are still widely used, and which do not separate data layer from the presentation layer. There is a need from market for existence of better designed and better implemented formats.</p>
+<h1 id="the-introduction">The Introduction</h1>
+<p>Current e-learning formats do not separate data from presentation layers. Current e-learning content is not portable and is not designed to age well.</p>
+<p>With separation of layers the content could be presented in a modern way every time a new device is introduced. If SCORM courses were designed in this fashion back in 2000s it would be straightforward to convert them to any of commonly used devices, like smartphones, smartwatches, smart TVs, and anything else capable of running current software. But because of a few wrong design decisions made without necessary foresight, we are now stuck with this format and with obsolete courses.</p>
+<p>Back in the days when Advanced Distributed Learning was creating SCORM (adapting older AICC HACP desktop format) there was little variance in commonly available devices capable of interacting with eLearning software - most personal computers used the same web browser, same operating system and had similar displays with common 1024x768 pixel resolution. If there were any exceptions, they were minimal and negligible. Browsers were not able to do much more than to show server response in HTML format after (synchronous) client request. Everything displayed in browser window was rendered by server, and even if there was any separation of layers, it existed only on the server side.</p>
+<p>Organizations that are working on e-learning standards are responding to market needs very slowly. Their latest specification <code>cmi5</code>, which does solve many of the shortcomings of previous standards, is already 6 years old and not commonly adopted - the most popular format SCORM 2004 4th Edition was published in 2009.</p>
+<p>The headless approach seems to be solving all of the issues that modern e-learning and LMSes do have. The separation of content and it’s players allows to create courses that works well on any device and do age well. Courses designed in this favour most likely will be able to be played on smart devices not yet in existence.</p>
+<h1 id="evolution-of-e-learning">Evolution of e-learning</h1>
+<h2 id="e-learning-content-granularity">E-learning Content Granularity</h2>
+<p>Before describing courses, content and related formats we should explicitly describe what does each of the following keywords means.</p>
+<ul>
+<li><p><strong>Course</strong> is an shareable independent peace of packed sequenced interactive multimedia elements that connect (two way communication) with LMS to track user interactivity</p></li>
+<li><p><strong>Packaging</strong> is a way of packaging course into one file that can be shareable between LMSes</p></li>
+<li><p><strong>Importing</strong> is a process of importing course from the package</p></li>
+<li><p><strong>Exporting</strong> is a process of creating the package</p></li>
+<li><p><strong>Asset</strong> is a small pieces of course content which are not intended to be consumed alone, eg. image, video, audio files.</p></li>
+<li><p><strong>Resource</strong> is a learning resource that can be consumed by a learner to get a specific knowledge or develop a simple competency. A resource synonym is <strong>Lesson</strong> or <strong>Article</strong></p></li>
+<li><p><strong>Aggregations</strong> is a set of resources organized in a specific way. Synonym is sometimes Course, but this is misleading as Course is a bigger entity.</p></li>
+<li><p><strong>Sequencing</strong> is a way to describe sequence of resources with tracking meta description.</p></li>
+</ul>
+<h2 id="history-of-e-learning-formats">History of e-learning formats</h2>
+<p>The most popular e-learning formats are created and managed by the Advanced Distributed Learning (ADL) Initiative from the Office of the United States Secretary of Defense.</p>
+<p>Before e-learning was used in the web browser environment there was AICC’s format created in 1993. First widely used format was AICC HACP (released in 1998) which later evolved into SCORM 1.0 that was released in year 2000. Since then, up to the latest SCORM 2004 4th Edition version (released in 2009) it is the most popular and adopted collection of standards and specifications for web-based e-learning.</p>
+<p>SCORM (which is an abbreviation of Sharable Content Object Reference Model) describes communication between client side content and a host system, and describes package structure, defining how whole course, consisting of resource files and XML manifest can be packaged into ZIP archives that are called “Package Interchange Format”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Since SCORM has many shortcomings, The Experience API, also known as Tin Can API or <code>xAPI</code> was released, and later cmi5 format was created, providing a set of rules intended to achieve interoperability in a traditional Learning Management System environment.</p>
+<p>xAPI specification removes content for it description, and allows the content to send “statements” based around [actor] [verb] [object], or “I – did – this” to a Learning Record Store (LRS) which can be a part of a Learning Management System, but can also live on its own, or as part of another separate system.</p>
+<p>The table below <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> summarizes the comparison of each standard:</p>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 11%" />
+<col style="width: 4%" />
+<col style="width: 13%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+<col style="width: 7%" />
+<col style="width: 9%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Format</th>
+<th style="text-align: center;">Released</th>
+<th style="text-align: center;">Pages</th>
+<th style="text-align: center;">Widely Used</th>
+<th style="text-align: center;">Run-Time</th>
+<th style="text-align: center;">Pack-aging</th>
+<th style="text-align: center;">Meta-data</th>
+<th style="text-align: center;">Sequen-cing</th>
+<th style="text-align: center;">Works Cross Domain</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">AICC HACP</td>
+<td style="text-align: center;">Feb 1998</td>
+<td style="text-align: center;">337</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SCORM 1.0</td>
+<td style="text-align: center;">Jan 2000</td>
+<td style="text-align: center;">219</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SCORM 1.1</td>
+<td style="text-align: center;">Jan 2001</td>
+<td style="text-align: center;">233</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SCORM 1.2</td>
+<td style="text-align: center;">Oct 2001</td>
+<td style="text-align: center;">524</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SCORM 2004 “1st Edition”</td>
+<td style="text-align: center;">Jan 2004</td>
+<td style="text-align: center;">1,027</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SCORM 2004 2nd Edition</td>
+<td style="text-align: center;">Jul 2004</td>
+<td style="text-align: center;">1,219</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SCORM 2004 3rd Edition</td>
+<td style="text-align: center;">Oct 2006</td>
+<td style="text-align: center;">1137</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SCORM 2004 4th Edition</td>
+<td style="text-align: center;">Mar 2009</td>
+<td style="text-align: center;">1162</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">IMS Common Cartridge</td>
+<td style="text-align: center;">Oct 2008</td>
+<td style="text-align: center;">135</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">IMS LTI</td>
+<td style="text-align: center;">May 2010</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">In Academic LMSs</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">The Experience API (xAPI)</td>
+<td style="text-align: center;">April 26, 2013</td>
+<td style="text-align: center;">85</td>
+<td style="text-align: center;">Not Yet</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Partial</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">cmi5 (a companion to xAPI)</td>
+<td style="text-align: center;">June 1, 2016</td>
+<td style="text-align: center;">48</td>
+<td style="text-align: center;">Not Yet</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-is-learning-management-system---lms">What is Learning Management System - LMS</h2>
+<blockquote>
+<p>A learning management system is a software application for the administration, documentation, tracking, reporting, automation, and delivery of educational courses, training programs, or learning and development programs. The learning management system concept emerged directly from e-Learning.</p>
+</blockquote>
+<p>The most popular LMS in the world is Moodle <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, released on 20 August 2002, as Open Source software, distributed under the GNU General Public License, which is probably one of the reasons of its popularity.</p>
+<p>Moodle is an application written in PHP that is being served by a machine that uses PHP. That means that all of the actions for administrators, course creators, students and any other roles does require to connect to the hosting machine (server) that serves Moodle. This is an example of monolith architecture, which means that all Moodle components are PHP based working on one machine that parses moodle source code every time there is a request from the browser. Components of the program are interconnected and interdependent in a tightly-coupled architecture.</p>
+<p>Most other popular LMS work very similarly, as the monolith architecture is the most prevalent design among available LMS software.</p>
+<h2 id="lms-monolith-architecture">LMS Monolith Architecture</h2>
+<p>The diagram below show Moodle monolith architecture</p>
+<figure>
+<img src="images/moodle1.png" alt="LMS monolith architecture. Moodle technical architecture" /><figcaption aria-hidden="true">LMS monolith architecture. Moodle technical architecture</figcaption>
+</figure>
+<p>All the LMS Features, including</p>
+<ul>
+<li>Managing courses, users and roles</li>
+<li>Online assessment</li>
+<li>User feedback</li>
+<li>Synchronous and Asynchronous Learning</li>
+<li>Learning Analytics</li>
+</ul>
+<p>are handled directly from the server, the response is prepared before being sent in HTML format by PHP preprocessor, and the client gets the final rendered HTML document.</p>
+<figure>
+<img src="images/moodle2.png" alt="LMS monolith architecture. Moodle functional architecture" /><figcaption aria-hidden="true">LMS monolith architecture. Moodle functional architecture</figcaption>
+</figure>
+<p>All the above means that Moodle and dedicated server is required all the time for all e-learning activities.</p>
+<h2 id="process-of-publishing-the-course">Process of publishing the course</h2>
+<p>Standard way of creating and publishing SCORM compliant course is described by these four steps:</p>
+<ol type="1">
+<li>Creating of a course in an e-Learning authoring tool (like Adobe Captivate <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>) or using tools integrated with the LMS software</li>
+<li>Course is published as a SCORM package (a ZIP file)</li>
+<li>SCORM package is being uploaded to the LMS, using an upload form, and is prepared to be published</li>
+<li>LMS publishes the course to the students; all results of activities are stored in the LMS</li>
+</ol>
+<figure>
+<img src="images/authoring-tools.png" alt="Process of publishing the course" /><figcaption aria-hidden="true">Process of publishing the course</figcaption>
+</figure>
+<p>The process above is one directional - which means that SCORM package is a closed format, once published it cannot be edited. In order to make any changes, even correcting simple typo, the whole process must be repeated - course needs to be changed in authoring tool, packaged into zip, then uploaded and (re)published.</p>
+<h2 id="introduction-of-experience-api-xapi-and-related-technologies">Introduction of Experience API (xAPI) and related technologies</h2>
+<p>One of the shortcomings of SCORM that influenced the introduction of extended formats was the limitation of capability to track and analyse activities of students to only data available within the same LMS.</p>
+<p>That means that the course, LMS and student progress were inseparable.</p>
+<p>xAPI specification removes content for it description, and allows the content to send “statements” based around [actor] [verb] [object], or “I – did – this” to a Learning Record Store (LRS) which can be a part of a Learning Management System, but can also live on its own (or as a part of another, separate, system). This was the first step for <strong>Separation of concerns</strong> in e-learning.</p>
+<h3 id="learning-record-store-lrs">Learning Record Store (LRS)</h3>
+<p>A Learning Record Store is an application, external to course runtime, that receives and sends data in JSON format from and to the course runtime - it is an essential component in Experience API process flow. What is a big difference from previous e-learing standards, is that the specification does not tell how the course should be played (how course runtime should work), it just defines how the runtime must communicate with the interface (LRS) though xAPI Statements. The statements are open to be extended and each implementation can introduce its own statements.</p>
+<figure>
+<img src="images/lrs.png" alt="Experience API (xAPI) process flow with Learning Record Store (LRS)" /><figcaption aria-hidden="true">Experience API (xAPI) process flow with Learning Record Store (LRS)</figcaption>
+</figure>
+<h3 id="cmi5-specification">cmi5 Specification</h3>
+<blockquote>
+<p>cmi5 is a “profile” for using the xAPI specification with traditional learning management (LMS) systems. <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+</blockquote>
+<p>The specification of cmi5 is a set of rules providing all the capabilities of SCORM and xAPI. It is similar to SCORM in a way, as it also requires a XML file manifest, yet it does introduce the Assignable Unit (AU) - separately launchable learning content presentation. The AU is the unit of tracking and management. The AU collects data on the learner and sends it to the LMS (through an LRS).</p>
+<figure>
+<img src="images/cmi5-concept-overview.png" alt="Conceptual Overview of cmi5 " /><figcaption aria-hidden="true">Conceptual Overview of cmi5 <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></figcaption>
+</figure>
+<p>cmi5 also requires Determine Launch Mode, defining some xAPI statements that must appear in correct order. The course itself describes <code>moveOn</code> rules</p>
+<blockquote>
+<p>Setting that captures how a learner moves through the AUs/Blocks of a Course. Determines what is required for an AU to be considered “Satisfied”. Blocks are “Satisfied” when all of their direct descendent AUs or Blocks are “Satisfied”. The Course is “Satisfied” when all of its direct descendent AUs or Blocks are “Satisfied”. <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+</blockquote>
+<figure>
+<img src="images/lms-flow-chart.png" alt="cmi5 Implementation Flow for an LMS " /><figcaption aria-hidden="true">cmi5 Implementation Flow for an LMS <a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></figcaption>
+</figure>
+<h3 id="limitations-parts-of-current-standards">Limitations parts of current standards</h3>
+<p>Regardless of all the efforts for evolution of e-learning standard there are still limitations:</p>
+<ul>
+<li>SCORM is limited by design, there is no way to improve it implementing <strong>Separation of concerns</strong> design pattern.</li>
+<li>Even with latest standard <code>cmi5</code> the <strong>Separation of concerns</strong> is not complete.</li>
+<li>Assignable Unit defines only entry URL for the content, but it does not define the content structure in any way.</li>
+<li>Specification of Assignable Unit (AU) require to have <code>launchURL</code> that basically is course starting point. There is no way to extend this to replace <code>launchURL</code> with the content itself.</li>
+<li>There is no separation of layers in content delivery. Presentation, data and logic layers are inseparable.</li>
+<li>Courses cannot be played offline as server is required all the time.</li>
+<li>Even though cmi5 provides <strong>Mobile app launch support</strong> functionality there is no specification for that, it is possible yet not defined.</li>
+</ul>
+<h1 id="separation-of-concerns">Separation of concerns</h1>
+<p>The main motivation of introducing new e-learning format is to allow to separate all of the e-learning components into independent elements and follow the <strong>separation of concerns (SoC)</strong> computer science design principle.</p>
+<blockquote>
+<p>A design principle for breaking down an application into modules, layers, and encapsulations, the roles of which are independent of one another. <a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
+</blockquote>
+<h2 id="headless">Headless</h2>
+<p>Regular design of websites and web application intertwines back-end (server side component) and front-end (graphical user interface), by having back-end serve prerendered content in form of html pages and/or by having the back-end decide which content to serve (routing).</p>
+<p>Headless web application is an implementation of <strong>separation of concerns (SoC)</strong> design principle, decoupling front-end and back-end, ensuring that the front-end can exist as a stand-alone piece of software, and that the back-end does not know (and has no reason to know) anything about the way the data that it serves will be presented. All the communication happens through APIs as the bridge between both layers.</p>
+<h3 id="headless-lms.">Headless LMS.</h3>
+<p>In opposition to Monolith LMS Architecture, a Headless LMS is build upon API as a main component. All other components communicate though this interface. In most cases API and Database are the only parts that require dedicated server.</p>
+<p>In Monolithic architecture, frontend component, a presentation layers, requires specific know-how, for example you are obliged to use Moodle template system called Mustache when working with MoodleLMS.</p>
+<p>In Headless architecture, frontend is not determined by backend in any way, and is framework agnostic. You can use any frontend frameworks and technologies you want. Furthermore you can create multiple frontend solutions working with same backend, for example a React app for Learners on one domain, a Vue app for Admins on other domain, and another sepearate Learner app for mobile devices.</p>
+<p><strong>Headless LMS Architecture</strong></p>
+<ul>
+<li><strong>separation of concerns (SoC)</strong> design principle, separate all of the components</li>
+<li>decoupled architecture (separate frontend and backend)</li>
+<li>only API requires server</li>
+<li>admin panel can be serverless</li>
+<li>user app can be serverless</li>
+<li>application and admin panel are easy to replicate/scale</li>
+<li>other view layouts (eg native mobile application) are easy to add without changes to other layers</li>
+<li>to implement Courses for Students there is little to none required knowledge of specific backend implementation</li>
+</ul>
+<figure>
+<img src="images/headless-lms.png" alt="Architecture of headless LMS" /><figcaption aria-hidden="true">Architecture of headless LMS</figcaption>
+</figure>
+<p>A Headless LMS is a “Course Repository” that makes content accessible to any platform via an API. We provide blocks to build one, yet you’re free to change those and use your own. Unlike a traditional LMS such as Moodle, a Headless LMS does not dictate where or how content is shown. Also you don’t need any additional software to show a course - it’s just a matter of API communication.</p>
+<p>A Headless LMS enables teams to deliver omnichannel experiences at scale, globally, without restrictions like templates, devices, or pre-defined technologies. A Headless LMS allows brands and companies to engage with users on any device and format. White label was never easier than with headless. A Headless LMS fits into any preferred tech stack or framework, including most popular ones like React, Angular, and Vue.</p>
+<h2 id="limitations-of-current-standards-that-headless-can-improve">Limitations of current standards that Headless can improve</h2>
+<ul>
+<li>Implementing <strong>Separation of concerns</strong> design pattern</li>
+<li>New headless formats can be defined with new course structure</li>
+<li>Presentation, data and logic layers are decoupled</li>
+<li>Courses can be played offline as communication with server is not required all the time</li>
+<li>New presentation methods and designs can be easily added without making changes to other layers, so for example <strong>Mobile app launch support</strong> functionality is relatively easy to achieve</li>
+</ul>
+<h2 id="content-granularity-of-the-formats">Content granularity of the formats</h2>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 25%" />
+<col style="width: 40%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>SCORM</th>
+<th>CMI5</th>
+<th>Headless format</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Assets</td>
+<td>All assets in the package</td>
+<td>either remote or local assets</td>
+<td>All assets in the package</td>
+</tr>
+<tr class="even">
+<td>Packaging</td>
+<td>ZIP Package with local resouce</td>
+<td>ZIP package with either remote or local resurces</td>
+<td>ZIP Package with local resouce</td>
+</tr>
+<tr class="odd">
+<td>Resources</td>
+<td>Each SCO is Resource</td>
+<td>each AU is Resource</td>
+<td>each Lesson is a Resource</td>
+</tr>
+<tr class="even">
+<td>Aggregation</td>
+<td>Made of items</td>
+<td>Made of blocks</td>
+<td>Made of blocks</td>
+</tr>
+<tr class="odd">
+<td>Sequencing</td>
+<td>XML Manifest</td>
+<td>XML Manifest</td>
+<td>XML/JSON Manifest</td>
+</tr>
+</tbody>
+</table>
+<h1 id="ulam-format."><code>ulam</code> Format.</h1>
+<p>Because of the shortcomings of existing standards of course content definitions, I thereby propose a new standard which I will call <strong><code>ulam</code></strong> or <strong>Universal Learning Asynchronous Model</strong>.</p>
+<p>The main motivation for creation of the new standard are following:</p>
+<p><strong>Separation content layer from presentation layer.</strong></p>
+<p>All of the most popular e-learning format (and especially SCORM) mix view, data and logic layer into one inseparable whole.</p>
+<p>New format must separate all the layers to follow separation of concerns (SoC) design principle.</p>
+<p><strong>Use of JSON format instead of XML.</strong></p>
+<p>When SCORM was published for the first time JSON format did not exists. During evolution of standards ADL used JSON for <code>xAPI</code>. Compared to XML, JSON is lighter and easier to parse data format, requiring no additional code for parsing when used in JavaScript environment. It is currently more popular then XML <a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a></p>
+<p>New format must use JSON and JSON Schema.</p>
+<p><strong>Easy implementation.</strong></p>
+<p>SCORM format is complicated and was never easy for implementation, but nevertheless it is still the most popular standard.</p>
+<p>And both <code>xAPI</code> and much newer <code>cmi5</code> still have very small adoption rates <a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a>.</p>
+<p>New format must be not only easy to implement, but must be enticing for potential users to adopt.</p>
+<p><strong>Format that is futureproof.</strong></p>
+<p>SCORM did not age well.</p>
+<p>There are many courses that were created in 2010s using obsolete Flash technologies, which are useless now, because none of the browsers support Flash Player anymore.</p>
+<p>New format must be futureproof, and <strong>Separation of concerns</strong> design pattern is a solution for preventing future problems that SCORM faces, because it implies decoupling of Course raw data from Presentation.</p>
+<p><strong>Simple, but open for extension.</strong></p>
+<p>New format must be open for extensions, which means that it must be possible to implement new features without changing old ones.</p>
+<p><strong>Standalone.</strong></p>
+<p>New format package must be able to be played as course without any external services.</p>
+<p><strong>Headless.</strong></p>
+<p>The course itself does not know how it will be displayed for a student.</p>
+<p><strong>Using well design standards, reject obsolete ones.</strong></p>
+<p><strong>From SCORM</strong></p>
+<ul>
+<li>Content packaging as ZIP file</li>
+<li>Importing from ZIP</li>
+<li>Exporting as ZIP</li>
+<li>Sequencing</li>
+</ul>
+<p><strong>From xAPI</strong></p>
+<ul>
+<li>usage of JSON Format</li>
+<li>xAPI Statements</li>
+<li>Learning Record Store</li>
+</ul>
+<p><strong>From cmi5</strong></p>
+<ul>
+<li>Launch Method with <code>moveOn</code> Rules</li>
+<li>Manifest with blocks and Assignable Units (AU)</li>
+<li>9 xAPI Verbs (Launched, Initialized, Completed, Passed, Failed, Abandoned, Waived, Terminated, Satisfied)</li>
+</ul>
+<h2 id="definition">Definition</h2>
+<p>The course is packed in ZIP file that contains <code>content.json</code> manifest in main folder.</p>
+<p>The course itself consists of at least one lessons which consists of at least one topic. Topic is describes by type and value.</p>
+<figure>
+<img src="images/manifest-structure.png" alt="Structure of ulam course manifest" /><figcaption aria-hidden="true">Structure of <code>ulam</code> course manifest</figcaption>
+</figure>
+<p>The manifest contains the following:</p>
+<h3 id="general-description-of-course-attributes">General description of Course attributes</h3>
+<p>Course is defined by</p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 74%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Attribute name</th>
+<th style="text-align: center;">type</th>
+<th style="text-align: center;">description</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">id</td>
+<td style="text-align: center;">number | string</td>
+<td style="text-align: center;">Unique ID of the course. Can be used to identify during import process whether this is a new course or update</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">description</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Description of the course</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">title</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Title of the course</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">base_price</td>
+<td style="text-align: center;">number</td>
+<td style="text-align: center;">Base price of the course. Value 0 means that it’s free</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">lessons</td>
+<td style="text-align: center;">array</td>
+<td style="text-align: center;">List of lessons</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">language</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Unique ID of the language of the course. Preferred in ISO 639-1 format</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">subtitle</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Subtitle of the course</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">summary</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Summary</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">duration</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">How long does the course take. Preferred in ISO 8601 duration format</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<p><em>Apart of the above list of attributes, the course can be described by any number of additional fields.</em></p>
+<h3 id="general-description-of-lesson-attributes">General description of Lesson attributes</h3>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 74%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Attribute name</th>
+<th>type</th>
+<th>description</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>id</td>
+<td>number | string</td>
+<td>Unique ID of the course. Can be used to identify during import process whether this is a new lesson or update</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>title</td>
+<td>string</td>
+<td>Title of the lesson</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>order</td>
+<td>number</td>
+<td>Sorting order</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>duration</td>
+<td>string</td>
+<td>How long does the lesson take. Preferred in ISO 8601 duration format</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>summary</td>
+<td>string</td>
+<td>Summary of the lesson</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>topis</td>
+<td>array</td>
+<td>List of Topics</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>lessons</td>
+<td>array</td>
+<td>List of child Lessons</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<p><em>Apart of the above list of attributes, the lesson can be described by any number of additional fields.</em></p>
+<h3 id="general-description-of-topic-attributes">General description of Topic attributes</h3>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 73%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Attribute name</th>
+<th style="text-align: center;">type</th>
+<th style="text-align: center;">description</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">id</td>
+<td style="text-align: center;">number | string</td>
+<td style="text-align: center;">Unique ID of the course. Can be used to identify during import process whether this is a new topic or update</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">title</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Title of the topic</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">order</td>
+<td style="text-align: center;">number</td>
+<td style="text-align: center;">Sorting order</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">duration</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">How long does the lesson take. Preferred in ISO 8601 duration format</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">summary</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Summary of the lesson</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">preview</td>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">Can user preview this Assignable Unit without launching the course</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">description</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Description of the lesson</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">type</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">Type of Topic</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">value</td>
+<td style="text-align: center;">object</td>
+<td style="text-align: center;">Value of the Topic depending on the Type</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="topic-can-he-remote.">Topic can he remote.</h3>
+<p>The topics itself can be remote just like <code>cmi5</code> AU items.</p>
+<p>In case that topic is describe by string URL not by the object describing Topic then this is a remote topic.</p>
+<h3 id="general-description-of-topic-types">General description of Topic types</h3>
+<p>Topic is describes by type and value.</p>
+<p>Topic type attribute is in string format with namespace, with default namespace <code>ulam</code>.</p>
+<p>Topic type is an abstract type and polymorphic. This means that has different meaning based on the <code>type</code> value.</p>
+<p>If the value of the Topic contains references (url) to assets (audio, video, images, etc), they must be placed with relative paths to main <code>content.json</code> file.</p>
+<h3 id="in-the-first-version-of-the-format-following-topic-types-are-specified">In the first version of the format, following Topic Types are specified:</h3>
+<h4 id="text">Text</h4>
+<ul>
+<li>Namespace: <code>ulam\text</code></li>
+<li>Value: Unformatted text with newlines</li>
+</ul>
+<h4 id="richtext">RichText</h4>
+<ul>
+<li>Namespace: <code>ulam\richtext</code></li>
+<li>Value: Markdown formatted text with newlines</li>
+</ul>
+<h4 id="htmltext">HTMLText</h4>
+<ul>
+<li>Namespace: <code>ulam\html</code></li>
+<li>Value: HTML document content</li>
+</ul>
+<h4 id="audio">Audio</h4>
+<ul>
+<li>Namespace: <code>ulam\audio</code></li>
+<li>Value: Reference to Audio file</li>
+</ul>
+<h4 id="video">Video</h4>
+<ul>
+<li>Namespace: <code>ulam\video</code></li>
+<li>Value: Reference to Video file</li>
+</ul>
+<h4 id="pdf">PDF</h4>
+<ul>
+<li>Namespace: <code>ulam\pdf</code></li>
+<li>Value: Reference to PDF file</li>
+</ul>
+<h4 id="image">Image</h4>
+<ul>
+<li>Namespace: <code>ulam\image</code></li>
+<li>Value: Reference to Image file</li>
+</ul>
+<h4 id="h5p">H5P</h4>
+<ul>
+<li>Namespace: <code>ulam\h5p</code></li>
+<li>Value: Reference to H5P content</li>
+</ul>
+<h2 id="validating">Validating</h2>
+<p>The manifest must be validated against JSON Schema file. The latest schema is always available in github repository<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a>.</p>
+<h2 id="extending">Extending</h2>
+<p>Apart of the listed attributes, the manifest can be extended by any number of additional fields.</p>
+<p>For example, if there is a need to describe course by video path or image it is a matter of adding new fields to the course attributes.</p>
+<h3 id="topic-types">Topic Types</h3>
+<p>One of the most important motivation introducing new format was the ability to add without limits new type of Assignable Unit (AU) in <code>ulam</code> called TopicTypes.</p>
+<p>Each organization that wants to add new type should use its own namespace for <code>type</code>.</p>
+<p>This allows to add new topic types, for example:</p>
+<ul>
+<li>Augmented Reality assets</li>
+<li>3D Models</li>
+<li>3D Panoramas</li>
+<li>3D Movies</li>
+<li>Metaverse assets</li>
+<li>Specialized format for particular industries</li>
+<li>etc.</li>
+</ul>
+<h2 id="example">Example</h2>
+<p>The example below shows a course with extended fields.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;f7e84b25e6f1f8d5e7dd3f1f438dd5f5&quot;</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;The title of course.&quot;</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;summary&quot;</span><span class="fu">:</span> <span class="st">&quot;Summary.</span><span class="ch">\n</span><span class="st"> this is new line&quot;</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;image_path&quot;</span><span class="fu">:</span> <span class="st">&quot;course</span><span class="ch">\/</span><span class="st">2</span><span class="ch">\/</span><span class="st">repudiandae.jpg&quot;</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;image_url&quot;</span><span class="fu">:</span> <span class="st">&quot;https:</span><span class="ch">\/\/</span><span class="st">api.escolalms.com</span><span class="ch">\/\/</span><span class="st">storage</span><span class="ch">\/</span><span class="st">course</span><span class="ch">\/</span><span class="st">2</span><span class="ch">\/</span><span class="st">repudiandae.jpg&quot;</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;video_path&quot;</span><span class="fu">:</span> <span class="st">&quot;course</span><span class="ch">\/</span><span class="st">2</span><span class="ch">\/</span><span class="st">repudiandae.mp4&quot;</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;video_url&quot;</span><span class="fu">:</span> <span class="st">&quot;https:</span><span class="ch">\/\/</span><span class="st">api.escolalms.com</span><span class="ch">\/\/</span><span class="st">storage</span><span class="ch">\/</span><span class="st">course</span><span class="ch">\/</span><span class="st">2</span><span class="ch">\/</span><span class="st">repudiandae.mp4&quot;</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;base_price&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;duration&quot;</span><span class="fu">:</span> <span class="st">&quot;12H&quot;</span><span class="fu">,</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;active&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;subtitle&quot;</span><span class="fu">:</span> <span class="st">&quot;Ratione nulla voluptate consequatur qui atque et rerum.&quot;</span><span class="fu">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;language&quot;</span><span class="fu">:</span> <span class="st">&quot;pl&quot;</span><span class="fu">,</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;Rerum numquam ut praesentium nostrum aut officia consequuntur&quot;</span><span class="fu">,</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;level&quot;</span><span class="fu">:</span> <span class="st">&quot;expert&quot;</span><span class="fu">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;lessons&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;voluptas&quot;</span><span class="fu">,</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;summary&quot;</span><span class="fu">:</span> <span class="st">&quot;Qui aliquam aliquam dolor nihil.&quot;</span><span class="fu">,</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;topics&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;beatae&quot;</span><span class="fu">,</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;active&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;preview&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;ulam</span><span class="ch">\\</span><span class="st">richtext&quot;</span><span class="fu">,</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;created_at&quot;</span><span class="fu">:</span> <span class="st">&quot;2021-10-14T15:50:29.000000Z&quot;</span><span class="fu">,</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;updated_at&quot;</span><span class="fu">:</span> <span class="st">&quot;2021-10-14T15:50:29.000000Z&quot;</span><span class="fu">,</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;Aperiam magni saepe labore accusantium totam animi.</span><span class="ch">\n</span><span class="st">===================================================</span><span class="ch">\n\n</span><span class="st">Corporis aut saepe ut mollitia. Deleniti voluptas explicabo expedita voluptas. Illum sit quia debitis recusandae architecto officiis provident. Distinctio velit illum eos architecto ut nobis libero.</span><span class="ch">\n\n</span><span class="st">* Sint perferendis corrupti qui blanditiis.</span><span class="ch">\n</span><span class="st">* Eius perspiciatis dolor officia laborum quo deserunt reiciendis.</span><span class="ch">\n</span><span class="st">* Quisquam est eaque libero molestiae blanditiis.&quot;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>            <span class="fu">},</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;summary&quot;</span><span class="fu">:</span> <span class="st">&quot;Sit aut fuga repellendus velit harum esse.&quot;</span><span class="fu">,</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;order&quot;</span><span class="fu">:</span> <span class="dv">5</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span><span class="ot">,</span> <span class="fu">{</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;esse&quot;</span><span class="fu">,</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;active&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;preview&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;ulam</span><span class="ch">\\</span><span class="st">image&quot;</span><span class="fu">,</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;topic</span><span class="ch">\/</span><span class="st">23</span><span class="ch">\/</span><span class="st">doloribus.jpg&quot;</span><span class="fu">,</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;width&quot;</span><span class="fu">:</span> <span class="dv">640</span><span class="fu">,</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;height&quot;</span><span class="fu">:</span> <span class="dv">480</span><span class="fu">,</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;url&quot;</span><span class="fu">:</span> <span class="st">&quot;https:</span><span class="ch">\/\/</span><span class="st">api.escolalms.com</span><span class="ch">\/\/</span><span class="st">storage</span><span class="ch">\/</span><span class="st">topic</span><span class="ch">\/</span><span class="st">23</span><span class="ch">\/</span><span class="st">doloribus.jpg&quot;</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>            <span class="fu">},</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;summary&quot;</span><span class="fu">:</span> <span class="st">&quot;Ipsa laboriosam.&quot;</span><span class="fu">,</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span><span class="ot">]</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h3 id="example-of-remote-topic.">Example of remote topic.</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;f7e84b25e6f1f8d5e7dd3f1f438dd5f3&quot;</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;The title of course.&quot;</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;lessons&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;voluptas&quot;</span><span class="fu">,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;topics&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>          <span class="fu">{</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;beatae&quot;</span><span class="fu">,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;active&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;preview&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;topic1.json&quot;</span><span class="fu">,</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;summary&quot;</span><span class="fu">:</span> <span class="st">&quot;Sit aut fuga repellendus velit harum esse.&quot;</span><span class="fu">,</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;order&quot;</span><span class="fu">:</span> <span class="dv">5</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span><span class="ot">,</span> <span class="fu">{</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;esse&quot;</span><span class="fu">,</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;active&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;preview&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;https://example.com/course1/topic1.json&quot;</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span><span class="ot">]</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>Either local to current path file <code>topic1.json</code> or remote one <code>https://example.com/course1/topic1.json</code> can consitis of structure like</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;ulam</span><span class="ch">\\</span><span class="st">richtext&quot;</span><span class="fu">,</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;Aperiam magni saepe labore accusantium totam animi.</span><span class="ch">\n</span><span class="st">===================================================</span><span class="ch">\n\n</span><span class="st">Corporis aut saepe ut mollitia. Deleniti voluptas explicabo expedita voluptas. Illum sit quia debitis recusandae architecto officiis provident. Distinctio velit illum eos architecto ut nobis libero.</span><span class="ch">\n\n</span><span class="st">* Sint perferendis corrupti qui blanditiis.</span><span class="ch">\n</span><span class="st">* Eius perspiciatis dolor officia laborum quo deserunt reiciendis.</span><span class="ch">\n</span><span class="st">* Quisquam est eaque libero molestiae blanditiis.&quot;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>More examples are available in github repository<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a>.</p>
+<h2 id="levels-of-granularity">Levels of granularity</h2>
+<p>Levels of resources granularity supported in <code>ulam</code> is similar to one from SCORM and CMI5.</p>
+<ul>
+<li><strong>Course &gt; Lessons &gt; … &gt; Topic</strong> for <code>ulam</code> format</li>
+<li><strong>Organization &gt; Item &gt; … &gt; Item</strong> for SCORM format</li>
+<li><strong>Course &gt; Block &gt; … &gt; AU</strong> for CMI5 format</li>
+</ul>
+<p>Course must have at least one lesson.</p>
+<p>Each Lesson can have child lessons.</p>
+<p>Each lesson must have either child lessons or at leason one topic.</p>
+<h2 id="packaging.">Packaging.</h2>
+<p>Ulam package is similar to SCORM and cmi5 Package. It is a zip file that consist of:</p>
+<ul>
+<li>validated <code>content.json</code> in main folder</li>
+<li>all the other assets that <code>content.json</code> attributes refer to. Those are relative paths</li>
+</ul>
+<h3 id="import">Import</h3>
+<p>LMS should be able to parse ZIP package, copy essential files, update theirs paths and save course, lessons and topics to database.</p>
+<h3 id="export">Export</h3>
+<p>LMS should be able to create ZIP package, with essential files, update theirs paths and save course, lessons and topics to <code>content.json</code></p>
+<h2 id="comparison-with-cmi5">comparison with <code>cmi5</code></h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">cmi5</th>
+<th style="text-align: center;"><code>ulam</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">use xAPI</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Manifest format</td>
+<td style="text-align: center;">xml</td>
+<td style="text-align: center;">json</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Defined course type structure</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Separation of concerns in course data</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Connection to LRS</td>
+<td style="text-align: center;">required</td>
+<td style="text-align: center;">not required</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Mobile friendly</td>
+<td style="text-align: center;">no (only tracking)</td>
+<td style="text-align: center;">yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Run-Time required</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Content Package format</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Definition of Course launch</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">yes, same as cmi5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Client Agnostic</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Distributed Content</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">no</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Advanced activity tracking</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Serverless</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="frontend.-implementation">Frontend. Implementation</h2>
+<p>The implementation of <code>ulam</code> courses are Frontend agnostic. This means that the format itself does not describe how to render the course.</p>
+<p>The player should follow <code>cmi5</code> launch mode and all <code>xAPI</code> 9 verbs.</p>
+<p>Once the frontend application retrieve the <code>ulam</code> content from the LMS endpoint, it should parse it and create tree of lessons and topics.</p>
+<h3 id="single-page-application">Single Page Application</h3>
+<p>Modern web application does not require server side component to render its content, since evolution of JavaScript all of rendering can be done client-side, utilising web browser functionality.</p>
+<p>A Single-page application (SPA) is a web app implementation that loads only a single web document, and then updates the body content of that single document via JavaScript API. As the web app only retrieves partial data from the server (and not whole rendered pages) it results in performance gains and a more dynamic experience - as the app can load everything more quickly, fetching data in the background as needed. SPA often come with support of incremental updates, saving partially completed forms or documents without the user having to click a button to submit a form and wait for the whole page to reload, support of rich frontend behaviors, such as drag-and-drop, copy and paste, file picker, local files preview and editing and many more. SPA can also run in a disconnected mode (sometimes called offline mode), making updates to a client-side model that are eventually synchronized back to the server once a connection is re-established.</p>
+<p>The client-side implementation of <code>ulam</code> format can be Single Page Application becase the format itself just defines content data, leaving presentation model up to the implementation phase. The SPA would handle a logic and presentation layer.</p>
+<h3 id="progressive-web-app">Progressive Web App</h3>
+<p>Progressive Web Apps are web apps that use modern web technologies like service workers, manifests, in combination with progressive enhancement to give users an experience on par with native apps. They provide a number of advantages to users, some of which include the following:</p>
+<ul>
+<li><strong>being installable</strong> - users can install the app to their device, to have the app icon shown on their home screen, and be able to tap to open the app into their own native container that feels nicely integrated with the underlying platform</li>
+<li><strong>progressively enhanced</strong> - provide an excellent experience to fully capable devices, and an acceptable experience to less capable browsers</li>
+<li><strong>responsively designed</strong> - application User Interfaces will fit any display sizes: desktop, mobile, tablet, or whatever comes next</li>
+<li><strong>re-engageable</strong> - ease with which users can be re-engaged by updates and new content, even when they are not looking at the app or using their devices, eg Push Notifications</li>
+<li><strong>linkable</strong> - ability to link to an app at a specific URL without the need for an app store or complex installation proces</li>
+<li><strong>discoverable</strong> - better representation in search engines, be easier to expose, catalog and rank, and have metadata usable by browsers to give them special capabilities. Also being able to be installed by Operating System package managers and shops, eg Android Play</li>
+<li><strong>network independent</strong> - can work when the network is unreliable, or even non-existent</li>
+<li><strong>secure</strong> - working in browser sandbox and taking advantage of HTTPS to make them secure</li>
+</ul>
+<p>The client-side implementation of <code>ulam</code> format fits all capabilities to be a Progressive Web App without any special preparation.</p>
+<h3 id="topics-types">Topics Types</h3>
+<p><code>topic_type</code> is like <code>xAPI</code> word, it can be anything, the standard doesn’t specify this except of the reserved <code>ulam</code> namespace.</p>
+<h3 id="topics-types-content-players">Topics Types Content Players</h3>
+<p>Once course is rendered, frontend should parse each topic type and display content depending on the type.</p>
+<p>The course itself is headless so it does not know what kind of environment and device it is being played on.</p>
+<p>Lets take a video topic type as an example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;esse&quot;</span><span class="fu">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;ulam</span><span class="ch">\\</span><span class="st">video&quot;</span><span class="fu">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;topic/23/doloribus.mp4&quot;</span><span class="fu">,</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;width&quot;</span><span class="fu">:</span> <span class="dv">640</span><span class="fu">,</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;height&quot;</span><span class="fu">:</span> <span class="dv">480</span><span class="fu">,</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;url&quot;</span><span class="fu">:</span> <span class="st">&quot;https://api.escolalms.com//storage/topic/23/doloribus.mp4&quot;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;summary&quot;</span><span class="fu">:</span> <span class="st">&quot;Ipsa laboriosam.&quot;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>The snippet abovem taken from <code>ulam</code> format, means that this topic type is a video, that has a width of 640 pixels and height of 480 pixels.</p>
+<p>There are many ways in which this topic description can be handled, as it depends on what is the course current context. Some examples include:</p>
+<ul>
+<li>HTML5 build-in video player (tag <video>)</li>
+<li>iOS native application <code>AVPlayer</code></li>
+<li>React/Vue/Angular video component</li>
+<li>React Native video component.</li>
+</ul>
+<figure>
+<img src="images/frontend.png" alt="Implementation of Courses with ulam format" /><figcaption aria-hidden="true">Implementation of Courses with <code>ulam</code> format</figcaption>
+</figure>
+<h1 id="ulam-format-as-cmi5-extension."><code>ulam</code> format as CMI5 extension.</h1>
+<p>The CMI5 aggregation level and the manifest format are somehow headless. What is not headless is the AU url point that in most cases directs to HTML content that does not separate content from presentation layer.</p>
+<p>Yet because XML does have namespaces <code>ulam</code> format can be adaptem in the cmi5 manifest xml file</p>
+<p>Typically, where we have entry point for AU in the following format</p>
+<ul>
+<li><code>&lt;url&gt;my-learning-resource.html&lt;/url&gt;</code></li>
+</ul>
+<p>which could be replaced with</p>
+<ul>
+<li><code>&lt;url schema=”http://ulam.org/course.schema.json”&gt;my-learning-resource.json&lt;/url&gt;</code></li>
+</ul>
+<p>or even when define xml namespace <code>xmlns:ulam="http://ulam.org/course.schema"</code></p>
+<ul>
+<li><code>&lt;url ulam:schema="1.0"&gt;http://course-repository.example.edu/identifiers/courses/02baafcf/aus/4c07/launch.json&lt;/url&gt;</code></li>
+</ul>
+<p>The <code>schema</code> attribute indicates we have a headless content which follows the specified format. So a player which is compliant with this format could render this content, be it <code>ulam</code> or any other format. The JSON structure of the resource stays outside of the <code>cmi5.xml</code>, so it does not affect the CMI5 XML structure.</p>
+<p>Furthermore we could add ulam attributes with defining <code>ulam</code> namespace and <code>xsd</code> schema</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> encoding=</span><span class="st">&quot;utf-8&quot;</span><span class="fu">?&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">courseStructure</span><span class="ot"> xmlns=</span><span class="st">&quot;https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd&quot;</span><span class="ot"> xmlns:ulam=</span><span class="st">&quot;http://ulam.org/course.schema&quot;</span>&gt;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">course</span><span class="ot"> id=</span><span class="st">&quot;http://course-repository.example.edu/identifiers/courses/02baafcf&quot;</span>&gt;</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">title</span>&gt;</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">langstring</span><span class="ot"> lang=</span><span class="st">&quot;en-US&quot;</span>&gt;Introduction to Geology&lt;/<span class="kw">langstring</span>&gt;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">title</span>&gt;</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">ulam:baseprice</span>&gt;0&lt;/<span class="kw">f:baseprice</span>&gt;</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">description</span>&gt;</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">langstring</span><span class="ot"> lang=</span><span class="st">&quot;en-US&quot;</span>&gt;</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        This course will introduce you into the basics of geology</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">langstring</span>&gt;</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">description</span>&gt;</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">course</span>&gt;</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">au</span><span class="ot"> id=</span><span class="st">&quot;http://course-repository.example.edu/identifiers/courses/02baafcf/aus/4c07&quot;</span>&gt;</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">title</span>&gt;</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">langstring</span><span class="ot"> lang=</span><span class="st">&quot;en-US&quot;</span>&gt;Introduction to Geology&lt;/<span class="kw">langstring</span>&gt;</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">title</span>&gt;</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">description</span>&gt;</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">langstring</span><span class="ot"> lang=</span><span class="st">&quot;en-US&quot;</span>&gt;</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        This course will introduce you into the basics of geology</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">langstring</span>&gt;</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">description</span>&gt;</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">url</span><span class="ot"> ulam:schema=</span><span class="st">&quot;1.0&quot;</span>&gt;http://course-repository.example.edu/identifiers/courses/02baafcf/aus/4c07/launch.json&lt;/<span class="kw">url</span>&gt;</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">au</span>&gt;</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">courseStructure</span>&gt;</span></code></pre></div>
+<p>The above would work exactly like <code>ulam</code> in JSON format with remote topics.</p>
+<h1 id="the-conclusions">The Conclusions</h1>
+<p>The new format should be able to prevent and solve issues that occur during normal e-learning system lifespan. <code>ulam</code> format is easy to use, implement, futureproof and it is designed with extensions and plugins in mind.</p>
+<h2 id="future-work">Future Work</h2>
+<p>The first implementation and main development of the <code>ulam</code> format is currently held in <a href="https://www.wellms.io/">WELLMS</a><a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a> system designed and implemented by EscolaLMS Ltd. The project is open source and available on github<a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a>.</p>
+<p>At the moment there is no versioning of <code>ulam</code> format, as this is still a proof of concept.</p>
+<h2 id="the-acknowledgements">The Acknowledgements</h2>
+<p>Thanks to Paweł Chołaj <a href="mailto:pawel.cholaj@escolasoft.com" class="email">pawel.cholaj@escolasoft.com</a> who helped proofread and edit this article.</p>
+<p>Thanks to Sébastien FRAYSSE who helped proofread and came into idea using <code>ulam</code> format as extension of <code>cmi5</code> manifest and other ideas.</p>
+<p>Thanks to Sébastien FRAYSSE who helped proofread and came into idea using <code>ulam</code> format as extension of <code>cmi5</code> manifest and other ideas.</p>
+<p>Name <code>ulam</code> comes from Stanislaw Ulam, a Polish scientist in the fields of mathematics and nuclear physics, who worked with John von Neumann on the very first computer based computational methods.</p>
+<h2 id="discussion-and-related-work">Discussion and Related Work</h2>
+<p>This document is open course and <a href="https://github.com/EscolaLMS/headless-format/">hosted on Github</a>. It is written in <code>Markdown</code> and <code>LaTeX</code> format supported by <code>pandoc</code> toolset.</p>
+<p>One can start a <a href="https://github.com/EscolaLMS/headless-format/discussions">discusion using Github plaform</a>. In case of finding issue in the document please <a href="https://github.com/EscolaLMS/headless-format/issues">raise one in the platform</a>. One can propose changes by cloning the repository and <a href="https://github.com/EscolaLMS/headless-format/pulls">submitting Pull Reqest</a>.</p>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="https://adlnet.gov/assets/uploads/SCORM_2004_4ED_v1_1_Doc_Suite.zip">Technical Specification 4th Ed.</a>. SCORM. Retrieved 2017-05-22.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="https://scorm.com/scorm-explained/business-of-scorm/scorm-versions/">A timeline and description of the eLearning standards.</a>. SCORM<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="https://moodle.org/">Moodle - Open-source learning platform | Moodle.org</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p><a href="https://www.adobe.com/products/captivate.html">Adobe Captivate</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p><a href="https://xapi.com/cmi5/cmi5-technical-101">cmi5: Technical 101</a> Terminology.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6" role="doc-endnote"><p><a href="http://aicc.github.io/CMI-5_Spec_Current/flows/cmi5-overview.html">Conceptual Overview of cmi5</a><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7" role="doc-endnote"><p><a href="https://xapi.com/cmi5/cmi5-technical-101">cmi5: Technical 101</a> Terminology.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8" role="doc-endnote"><p><a href="http://aicc.github.io/CMI-5_Spec_Current/flows/lms-flow.html">cmi5 Implementation Flow for an LMS</a><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9" role="doc-endnote"><p><a href="https://nvlpubs.nist.gov/nistpubs/ir/2021/NIST.IR.8301.pdf">Blockchain Networks: Token Design and Management Overview</a> NISTIR 8301. National Institute of Standards and Technology<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10" role="doc-endnote"><p><a href="https://trends.google.com/trends/explore?date=all&amp;q=xml,json">Google Trends</a> XML vs JSON<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11" role="doc-endnote"><p><a href="https://xapi.com/blog/an-exciting-time-to-watch-xapi-and-cmi5-adoption-numbers/">An exciting time to watch xAPI and cmi5 adoption numbers</a><a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12" role="doc-endnote"><p><a href="https://github.com/EscolaLMS/headless-format/tree/main/schema">Ulam Headless Format</a> Github repository.<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13" role="doc-endnote"><p><a href="https://github.com/EscolaLMS/headless-format/tree/main/schema">Ulam Headless Format</a> Github repository.<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14" role="doc-endnote"><p><a href="https://www.wellms.io/">Wellms LMS</a> headless Learning Management System.<a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15" role="doc-endnote"><p><a href="https://github.com/EscolaLMS">Wellms LMS</a> Github repositories.<a href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>
